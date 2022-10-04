@@ -33,11 +33,12 @@ CREATE TABLE IF NOT EXISTS `asistencia` (
   UNIQUE KEY `uk_asistencia` (`fecha`,`id_personal`,`id_ecopunto`),
   KEY `fk_personal` (`id_personal`),
   KEY `fk_eco` (`id_ecopunto`),
-  CONSTRAINT `fk_personal` FOREIGN KEY (`id_personal`) REFERENCES `personal` (`id_personal`),
-  CONSTRAINT `fk_eco` FOREIGN KEY (`id_ecopunto`) REFERENCES `ecopunto` (`id_ecopunto`)
+  CONSTRAINT `fk_eco` FOREIGN KEY (`id_ecopunto`) REFERENCES `ecopunto` (`id_ecopunto`),
+  CONSTRAINT `fk_personal` FOREIGN KEY (`id_personal`) REFERENCES `personal` (`id_personal`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table vecino_sustentable.asistencia: ~0 rows (approximately)
+DELETE FROM `asistencia`;
 
 -- Dumping structure for table vecino_sustentable.cartonero
 DROP TABLE IF EXISTS `cartonero`;
@@ -53,6 +54,7 @@ CREATE TABLE IF NOT EXISTS `cartonero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table vecino_sustentable.cartonero: ~0 rows (approximately)
+DELETE FROM `cartonero`;
 
 -- Dumping structure for table vecino_sustentable.ecopunto
 DROP TABLE IF EXISTS `ecopunto`;
@@ -67,6 +69,7 @@ CREATE TABLE IF NOT EXISTS `ecopunto` (
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table vecino_sustentable.ecopunto: ~21 rows (approximately)
+DELETE FROM `ecopunto`;
 INSERT INTO `ecopunto` (`id_ecopunto`, `nombre`, `ubicacion`, `horario`, `dia`) VALUES
 	(1, 'Chacra 32-33 Feria Franca', NULL, NULL, NULL),
 	(2, 'Cruz Roja', NULL, NULL, NULL),
@@ -104,6 +107,7 @@ CREATE TABLE IF NOT EXISTS `ecopunto_cartonero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table vecino_sustentable.ecopunto_cartonero: ~0 rows (approximately)
+DELETE FROM `ecopunto_cartonero`;
 
 -- Dumping structure for table vecino_sustentable.personal
 DROP TABLE IF EXISTS `personal`;
@@ -117,6 +121,7 @@ CREATE TABLE IF NOT EXISTS `personal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table vecino_sustentable.personal: ~0 rows (approximately)
+DELETE FROM `personal`;
 
 -- Dumping structure for table vecino_sustentable.registros_hoy
 DROP TABLE IF EXISTS `registros_hoy`;
@@ -126,16 +131,35 @@ CREATE TABLE IF NOT EXISTS `registros_hoy` (
   `id_ecopunto` int(11) NOT NULL,
   `cantidad_residuo` int(11) NOT NULL,
   `fecha` date DEFAULT NULL,
+  `hora` time DEFAULT NULL,
   PRIMARY KEY (`id_eco_resid`),
   UNIQUE KEY `uk_res_eco_fecha` (`id_residuo`,`id_ecopunto`,`fecha`),
   KEY `fk_ecopun` (`id_ecopunto`),
-  CONSTRAINT `fk_res` FOREIGN KEY (`id_residuo`) REFERENCES `residuo` (`id_residuo`),
-  CONSTRAINT `fk_ecopun` FOREIGN KEY (`id_ecopunto`) REFERENCES `ecopunto` (`id_ecopunto`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  CONSTRAINT `fk_ecopun` FOREIGN KEY (`id_ecopunto`) REFERENCES `ecopunto` (`id_ecopunto`),
+  CONSTRAINT `fk_res` FOREIGN KEY (`id_residuo`) REFERENCES `residuo` (`id_residuo`)
+) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=latin1;
 
--- Dumping data for table vecino_sustentable.registros_hoy: ~0 rows (approximately)
-INSERT INTO `registros_hoy` (`id_eco_resid`, `id_residuo`, `id_ecopunto`, `cantidad_residuo`, `fecha`) VALUES
-	(1, 3, 5, 4, NULL);
+-- Dumping data for table vecino_sustentable.registros_hoy: ~18 rows (approximately)
+DELETE FROM `registros_hoy`;
+INSERT INTO `registros_hoy` (`id_eco_resid`, `id_residuo`, `id_ecopunto`, `cantidad_residuo`, `fecha`, `hora`) VALUES
+	(117, 1, 1, 1, NULL, NULL),
+	(118, 1, 1, 1, NULL, NULL),
+	(119, 3, 3, 2, NULL, NULL),
+	(120, 5, 3, 3, NULL, NULL),
+	(121, 4, 4, 4, NULL, NULL),
+	(122, 1, 1, 1, NULL, NULL),
+	(123, 1, 1, 1, NULL, NULL),
+	(124, 1, 11, 1, NULL, NULL),
+	(125, 1, 1, 1, NULL, NULL),
+	(128, 2, 3, 3, NULL, NULL),
+	(131, 1, 1, 1, NULL, NULL),
+	(135, 11, 21, 1, NULL, NULL),
+	(136, 4, 2, 4, NULL, NULL),
+	(137, 5, 1, 5, NULL, NULL),
+	(138, 1, 2, 1, NULL, NULL),
+	(139, 1, 6, 6, NULL, NULL),
+	(140, 5, 8, 4, NULL, NULL),
+	(141, 2, 3, 5, NULL, '23:09:15');
 
 -- Dumping structure for table vecino_sustentable.residuo
 DROP TABLE IF EXISTS `residuo`;
@@ -147,6 +171,7 @@ CREATE TABLE IF NOT EXISTS `residuo` (
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table vecino_sustentable.residuo: ~24 rows (approximately)
+DELETE FROM `residuo`;
 INSERT INTO `residuo` (`id_residuo`, `nombre_residuo`) VALUES
 	(18, 'Aceite Vegetal'),
 	(5, 'Aluminio'),
@@ -187,6 +212,7 @@ CREATE TABLE IF NOT EXISTS `residuo_cartonero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table vecino_sustentable.residuo_cartonero: ~0 rows (approximately)
+DELETE FROM `residuo_cartonero`;
 
 -- Dumping structure for table vecino_sustentable.roles
 DROP TABLE IF EXISTS `roles`;
@@ -202,6 +228,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table vecino_sustentable.roles: ~0 rows (approximately)
+DELETE FROM `roles`;
 
 -- Dumping structure for table vecino_sustentable.salida_residuo
 DROP TABLE IF EXISTS `salida_residuo`;
@@ -222,6 +249,7 @@ CREATE TABLE IF NOT EXISTS `salida_residuo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table vecino_sustentable.salida_residuo: ~0 rows (approximately)
+DELETE FROM `salida_residuo`;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

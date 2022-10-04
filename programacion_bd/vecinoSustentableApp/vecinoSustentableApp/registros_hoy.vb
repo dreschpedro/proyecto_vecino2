@@ -87,7 +87,7 @@ Public Class registros_hoy
             Comando.CommandType = CommandType.Text
 
             'PRIMERO CONTROLO QUE EL REGISTRO NO EXISTA
-            Comando.CommandText = "select * from registros_hoy where id_eco_resid = '" & Trim(txt_id_reg.Text) & "';"
+            Comando.CommandText = "select * from registros_hoy where id_eco_resid = '""';"
             'obtengo los datos y los devuelvo a un objeto DataReader
             Dim DReader As MySqlDataReader
             'el método ExecuteReader trae los datos de la BD
@@ -102,15 +102,15 @@ Public Class registros_hoy
                 DReader.Close()
 
                 'cargo la sentencia para AGREGAR un registro
-                Comando.CommandText = "insert into registros_hoy (id_eco_resid, id_residuo, id_ecopunto, cantidad_residuo) values (" & Trim(txt_id_reg.Text) & "," & Trim(cmbNombreResiduo.Text) & "," & Trim(cmbNombreEcopunto.Text) & "," & Trim(txtCantidad.Text) & ");"
+                Comando.CommandText = "insert into registros_hoy (id_residuo, id_ecopunto, cantidad_residuo) values (" & Trim(cmbNombreResiduo.Text) & "," & Trim(cmbNombreEcopunto.Text) & "," & Trim(txtCantidad.Text) & ");"
                 'variable para recibir respuesta de ejecucion
                 Dim Resultado As Integer
                 'el método ExecuteNonQuery devuelve solo la cantidad de registros afectados por la operacion
                 Resultado = Comando.ExecuteNonQuery
-                MsgBox("Registros Agregados: " & Resultado)
+                MsgBox("Registros Agregados: " & Resultado, vbYes, "Atención")
 
                 'cargo el list
-                Call CargarGrilla("SELECT residuo.nombre_residuo AS cmbNombreResiduo, registros_hoy.cantidad_residuo AS txtCantidad FROM residuo JOIN registros_hoy ON registros_hoy.id_residuo = residuo.id_residuo ")
+                Call CargarGrilla("SELECT residuo.nombre_residuo AS nombre_residuo, registros_hoy.cantidad_residuo AS cantidad_residuo FROM residuo JOIN registros_hoy ON registros_hoy.id_residuo = residuo.id_residuo")
                 'Call LimpiarForm()
             End If
             'cierro la conexion

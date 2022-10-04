@@ -35,8 +35,6 @@ Partial Class registros_hoy
         Me.cmbNombreResiduo = New System.Windows.Forms.ComboBox()
         Me.cmbNombreEcopunto = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.txt_id_reg = New System.Windows.Forms.TextBox()
         Me.lviewResiduosHoy = New System.Windows.Forms.ListView()
         Me.Residuo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Cantidad = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -58,7 +56,7 @@ Partial Class registros_hoy
         'txtCantidad
         '
         Me.txtCantidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCantidad.Location = New System.Drawing.Point(433, 276)
+        Me.txtCantidad.Location = New System.Drawing.Point(433, 230)
         Me.txtCantidad.MaximumSize = New System.Drawing.Size(140, 20)
         Me.txtCantidad.MinimumSize = New System.Drawing.Size(140, 20)
         Me.txtCantidad.Name = "txtCantidad"
@@ -71,7 +69,7 @@ Partial Class registros_hoy
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label1.Location = New System.Drawing.Point(431, 140)
+        Me.Label1.Location = New System.Drawing.Point(431, 94)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(125, 13)
         Me.Label1.TabIndex = 9
@@ -83,7 +81,7 @@ Partial Class registros_hoy
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label3.Location = New System.Drawing.Point(429, 260)
+        Me.Label3.Location = New System.Drawing.Point(429, 214)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(61, 13)
         Me.Label3.TabIndex = 11
@@ -202,7 +200,7 @@ Partial Class registros_hoy
         Me.lblMedida.AutoSize = True
         Me.lblMedida.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMedida.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblMedida.Location = New System.Drawing.Point(595, 280)
+        Me.lblMedida.Location = New System.Drawing.Point(595, 234)
         Me.lblMedida.Name = "lblMedida"
         Me.lblMedida.Size = New System.Drawing.Size(13, 16)
         Me.lblMedida.TabIndex = 22
@@ -212,7 +210,7 @@ Partial Class registros_hoy
         '
         Me.cmbNombreResiduo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbNombreResiduo.FormattingEnabled = True
-        Me.cmbNombreResiduo.Location = New System.Drawing.Point(434, 163)
+        Me.cmbNombreResiduo.Location = New System.Drawing.Point(434, 117)
         Me.cmbNombreResiduo.Name = "cmbNombreResiduo"
         Me.cmbNombreResiduo.Size = New System.Drawing.Size(193, 21)
         Me.cmbNombreResiduo.TabIndex = 23
@@ -221,7 +219,7 @@ Partial Class registros_hoy
         '
         Me.cmbNombreEcopunto.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbNombreEcopunto.FormattingEnabled = True
-        Me.cmbNombreEcopunto.Location = New System.Drawing.Point(433, 227)
+        Me.cmbNombreEcopunto.Location = New System.Drawing.Point(433, 181)
         Me.cmbNombreEcopunto.Name = "cmbNombreEcopunto"
         Me.cmbNombreEcopunto.Size = New System.Drawing.Size(193, 21)
         Me.cmbNombreEcopunto.TabIndex = 25
@@ -232,31 +230,11 @@ Partial Class registros_hoy
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label2.Location = New System.Drawing.Point(430, 204)
+        Me.Label2.Location = New System.Drawing.Point(430, 158)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(133, 13)
         Me.Label2.TabIndex = 24
         Me.Label2.Text = "Nombre del Ecopunto:"
-        '
-        'Label5
-        '
-        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label5.Location = New System.Drawing.Point(432, 74)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(94, 13)
-        Me.Label5.TabIndex = 26
-        Me.Label5.Text = "ID registro hoy:"
-        '
-        'txt_id_reg
-        '
-        Me.txt_id_reg.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txt_id_reg.Location = New System.Drawing.Point(433, 94)
-        Me.txt_id_reg.Name = "txt_id_reg"
-        Me.txt_id_reg.Size = New System.Drawing.Size(194, 20)
-        Me.txt_id_reg.TabIndex = 27
         '
         'lviewResiduosHoy
         '
@@ -275,7 +253,7 @@ Partial Class registros_hoy
         'Residuo
         '
         Me.Residuo.Text = "Residuo"
-        Me.Residuo.Width = 100
+        Me.Residuo.Width = 250
         '
         'Cantidad
         '
@@ -289,8 +267,6 @@ Partial Class registros_hoy
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(92, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(641, 561)
         Me.Controls.Add(Me.lviewResiduosHoy)
-        Me.Controls.Add(Me.txt_id_reg)
-        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.cmbNombreEcopunto)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cmbNombreResiduo)
@@ -324,8 +300,6 @@ Partial Class registros_hoy
     Friend WithEvents cmbNombreResiduo As ComboBox
     Friend WithEvents cmbNombreEcopunto As ComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents txt_id_reg As TextBox
     Friend WithEvents lviewResiduosHoy As ListView
     Friend WithEvents Residuo As ColumnHeader
     Friend WithEvents Cantidad As ColumnHeader

@@ -27,9 +27,9 @@ Partial Class registros_hoy
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.IconButton3 = New FontAwesome.Sharp.IconButton()
-        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
-        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
+        Me.btnEliminar = New FontAwesome.Sharp.IconButton()
+        Me.btnModificar = New FontAwesome.Sharp.IconButton()
+        Me.btnBuscar = New FontAwesome.Sharp.IconButton()
         Me.btnAgregar = New FontAwesome.Sharp.IconButton()
         Me.lblMedida = New System.Windows.Forms.Label()
         Me.cmbNombreResiduo = New System.Windows.Forms.ComboBox()
@@ -49,19 +49,19 @@ Partial Class registros_hoy
         Me.Button2.Location = New System.Drawing.Point(12, 12)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 2
+        Me.Button2.TabIndex = 8
         Me.Button2.Text = "X"
         Me.Button2.UseVisualStyleBackColor = False
         '
         'txtCantidad
         '
         Me.txtCantidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCantidad.Location = New System.Drawing.Point(433, 230)
+        Me.txtCantidad.Location = New System.Drawing.Point(483, 230)
         Me.txtCantidad.MaximumSize = New System.Drawing.Size(140, 20)
         Me.txtCantidad.MinimumSize = New System.Drawing.Size(140, 20)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(140, 20)
-        Me.txtCantidad.TabIndex = 8
+        Me.txtCantidad.TabIndex = 3
         '
         'Label1
         '
@@ -69,7 +69,7 @@ Partial Class registros_hoy
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label1.Location = New System.Drawing.Point(431, 94)
+        Me.Label1.Location = New System.Drawing.Point(479, 151)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(125, 13)
         Me.Label1.TabIndex = 9
@@ -81,7 +81,7 @@ Partial Class registros_hoy
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label3.Location = New System.Drawing.Point(429, 214)
+        Me.Label3.Location = New System.Drawing.Point(479, 214)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(61, 13)
         Me.Label3.TabIndex = 11
@@ -98,77 +98,77 @@ Partial Class registros_hoy
         Me.Label4.TabIndex = 21
         Me.Label4.Text = "Residuos registrados hoy:"
         '
-        'IconButton3
+        'btnEliminar
         '
-        Me.IconButton3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.IconButton3.AutoSize = True
-        Me.IconButton3.BackColor = System.Drawing.Color.Red
-        Me.IconButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.IconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.IconButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton3.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.IconButton3.IconChar = FontAwesome.Sharp.IconChar.Trash
-        Me.IconButton3.IconColor = System.Drawing.Color.Black
-        Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton3.IconSize = 15
-        Me.IconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.IconButton3.Location = New System.Drawing.Point(434, 512)
-        Me.IconButton3.MaximumSize = New System.Drawing.Size(194, 35)
-        Me.IconButton3.MinimumSize = New System.Drawing.Size(194, 35)
-        Me.IconButton3.Name = "IconButton3"
-        Me.IconButton3.Size = New System.Drawing.Size(194, 35)
-        Me.IconButton3.TabIndex = 20
-        Me.IconButton3.Text = "Eliminar"
-        Me.IconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton3.UseVisualStyleBackColor = False
+        Me.btnEliminar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnEliminar.AutoSize = True
+        Me.btnEliminar.BackColor = System.Drawing.Color.Red
+        Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnEliminar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Trash
+        Me.btnEliminar.IconColor = System.Drawing.Color.Black
+        Me.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnEliminar.IconSize = 15
+        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEliminar.Location = New System.Drawing.Point(484, 562)
+        Me.btnEliminar.MaximumSize = New System.Drawing.Size(194, 35)
+        Me.btnEliminar.MinimumSize = New System.Drawing.Size(194, 35)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(194, 35)
+        Me.btnEliminar.TabIndex = 7
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnEliminar.UseVisualStyleBackColor = False
         '
-        'IconButton2
+        'btnModificar
         '
-        Me.IconButton2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.IconButton2.AutoSize = True
-        Me.IconButton2.BackColor = System.Drawing.Color.Yellow
-        Me.IconButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.IconButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.Pen
-        Me.IconButton2.IconColor = System.Drawing.Color.Black
-        Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton2.IconSize = 15
-        Me.IconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.IconButton2.Location = New System.Drawing.Point(434, 471)
-        Me.IconButton2.MaximumSize = New System.Drawing.Size(194, 35)
-        Me.IconButton2.MinimumSize = New System.Drawing.Size(194, 35)
-        Me.IconButton2.Name = "IconButton2"
-        Me.IconButton2.Size = New System.Drawing.Size(194, 35)
-        Me.IconButton2.TabIndex = 19
-        Me.IconButton2.Text = "Modificar"
-        Me.IconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton2.UseVisualStyleBackColor = False
+        Me.btnModificar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnModificar.AutoSize = True
+        Me.btnModificar.BackColor = System.Drawing.Color.Yellow
+        Me.btnModificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnModificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificar.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnModificar.IconChar = FontAwesome.Sharp.IconChar.Pen
+        Me.btnModificar.IconColor = System.Drawing.Color.Black
+        Me.btnModificar.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnModificar.IconSize = 15
+        Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnModificar.Location = New System.Drawing.Point(484, 521)
+        Me.btnModificar.MaximumSize = New System.Drawing.Size(194, 35)
+        Me.btnModificar.MinimumSize = New System.Drawing.Size(194, 35)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(194, 35)
+        Me.btnModificar.TabIndex = 6
+        Me.btnModificar.Text = "Modificar"
+        Me.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnModificar.UseVisualStyleBackColor = False
         '
-        'IconButton1
+        'btnBuscar
         '
-        Me.IconButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.IconButton1.AutoSize = True
-        Me.IconButton1.BackColor = System.Drawing.Color.DodgerBlue
-        Me.IconButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.Search
-        Me.IconButton1.IconColor = System.Drawing.Color.Black
-        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton1.IconSize = 15
-        Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.IconButton1.Location = New System.Drawing.Point(433, 430)
-        Me.IconButton1.MaximumSize = New System.Drawing.Size(194, 35)
-        Me.IconButton1.MinimumSize = New System.Drawing.Size(194, 35)
-        Me.IconButton1.Name = "IconButton1"
-        Me.IconButton1.Size = New System.Drawing.Size(194, 35)
-        Me.IconButton1.TabIndex = 18
-        Me.IconButton1.Text = "Buscar"
-        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton1.UseVisualStyleBackColor = False
+        Me.btnBuscar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBuscar.AutoSize = True
+        Me.btnBuscar.BackColor = System.Drawing.Color.DodgerBlue
+        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search
+        Me.btnBuscar.IconColor = System.Drawing.Color.Black
+        Me.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnBuscar.IconSize = 15
+        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnBuscar.Location = New System.Drawing.Point(483, 480)
+        Me.btnBuscar.MaximumSize = New System.Drawing.Size(194, 35)
+        Me.btnBuscar.MinimumSize = New System.Drawing.Size(194, 35)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(194, 35)
+        Me.btnBuscar.TabIndex = 5
+        Me.btnBuscar.Text = "Buscar"
+        Me.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnBuscar.UseVisualStyleBackColor = False
         '
         'btnAgregar
         '
@@ -184,12 +184,12 @@ Partial Class registros_hoy
         Me.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnAgregar.IconSize = 15
         Me.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAgregar.Location = New System.Drawing.Point(432, 389)
+        Me.btnAgregar.Location = New System.Drawing.Point(482, 439)
         Me.btnAgregar.MaximumSize = New System.Drawing.Size(194, 35)
         Me.btnAgregar.MinimumSize = New System.Drawing.Size(194, 35)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(194, 35)
-        Me.btnAgregar.TabIndex = 13
+        Me.btnAgregar.TabIndex = 4
         Me.btnAgregar.Text = "Agregar"
         Me.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnAgregar.UseVisualStyleBackColor = False
@@ -200,7 +200,7 @@ Partial Class registros_hoy
         Me.lblMedida.AutoSize = True
         Me.lblMedida.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMedida.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblMedida.Location = New System.Drawing.Point(595, 234)
+        Me.lblMedida.Location = New System.Drawing.Point(645, 234)
         Me.lblMedida.Name = "lblMedida"
         Me.lblMedida.Size = New System.Drawing.Size(13, 16)
         Me.lblMedida.TabIndex = 22
@@ -210,19 +210,19 @@ Partial Class registros_hoy
         '
         Me.cmbNombreResiduo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbNombreResiduo.FormattingEnabled = True
-        Me.cmbNombreResiduo.Location = New System.Drawing.Point(434, 117)
+        Me.cmbNombreResiduo.Location = New System.Drawing.Point(482, 174)
         Me.cmbNombreResiduo.Name = "cmbNombreResiduo"
         Me.cmbNombreResiduo.Size = New System.Drawing.Size(193, 21)
-        Me.cmbNombreResiduo.TabIndex = 23
+        Me.cmbNombreResiduo.TabIndex = 2
         '
         'cmbNombreEcopunto
         '
         Me.cmbNombreEcopunto.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbNombreEcopunto.FormattingEnabled = True
-        Me.cmbNombreEcopunto.Location = New System.Drawing.Point(433, 181)
+        Me.cmbNombreEcopunto.Location = New System.Drawing.Point(482, 114)
         Me.cmbNombreEcopunto.Name = "cmbNombreEcopunto"
         Me.cmbNombreEcopunto.Size = New System.Drawing.Size(193, 21)
-        Me.cmbNombreEcopunto.TabIndex = 25
+        Me.cmbNombreEcopunto.TabIndex = 1
         '
         'Label2
         '
@@ -230,7 +230,7 @@ Partial Class registros_hoy
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label2.Location = New System.Drawing.Point(430, 158)
+        Me.Label2.Location = New System.Drawing.Point(479, 91)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(133, 13)
         Me.Label2.TabIndex = 24
@@ -242,10 +242,11 @@ Partial Class registros_hoy
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lviewResiduosHoy.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Residuo, Me.Cantidad})
+        Me.lviewResiduosHoy.FullRowSelect = True
         Me.lviewResiduosHoy.HideSelection = False
         Me.lviewResiduosHoy.Location = New System.Drawing.Point(16, 94)
         Me.lviewResiduosHoy.Name = "lviewResiduosHoy"
-        Me.lviewResiduosHoy.Size = New System.Drawing.Size(390, 450)
+        Me.lviewResiduosHoy.Size = New System.Drawing.Size(440, 500)
         Me.lviewResiduosHoy.TabIndex = 28
         Me.lviewResiduosHoy.UseCompatibleStateImageBehavior = False
         Me.lviewResiduosHoy.View = System.Windows.Forms.View.Details
@@ -253,28 +254,28 @@ Partial Class registros_hoy
         'Residuo
         '
         Me.Residuo.Text = "Residuo"
-        Me.Residuo.Width = 250
+        Me.Residuo.Width = 299
         '
         'Cantidad
         '
         Me.Cantidad.Text = "Cantidad"
-        Me.Cantidad.Width = 100
+        Me.Cantidad.Width = 80
         '
         'registros_hoy
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(92, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(641, 561)
+        Me.ClientSize = New System.Drawing.Size(691, 611)
         Me.Controls.Add(Me.lviewResiduosHoy)
         Me.Controls.Add(Me.cmbNombreEcopunto)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cmbNombreResiduo)
         Me.Controls.Add(Me.lblMedida)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.IconButton3)
-        Me.Controls.Add(Me.IconButton2)
-        Me.Controls.Add(Me.IconButton1)
+        Me.Controls.Add(Me.btnEliminar)
+        Me.Controls.Add(Me.btnModificar)
+        Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
@@ -292,9 +293,9 @@ Partial Class registros_hoy
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents btnAgregar As FontAwesome.Sharp.IconButton
-    Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
-    Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
-    Friend WithEvents IconButton3 As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnBuscar As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnModificar As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnEliminar As FontAwesome.Sharp.IconButton
     Friend WithEvents Label4 As Label
     Friend WithEvents lblMedida As Label
     Friend WithEvents cmbNombreResiduo As ComboBox

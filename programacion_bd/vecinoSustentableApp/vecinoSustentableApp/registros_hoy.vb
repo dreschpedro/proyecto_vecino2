@@ -2,9 +2,12 @@
 
 Public Class registros_hoy
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Me.Close()
-    End Sub
+    'consulta a usarse como parametro de la subrutina cargarLV
+    Dim sql_rH_sin_hora As String = "SELECT residuo.nombre_residuo AS nombre_residuo, registros_hoy.cantidad_residuo AS cantidad_residuo, registros_hoy.hora AS hora FROM residuo JOIN registros_hoy ON registros_hoy.id_residuo = residuo.id_residuo"
+
+
+
+    '##################     SUBRUTINAS       #######################
 
     Sub CargarLV(ByVal cadena As String)
         Try
@@ -146,6 +149,7 @@ Public Class registros_hoy
                 Do While DReader.Read
                     'se muestra el nombre del ecopunto (2da posicion)
                     cmbNombreResiduo.Items.Add(DReader(1))
+                    'cmbNombreResiduo.Items.Add(DReader(1))
                 Loop
 
             End If
@@ -164,14 +168,21 @@ Public Class registros_hoy
     End Sub
 
     Private Sub registros_hoy_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Call CargarLV("SELECT residuo.nombre_residuo AS nombre_residuo, registros_hoy.cantidad_residuo AS cantidad_residuo FROM residuo JOIN registros_hoy ON registros_hoy.id_residuo = residuo.id_residuo")
+        Call CargarLV(sql_rH_sin_hora)
         Call CargarEcopunto("SELECT ecopunto.id_ecopunto, nombre FROM ecopunto")
         Call CargarResiduo("SELECT residuo.id_residuo as id, residuo.nombre_residuo AS nombre FROM residuo ORDER BY residuo.id_residuo")
     End Sub
 
+    Private Sub limpiarCampos()
+        cmbNombreResiduo.Text = ""
+        txtCantidad.Text = ""
+    End Sub
+
+
+    '###################       BOTONES       #######################
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         'primero controlo que esten los datos cargados
-        If Trim(cmbNombreResiduo.Text) = "" And Trim(txtCantidad.Text) = "" Then
+        If Trim(cmbNombreEcopunto.Text) = "" Or Trim(cmbNombreResiduo.Text) = "" Or Trim(txtCantidad.Text) = "" Then
             MsgBox("INGRESE LOS DATOS", MsgBoxStyle.Critical)
             cmbNombreResiduo.Focus()
             Exit Sub
@@ -208,6 +219,11 @@ Public Class registros_hoy
 
                 'cargo la sentencia para AGREGAR un registro
                 Comando.CommandText = "insert into registros_hoy (id_residuo, id_ecopunto, cantidad_residuo) values (" & Trim(cmbNombreResiduo.SelectedIndex + 1) & "," & (cmbNombreEcopunto.SelectedIndex + 1) & "," & Trim(txtCantidad.Text) & ");"
+
+                'limpio los campos
+                Call limpiarCampos()
+
+
                 'variable para recibir respuesta de ejecucion
                 Dim Resultado As Integer
                 'el método ExecuteNonQuery devuelve solo la cantidad de registros afectados por la operacion
@@ -215,7 +231,7 @@ Public Class registros_hoy
                 MsgBox("Registros Agregados: " & Resultado, vbYes, "Atención")
 
                 'cargo el list
-                Call CargarLV("SELECT residuo.nombre_residuo AS nombre_residuo, registros_hoy.cantidad_residuo AS cantidad_residuo FROM residuo JOIN registros_hoy ON registros_hoy.id_residuo = residuo.id_residuo")
+                Call CargarLV(sql_rH_sin_hora)
                 'Call LimpiarForm()
             End If
             'cierro la conexion
@@ -228,9 +244,67 @@ Public Class registros_hoy
         End Try
     End Sub
 
-    Private Sub cmbNombreResiduo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbNombreResiduo.SelectedIndexChanged
-        MsgBox("valor : " & cmbNombreResiduo.SelectedIndex + 1)
+    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        If cmbNombreResiduo.Text <> "" Then
+            ' si escribo algo, busco
+            Dim consulta = "SELECT residuo.nombre_residuo AS nombre_residuo, registros_hoy.cantidad_residuo AS cantidad_residuo FROM residuo JOIN registros_hoy ON registros_hoy.id_residuo = residuo.id_residuo WHERE (nombre_residuo like '%" & cmbNombreResiduo.Text & "%');"
+
+            Call CargarLV(consulta)
+        Else
+            MsgBox("Seleccione un Residuo", MsgBoxStyle.Information, "Atención")
+        End If
+
     End Sub
+
+    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+
+    End Sub
+
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        'If lviewResiduosHoy.inde Then
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Close()
+    End Sub
+
+    Private Sub cmbNombreResiduo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbNombreResiduo.SelectedIndexChanged
+        'MsgBox("valor : " & cmbNombreResiduo.SelectedIndex + 1)
+    End Sub
+
+    Private Sub lviewResiduosHoy_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lviewResiduosHoy.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub lviewResiduosHoy_Click(sender As Object, e As EventArgs) Handles lviewResiduosHoy.Click
+        'MsgBox("Valor: " & lviewResiduosHoy)
+    End Sub
+
+
+
+
+
+    '#########         BUSQUEDA ASISTIDA      #######################
+    'Private Sub cmbNombreEcopunto_TextChanged(sender As Object, e As EventArgs) Handles cmbNombreEcopunto.TextChanged
+    'If cmbNombreEcopunto.Text = "" Then
+    '    ' si escribo algo, busco
+    '    Dim consulta = ""
+    'End If
+    'End Sub
+
+    'Private Sub cmbNombreResiduo_TextChanged(sender As Object, e As EventArgs) Handles cmbNombreResiduo.TextChanged
+    '    'If cmbNombreEcopunto.Text <> "" Then
+    '    ' si escribo algo, busco
+    '    Dim consulta = "SELECT nombre_residuo FROM residuo WHERE (nombre_residuo like '%" & cmbNombreResiduo.Text & "%');"
+
+    '    Call CargarResiduo(consulta)
+
+    '    'Else
+    '    'si no cargo nada limpio el list
+    '    'cmbNombreResiduo.Items.Clear()
+    '    'lviewResiduosHoy.Visible = False
+    '    'End If
+    'End Sub
 
 
     'Private Sub ComboBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbNombreResiduo.KeyPress

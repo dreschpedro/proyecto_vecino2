@@ -1,0 +1,3 @@
+comboxes= propiedad DropDownStyle: DropDownList---> Al hacer clic sobre el campo del combobox, se despliegan las opciones, no permitiendo escribir
+
+txt_cantidad= validacion de dato: solo se permiten numeros, se puede borrar con el Supr y backSpace

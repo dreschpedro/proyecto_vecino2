@@ -209,6 +209,7 @@ Partial Class registros_hoy
         'cmbNombreResiduo
         '
         Me.cmbNombreResiduo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbNombreResiduo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbNombreResiduo.FormattingEnabled = True
         Me.cmbNombreResiduo.Location = New System.Drawing.Point(482, 174)
         Me.cmbNombreResiduo.Name = "cmbNombreResiduo"
@@ -218,6 +219,7 @@ Partial Class registros_hoy
         'cmbNombreEcopunto
         '
         Me.cmbNombreEcopunto.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbNombreEcopunto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbNombreEcopunto.FormattingEnabled = True
         Me.cmbNombreEcopunto.Location = New System.Drawing.Point(482, 114)
         Me.cmbNombreEcopunto.Name = "cmbNombreEcopunto"
@@ -254,7 +256,7 @@ Partial Class registros_hoy
         'Residuo
         '
         Me.Residuo.Text = "Residuo"
-        Me.Residuo.Width = 299
+        Me.Residuo.Width = 193
         '
         'Cantidad
         '

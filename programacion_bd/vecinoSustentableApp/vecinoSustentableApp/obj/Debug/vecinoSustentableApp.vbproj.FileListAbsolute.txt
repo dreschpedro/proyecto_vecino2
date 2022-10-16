@@ -116,7 +116,6 @@ D:\REPOSITORIOS\proyecto_vecino2\programacion_bd\vecinoSustentableApp\vecinoSust
 D:\REPOSITORIOS\proyecto_vecino2\programacion_bd\vecinoSustentableApp\vecinoSustentableApp\bin\Debug\FontAwesome.Sharp.dll
 D:\REPOSITORIOS\proyecto_vecino2\programacion_bd\vecinoSustentableApp\vecinoSustentableApp\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
 D:\REPOSITORIOS\proyecto_vecino2\programacion_bd\vecinoSustentableApp\vecinoSustentableApp\bin\Debug\MySql.Data.dll
-D:\REPOSITORIOS\proyecto_vecino2\programacion_bd\vecinoSustentableApp\vecinoSustentableApp\obj\Debug\vecinoSustentableApp.vbprojAssemblyReference.cache
 D:\REPOSITORIOS\proyecto_vecino2\programacion_bd\vecinoSustentableApp\vecinoSustentableApp\obj\Debug\UserControl1.g.vb
 D:\REPOSITORIOS\proyecto_vecino2\programacion_bd\vecinoSustentableApp\vecinoSustentableApp\obj\Debug\vecinoSustentableApp_MarkupCompile.cache
 D:\REPOSITORIOS\proyecto_vecino2\programacion_bd\vecinoSustentableApp\vecinoSustentableApp\obj\Debug\vecinoSustentableApp_MarkupCompile.lref
@@ -173,3 +172,4 @@ C:\Users\Pedro\Desktop\proyecto_vecino2\programacion_bd\vecinoSustentableApp\vec
 C:\Users\Pedro\Desktop\proyecto_vecino2\programacion_bd\vecinoSustentableApp\vecinoSustentableApp\obj\Debug\vecinoSustentableApp.exe
 C:\Users\Pedro\Desktop\proyecto_vecino2\programacion_bd\vecinoSustentableApp\vecinoSustentableApp\obj\Debug\vecinoSustentableApp.xml
 C:\Users\Pedro\Desktop\proyecto_vecino2\programacion_bd\vecinoSustentableApp\vecinoSustentableApp\obj\Debug\vecinoSustentableApp.pdb
+D:\REPOSITORIOS\proyecto_vecino2\programacion_bd\vecinoSustentableApp\vecinoSustentableApp\obj\Debug\vecinoSustentableApp.vbproj.AssemblyReference.cache

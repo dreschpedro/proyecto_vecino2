@@ -261,59 +261,19 @@ Public Class registros_hoy
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        'If lviewResiduosHoy.inde Then
+
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Close()
     End Sub
 
-    Private Sub cmbNombreResiduo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbNombreResiduo.SelectedIndexChanged
-        'MsgBox("valor : " & cmbNombreResiduo.SelectedIndex + 1)
+    Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
+        If ((Char.IsNumber(e.KeyChar)) Or (Char.IsSurrogate(e.KeyChar)) Or (Char.IsControl(e.KeyChar))) Then 'numeros, Supr y backspace
+            e.Handled = False 'no se controla
+        Else
+            e.Handled = True 'no permite ingresar letras
+        End If
+
     End Sub
-
-    Private Sub lviewResiduosHoy_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lviewResiduosHoy.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub lviewResiduosHoy_Click(sender As Object, e As EventArgs) Handles lviewResiduosHoy.Click
-        'MsgBox("Valor: " & lviewResiduosHoy)
-    End Sub
-
-
-
-
-
-    '#########         BUSQUEDA ASISTIDA      #######################
-    'Private Sub cmbNombreEcopunto_TextChanged(sender As Object, e As EventArgs) Handles cmbNombreEcopunto.TextChanged
-    'If cmbNombreEcopunto.Text = "" Then
-    '    ' si escribo algo, busco
-    '    Dim consulta = ""
-    'End If
-    'End Sub
-
-    'Private Sub cmbNombreResiduo_TextChanged(sender As Object, e As EventArgs) Handles cmbNombreResiduo.TextChanged
-    '    'If cmbNombreEcopunto.Text <> "" Then
-    '    ' si escribo algo, busco
-    '    Dim consulta = "SELECT nombre_residuo FROM residuo WHERE (nombre_residuo like '%" & cmbNombreResiduo.Text & "%');"
-
-    '    Call CargarResiduo(consulta)
-
-    '    'Else
-    '    'si no cargo nada limpio el list
-    '    'cmbNombreResiduo.Items.Clear()
-    '    'lviewResiduosHoy.Visible = False
-    '    'End If
-    'End Sub
-
-
-    'Private Sub ComboBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbNombreResiduo.KeyPress
-    '    If ((Char.IsNumber(e.KeyChar)) Or (Char.IsSurrogate(e.KeyChar)) Or (Char.IsControl(e.KeyChar))) Or (Char.IsPunctuation(e.KeyChar))) Then 'numeros, Supr y backspace
-    '        e.Handled = True 'no se controla
-    '    Else
-    '        e.Handled = False 'no permite ingresar letras
-    '    End If
-
-    'End Sub
-
 End Class

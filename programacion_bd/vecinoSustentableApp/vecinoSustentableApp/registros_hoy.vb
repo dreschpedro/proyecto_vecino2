@@ -2,67 +2,9 @@
 
 Public Class registros_hoy
 
-    'consulta a usarse como parametro de la subrutina cargarLV
-    Dim sql_rH_sin_hora As String = "SELECT residuo.nombre_residuo AS nombre_residuo, registros_hoy.cantidad_residuo AS cantidad_residuo, registros_hoy.hora AS hora FROM residuo JOIN registros_hoy ON registros_hoy.id_residuo = residuo.id_residuo"
+    Private encontrado As Integer = -1
 
 
-
-    '##################     SUBRUTINAS       #######################
-
-    Sub CargarLV(ByVal cadena As String)
-        Try
-            'conecto a la base
-            Call conectar()
-            conexion.Open()
-
-            'trabajo con los datos
-
-            'el objeto command permite ejecutar sentencias SQL
-            Dim Comando As New MySqlCommand
-
-            'conecto el objeto command
-            Comando.Connection = conexion
-
-            'configuro command para sentencia SQL
-            Comando.CommandType = CommandType.Text
-
-            'cargo la sentencia
-            Comando.CommandText = cadena
-
-            'obtengo los datos y los devuelvo a un objeto DataReader
-            Dim DReader As MySqlDataReader
-
-            'el método ExecuteReader trae los datos de la BD
-            DReader = Comando.ExecuteReader
-
-            'consulto si trajo registros
-            If DReader.HasRows Then
-                'limpio el list
-                lviewResiduosHoy.Items.Clear()
-
-                'utilizo el DataReader para "navegar" por los datos
-                'cargo la grilla utilizando el DReader
-                Dim LV As New ListViewItem
-
-                Do While DReader.Read
-                    LV = lviewResiduosHoy.Items.Add(DReader("nombre_residuo"))
-                    LV.SubItems.Add(DReader("cantidad_residuo"))
-
-                Loop
-            End If
-
-            'cierro el DReader para poder ejecutar una nueva consulta SQL
-            DReader.Close()
-
-            'cierro la conexion
-            conexion.Close()
-
-        Catch ex As Exception
-            'SI HAY UN ERROR MUESTRO EL MENSAJE
-            MsgBox(ex.Message)
-            conexion.Close()
-        End Try
-    End Sub
 
     Sub CargarEcopunto(ByVal cadena As String)
         Try
@@ -168,7 +110,7 @@ Public Class registros_hoy
     End Sub
 
     Private Sub registros_hoy_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Call CargarLV(sql_rH_sin_hora)
+        'Call CargarLV(sql_rH_sin_hora)
         Call CargarEcopunto("SELECT ecopunto.id_ecopunto, nombre FROM ecopunto")
         Call CargarResiduo("SELECT residuo.id_residuo as id, residuo.nombre_residuo AS nombre FROM residuo ORDER BY residuo.id_residuo")
     End Sub
@@ -231,7 +173,7 @@ Public Class registros_hoy
                 MsgBox("Registros Agregados: " & Resultado, vbYes, "Atención")
 
                 'cargo el list
-                Call CargarLV(sql_rH_sin_hora)
+                'Call CargarLV(sql_rH_sin_hora)
                 'Call LimpiarForm()
             End If
             'cierro la conexion
@@ -249,7 +191,7 @@ Public Class registros_hoy
             ' si escribo algo, busco
             Dim consulta = "SELECT residuo.nombre_residuo AS nombre_residuo, registros_hoy.cantidad_residuo AS cantidad_residuo FROM residuo JOIN registros_hoy ON registros_hoy.id_residuo = residuo.id_residuo WHERE (nombre_residuo like '%" & cmbNombreResiduo.Text & "%');"
 
-            Call CargarLV(consulta)
+            'Call CargarLV(consulta)
         Else
             MsgBox("Seleccione un Residuo", MsgBoxStyle.Information, "Atención")
         End If
@@ -258,10 +200,145 @@ Public Class registros_hoy
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
 
+        'primero controlo que esten los datos cargados
+        If cmbNombreEcopunto.Text = "" And cmbNombreResiduo.Text = "" And txtCantidad.Text = "" Then
+            MsgBox("SELECCIONE REGISTRO A MODIFICAR", MsgBoxStyle.Critical)
+            cmbNombreResiduo.Focus()
+            Exit Sub
+        End If
+
+        'modifico un registro de la tabla
+        Try
+            'conecto a la base
+            Call conectar()
+            conexion.Open()
+
+            'trabajo con los datos
+
+            'el objeto command permite ejecutar sentencias SQL
+            Dim Comando As New MySqlCommand
+
+            'conecto el objeto command
+            Comando.Connection = conexion
+
+            'configuro command para sentencia SQL
+            Comando.CommandType = CommandType.Text
+
+            'PRIMERO CONTROLO QUE EL REGISTRO EXISTA
+            Comando.CommandText = "select * from registros_hoy where id_eco_resid = '""';"
+
+            'obtengo los datos y los devuelvo a un objeto DataReader
+            Dim DReader As MySqlDataReader
+
+            'el método ExecuteReader trae los datos de la BD
+            DReader = Comando.ExecuteReader
+
+            'si encontro, entonces modifico
+            If DReader.HasRows Then
+                'cierro el DataReader
+                DReader.Close()
+
+                'cargo la sentencia para MODIFICAR un registro
+                'Comando.CommandText = "update socio set nombre='" & txtNombre.Text & "',direccion='" & txtDireccion.Text & "',telefono='" & txtTelefono.Text & "',categoria='" & Trim(txtCategoria.Text) & "' where clavesocio = " & encontrado & ";"
+
+                'variable para recibir respuesta de ejecucion
+                Dim Resultado As Integer
+
+                'el método ExecuteNonQuery devuelve solo la cantidad de registros afectados por la operacion
+                Resultado = Comando.ExecuteNonQuery
+
+                MsgBox("Registros Modificados: " & Resultado)
+
+                'cargo el list
+                'Call CargarLV(sql_rH_sin_hora)
+                Call limpiarCampos()
+
+            Else
+                MsgBox("EL REGISTRO NO EXISTE", MsgBoxStyle.Critical)
+                'cierro el DataReader
+                DReader.Close()
+            End If
+
+
+            'cierro la conexion
+            conexion.Close()
+
+        Catch ex As Exception
+            'SI HAY UN ERROR MUESTRO EL MENSAJE
+            'MsgBox("ERROR DE BASE DE DATOS", vbCritical)
+            MsgBox(ex.Message)
+            conexion.Close()
+        End Try
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        'primero controlo que esten los datos cargados
+        If cmbNombreEcopunto.Text = "" And cmbNombreResiduo.Text = "" And txtCantidad.Text = "" Then
+            MsgBox("SELECCIONE REGISTRO A ELIMINAR", MsgBoxStyle.Critical)
+            cmbNombreResiduo.Focus()
+            Exit Sub
+        End If
 
+        'elimino un registro de la tabla
+        Try
+            'conecto a la base
+            Call conectar()
+            conexion.Open()
+
+            'trabajo con los datos
+
+            'el objeto command permite ejecutar sentencias SQL
+            Dim Comando As New MySqlCommand
+
+            'conecto el objeto command
+            Comando.Connection = conexion
+
+            'configuro command para sentencia SQL
+            Comando.CommandType = CommandType.Text
+
+            'PRIMERO CONTROLO QUE EL REGISTRO EXISTA
+            'Comando.CommandText = "select * from socio where clavesocio = " & Trim(txtClaveSocio.Text) & ";"
+
+            'obtengo los datos y los devuelvo a un objeto DataReader
+            Dim DReader As MySqlDataReader
+
+            'el método ExecuteReader trae los datos de la BD
+            DReader = Comando.ExecuteReader
+
+            'si encontro, entonces ELIMINO
+            If DReader.HasRows Then
+                'cierro el DataReader
+                DReader.Close()
+
+                'cargo la sentencia para ELIMINAR un registro
+                'Comando.CommandText = "delete from socio where clavesocio = " & Trim(txtClaveSocio.Text) & ";"
+
+                'variable para recibir respuesta de ejecucion
+                Dim Resultado As Integer
+
+                'el método ExecuteNonQuery devuelve solo la cantidad de registros afectados por la operacion
+                Resultado = Comando.ExecuteNonQuery
+
+                MsgBox("Registros Eliminados: " & Resultado)
+
+                'cargo el list
+                'Call CargarLV(sql_rH_sin_hora)
+                Call limpiarCampos()
+
+            Else
+                MsgBox("EL REGISTRO NO EXISTE", MsgBoxStyle.Critical)
+                'cierro el DataReader
+                DReader.Close()
+            End If
+
+            'cierro la conexion
+            conexion.Close()
+
+        Catch ex As Exception
+            'SI HAY UN ERROR MUESTRO EL MENSAJE
+            MsgBox(ex.Message)
+            conexion.Close()
+        End Try
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -274,6 +351,10 @@ Public Class registros_hoy
         Else
             e.Handled = True 'no permite ingresar letras
         End If
+
+    End Sub
+
+    Private Sub lviewResiduosHoy_SelectedIndexChanged(sender As Object, e As EventArgs)
 
     End Sub
 End Class

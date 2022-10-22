@@ -35,9 +35,7 @@ Partial Class registros_hoy
         Me.cmbNombreResiduo = New System.Windows.Forms.ComboBox()
         Me.cmbNombreEcopunto = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.lviewResiduosHoy = New System.Windows.Forms.ListView()
-        Me.Residuo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.Cantidad = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.lbl_id_registro = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Button2
@@ -238,30 +236,17 @@ Partial Class registros_hoy
         Me.Label2.TabIndex = 24
         Me.Label2.Text = "Nombre del Ecopunto:"
         '
-        'lviewResiduosHoy
+        'lbl_id_registro
         '
-        Me.lviewResiduosHoy.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lviewResiduosHoy.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Residuo, Me.Cantidad})
-        Me.lviewResiduosHoy.FullRowSelect = True
-        Me.lviewResiduosHoy.HideSelection = False
-        Me.lviewResiduosHoy.Location = New System.Drawing.Point(16, 94)
-        Me.lviewResiduosHoy.Name = "lviewResiduosHoy"
-        Me.lviewResiduosHoy.Size = New System.Drawing.Size(440, 500)
-        Me.lviewResiduosHoy.TabIndex = 28
-        Me.lviewResiduosHoy.UseCompatibleStateImageBehavior = False
-        Me.lviewResiduosHoy.View = System.Windows.Forms.View.Details
-        '
-        'Residuo
-        '
-        Me.Residuo.Text = "Residuo"
-        Me.Residuo.Width = 193
-        '
-        'Cantidad
-        '
-        Me.Cantidad.Text = "Cantidad"
-        Me.Cantidad.Width = 80
+        Me.lbl_id_registro.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbl_id_registro.AutoSize = True
+        Me.lbl_id_registro.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_id_registro.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lbl_id_registro.Location = New System.Drawing.Point(525, 42)
+        Me.lbl_id_registro.Name = "lbl_id_registro"
+        Me.lbl_id_registro.Size = New System.Drawing.Size(124, 25)
+        Me.lbl_id_registro.TabIndex = 29
+        Me.lbl_id_registro.Text = "id_registro"
         '
         'registros_hoy
         '
@@ -269,7 +254,7 @@ Partial Class registros_hoy
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(92, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(691, 611)
-        Me.Controls.Add(Me.lviewResiduosHoy)
+        Me.Controls.Add(Me.lbl_id_registro)
         Me.Controls.Add(Me.cmbNombreEcopunto)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cmbNombreResiduo)
@@ -303,7 +288,5 @@ Partial Class registros_hoy
     Friend WithEvents cmbNombreResiduo As ComboBox
     Friend WithEvents cmbNombreEcopunto As ComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents lviewResiduosHoy As ListView
-    Friend WithEvents Residuo As ColumnHeader
-    Friend WithEvents Cantidad As ColumnHeader
+    Friend WithEvents lbl_id_registro As Label
 End Class

@@ -42,6 +42,8 @@ Partial Class config_user
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt_nombre = New System.Windows.Forms.TextBox()
         Me.btn_limpiar_campos = New FontAwesome.Sharp.IconButton()
+        Me.txt_buscar = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btn_eliminar
@@ -50,7 +52,7 @@ Partial Class config_user
         Me.btn_eliminar.BackColor = System.Drawing.Color.Red
         Me.btn_eliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn_eliminar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_eliminar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_eliminar.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btn_eliminar.IconChar = FontAwesome.Sharp.IconChar.Trash
         Me.btn_eliminar.IconColor = System.Drawing.Color.Black
@@ -59,9 +61,9 @@ Partial Class config_user
         Me.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_eliminar.Location = New System.Drawing.Point(484, 563)
         Me.btn_eliminar.MaximumSize = New System.Drawing.Size(194, 35)
-        Me.btn_eliminar.MinimumSize = New System.Drawing.Size(194, 35)
+        Me.btn_eliminar.MinimumSize = New System.Drawing.Size(185, 30)
         Me.btn_eliminar.Name = "btn_eliminar"
-        Me.btn_eliminar.Size = New System.Drawing.Size(194, 35)
+        Me.btn_eliminar.Size = New System.Drawing.Size(185, 30)
         Me.btn_eliminar.TabIndex = 11
         Me.btn_eliminar.Text = "Eliminar"
         Me.btn_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -73,7 +75,7 @@ Partial Class config_user
         Me.btn_modificar.BackColor = System.Drawing.Color.Yellow
         Me.btn_modificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn_modificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn_modificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_modificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_modificar.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btn_modificar.IconChar = FontAwesome.Sharp.IconChar.Pen
         Me.btn_modificar.IconColor = System.Drawing.Color.Black
@@ -82,9 +84,9 @@ Partial Class config_user
         Me.btn_modificar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_modificar.Location = New System.Drawing.Point(484, 522)
         Me.btn_modificar.MaximumSize = New System.Drawing.Size(194, 35)
-        Me.btn_modificar.MinimumSize = New System.Drawing.Size(194, 35)
+        Me.btn_modificar.MinimumSize = New System.Drawing.Size(185, 30)
         Me.btn_modificar.Name = "btn_modificar"
-        Me.btn_modificar.Size = New System.Drawing.Size(194, 35)
+        Me.btn_modificar.Size = New System.Drawing.Size(185, 30)
         Me.btn_modificar.TabIndex = 10
         Me.btn_modificar.Text = "Modificar"
         Me.btn_modificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -110,7 +112,7 @@ Partial Class config_user
         Me.label1.AutoSize = True
         Me.label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.label1.ForeColor = System.Drawing.Color.Gainsboro
-        Me.label1.Location = New System.Drawing.Point(481, 44)
+        Me.label1.Location = New System.Drawing.Point(481, 57)
         Me.label1.Name = "label1"
         Me.label1.Size = New System.Drawing.Size(122, 13)
         Me.label1.TabIndex = 114
@@ -135,7 +137,7 @@ Partial Class config_user
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label2.Location = New System.Drawing.Point(483, 124)
+        Me.Label2.Location = New System.Drawing.Point(483, 133)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(30, 13)
         Me.Label2.TabIndex = 124
@@ -147,7 +149,7 @@ Partial Class config_user
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label3.Location = New System.Drawing.Point(483, 164)
+        Me.Label3.Location = New System.Drawing.Point(483, 173)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(56, 13)
         Me.Label3.TabIndex = 123
@@ -156,7 +158,7 @@ Partial Class config_user
         'txt_telefono
         '
         Me.txt_telefono.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txt_telefono.Location = New System.Drawing.Point(485, 256)
+        Me.txt_telefono.Location = New System.Drawing.Point(485, 262)
         Me.txt_telefono.Name = "txt_telefono"
         Me.txt_telefono.Size = New System.Drawing.Size(190, 20)
         Me.txt_telefono.TabIndex = 6
@@ -164,7 +166,7 @@ Partial Class config_user
         'txt_ape
         '
         Me.txt_ape.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txt_ape.Location = New System.Drawing.Point(485, 180)
+        Me.txt_ape.Location = New System.Drawing.Point(485, 186)
         Me.txt_ape.Name = "txt_ape"
         Me.txt_ape.Size = New System.Drawing.Size(190, 20)
         Me.txt_ape.TabIndex = 4
@@ -172,7 +174,7 @@ Partial Class config_user
         'txt_usuario
         '
         Me.txt_usuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txt_usuario.Location = New System.Drawing.Point(484, 60)
+        Me.txt_usuario.Location = New System.Drawing.Point(484, 71)
         Me.txt_usuario.Name = "txt_usuario"
         Me.txt_usuario.Size = New System.Drawing.Size(189, 20)
         Me.txt_usuario.TabIndex = 1
@@ -183,7 +185,7 @@ Partial Class config_user
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label5.Location = New System.Drawing.Point(484, 202)
+        Me.Label5.Location = New System.Drawing.Point(484, 211)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(54, 13)
         Me.Label5.TabIndex = 132
@@ -194,7 +196,7 @@ Partial Class config_user
         Me.cmb_rol.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmb_rol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_rol.FormattingEnabled = True
-        Me.cmb_rol.Location = New System.Drawing.Point(484, 140)
+        Me.cmb_rol.Location = New System.Drawing.Point(484, 146)
         Me.cmb_rol.Name = "cmb_rol"
         Me.cmb_rol.Size = New System.Drawing.Size(190, 21)
         Me.cmb_rol.TabIndex = 3
@@ -202,7 +204,7 @@ Partial Class config_user
         'txt_pass
         '
         Me.txt_pass.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txt_pass.Location = New System.Drawing.Point(484, 99)
+        Me.txt_pass.Location = New System.Drawing.Point(484, 110)
         Me.txt_pass.Name = "txt_pass"
         Me.txt_pass.Size = New System.Drawing.Size(189, 20)
         Me.txt_pass.TabIndex = 2
@@ -213,7 +215,7 @@ Partial Class config_user
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label7.Location = New System.Drawing.Point(481, 83)
+        Me.Label7.Location = New System.Drawing.Point(481, 97)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(75, 13)
         Me.Label7.TabIndex = 135
@@ -225,7 +227,7 @@ Partial Class config_user
         Me.btn_buscar.BackColor = System.Drawing.Color.DodgerBlue
         Me.btn_buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn_buscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_buscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_buscar.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btn_buscar.IconChar = FontAwesome.Sharp.IconChar.Search
         Me.btn_buscar.IconColor = System.Drawing.Color.Black
@@ -234,9 +236,9 @@ Partial Class config_user
         Me.btn_buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_buscar.Location = New System.Drawing.Point(484, 481)
         Me.btn_buscar.MaximumSize = New System.Drawing.Size(194, 35)
-        Me.btn_buscar.MinimumSize = New System.Drawing.Size(194, 35)
+        Me.btn_buscar.MinimumSize = New System.Drawing.Size(185, 30)
         Me.btn_buscar.Name = "btn_buscar"
-        Me.btn_buscar.Size = New System.Drawing.Size(194, 35)
+        Me.btn_buscar.Size = New System.Drawing.Size(185, 30)
         Me.btn_buscar.TabIndex = 9
         Me.btn_buscar.Text = "Buscar"
         Me.btn_buscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -248,7 +250,7 @@ Partial Class config_user
         Me.btnAgregar.BackColor = System.Drawing.Color.Lime
         Me.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnAgregar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btnAgregar.IconChar = FontAwesome.Sharp.IconChar.Plus
         Me.btnAgregar.IconColor = System.Drawing.Color.Black
@@ -257,9 +259,9 @@ Partial Class config_user
         Me.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnAgregar.Location = New System.Drawing.Point(484, 440)
         Me.btnAgregar.MaximumSize = New System.Drawing.Size(194, 35)
-        Me.btnAgregar.MinimumSize = New System.Drawing.Size(194, 35)
+        Me.btnAgregar.MinimumSize = New System.Drawing.Size(185, 30)
         Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(194, 35)
+        Me.btnAgregar.Size = New System.Drawing.Size(185, 30)
         Me.btnAgregar.TabIndex = 8
         Me.btnAgregar.Text = "Agregar"
         Me.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -282,7 +284,7 @@ Partial Class config_user
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label6.Location = New System.Drawing.Point(483, 240)
+        Me.Label6.Location = New System.Drawing.Point(483, 248)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(61, 13)
         Me.Label6.TabIndex = 139
@@ -291,7 +293,7 @@ Partial Class config_user
         'txt_nombre
         '
         Me.txt_nombre.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txt_nombre.Location = New System.Drawing.Point(485, 218)
+        Me.txt_nombre.Location = New System.Drawing.Point(485, 224)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(190, 20)
         Me.txt_nombre.TabIndex = 5
@@ -302,12 +304,32 @@ Partial Class config_user
         Me.btn_limpiar_campos.IconChar = FontAwesome.Sharp.IconChar.Eraser
         Me.btn_limpiar_campos.IconColor = System.Drawing.Color.Black
         Me.btn_limpiar_campos.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btn_limpiar_campos.IconSize = 30
-        Me.btn_limpiar_campos.Location = New System.Drawing.Point(606, 282)
+        Me.btn_limpiar_campos.IconSize = 25
+        Me.btn_limpiar_campos.Location = New System.Drawing.Point(612, 286)
         Me.btn_limpiar_campos.Name = "btn_limpiar_campos"
-        Me.btn_limpiar_campos.Size = New System.Drawing.Size(69, 38)
+        Me.btn_limpiar_campos.Size = New System.Drawing.Size(63, 29)
         Me.btn_limpiar_campos.TabIndex = 7
         Me.btn_limpiar_campos.UseVisualStyleBackColor = True
+        '
+        'txt_buscar
+        '
+        Me.txt_buscar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txt_buscar.Location = New System.Drawing.Point(484, 21)
+        Me.txt_buscar.Name = "txt_buscar"
+        Me.txt_buscar.Size = New System.Drawing.Size(190, 20)
+        Me.txt_buscar.TabIndex = 140
+        '
+        'Label8
+        '
+        Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label8.Location = New System.Drawing.Point(481, 5)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(50, 13)
+        Me.Label8.TabIndex = 141
+        Me.Label8.Text = "Buscar:"
         '
         'config_user
         '
@@ -315,6 +337,8 @@ Partial Class config_user
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Green
         Me.ClientSize = New System.Drawing.Size(691, 611)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.txt_buscar)
         Me.Controls.Add(Me.btn_limpiar_campos)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txt_nombre)
@@ -363,4 +387,6 @@ Partial Class config_user
     Friend WithEvents Label6 As Label
     Friend WithEvents txt_nombre As TextBox
     Friend WithEvents btn_limpiar_campos As FontAwesome.Sharp.IconButton
+    Friend WithEvents txt_buscar As TextBox
+    Friend WithEvents Label8 As Label
 End Class

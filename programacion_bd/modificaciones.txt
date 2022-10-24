@@ -1,6 +1,8 @@
 FORM CONFIGURACION DE USUARIO
 ------------------------------------
-* boton agregar hecho
-* agregado boton limpiar --> limpia los campos
+* boton modificar, eliminar y campo "buscar" hecho
+* boton buscar ---> sin funcion
 
-**BUG** -> al seleccionar un usuario de la lista y limpiar los campos con el boton "limpiar" y luego clic en una zona vacía (SelectedIndex = -1) se cargan los campos del ultimo usuario seleccionado
+**BUG ANTERIOR** ---> CORREGIDO
+
+nuevas consultas SQL

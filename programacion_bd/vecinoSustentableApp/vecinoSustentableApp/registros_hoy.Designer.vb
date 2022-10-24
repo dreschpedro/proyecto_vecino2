@@ -36,6 +36,7 @@ Partial Class registros_hoy
         Me.cmbNombreEcopunto = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lbl_id_registro = New System.Windows.Forms.Label()
+        Me.lb_registro = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
         'Button2
@@ -200,7 +201,7 @@ Partial Class registros_hoy
         Me.lblMedida.ForeColor = System.Drawing.Color.Gainsboro
         Me.lblMedida.Location = New System.Drawing.Point(645, 234)
         Me.lblMedida.Name = "lblMedida"
-        Me.lblMedida.Size = New System.Drawing.Size(13, 16)
+        Me.lblMedida.Size = New System.Drawing.Size(14, 16)
         Me.lblMedida.TabIndex = 22
         Me.lblMedida.Text = "-"
         '
@@ -248,12 +249,24 @@ Partial Class registros_hoy
         Me.lbl_id_registro.TabIndex = 29
         Me.lbl_id_registro.Text = "id_registro"
         '
+        'lb_registro
+        '
+        Me.lb_registro.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lb_registro.FormattingEnabled = True
+        Me.lb_registro.Location = New System.Drawing.Point(16, 101)
+        Me.lb_registro.Name = "lb_registro"
+        Me.lb_registro.Size = New System.Drawing.Size(457, 498)
+        Me.lb_registro.TabIndex = 30
+        '
         'registros_hoy
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(92, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(691, 611)
+        Me.Controls.Add(Me.lb_registro)
         Me.Controls.Add(Me.lbl_id_registro)
         Me.Controls.Add(Me.cmbNombreEcopunto)
         Me.Controls.Add(Me.Label2)
@@ -289,4 +302,5 @@ Partial Class registros_hoy
     Friend WithEvents cmbNombreEcopunto As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents lbl_id_registro As Label
+    Friend WithEvents lb_registro As ListBox
 End Class

@@ -150,7 +150,7 @@ Partial Class principal
         Me.btnEstResiduos.Padding = New System.Windows.Forms.Padding(33, 0, 0, 0)
         Me.btnEstResiduos.Size = New System.Drawing.Size(276, 45)
         Me.btnEstResiduos.TabIndex = 11
-        Me.btnEstResiduos.Text = "Estadisticas de Residuos"
+        Me.btnEstResiduos.Text = "Historial de Residuos"
         Me.btnEstResiduos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnEstResiduos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnEstResiduos.UseVisualStyleBackColor = False

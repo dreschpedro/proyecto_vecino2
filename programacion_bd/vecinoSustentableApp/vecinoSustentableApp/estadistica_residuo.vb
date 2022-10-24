@@ -7,7 +7,6 @@ Public Class estadistica_residuo
     Dim sql_rH_sin_hora As String = "SELECT residuo.nombre_residuo AS nombre_residuo, registros_hoy.cantidad_residuo AS cantidad_residuo, registros_hoy.hora AS hora FROM residuo JOIN registros_hoy ON registros_hoy.id_residuo = residuo.id_residuo"
 
 
-
     '##################     SUBRUTINAS       #######################
 
     Sub CargarLV(ByVal cadena As String)
@@ -118,20 +117,28 @@ Public Class estadistica_residuo
     End Sub
 
 
-
-
-
-
-
     Private Sub btn_cerrar_Click(sender As Object, e As EventArgs) Handles btn_cerrar.Click
         Me.Close()
     End Sub
 
     Private Sub estadistica_residuo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Call CargarLV(sql_rH_sin_hora)
+        Call CargarEcopunto("SELECT ecopunto.id_ecopunto, nombre FROM ecopunto")
     End Sub
 
     Private Sub lviewResiduosHoy_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lviewResiduosHoy.SelectedIndexChanged
 
+    End Sub
+
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles dt_fecha.ValueChanged
+        'MsgBox("Valor: " & dt_fecha.Value.ToString)
+    End Sub
+
+    Private Sub cbfecha_CheckedChanged(sender As Object, e As EventArgs) Handles cbfecha.CheckedChanged
+        If cbfecha.Checked = True Then
+            dt_fecha.Enabled = True
+        ElseIf cbfecha.Checked = False Then
+            dt_fecha.Enabled = False
+        End If
     End Sub
 End Class

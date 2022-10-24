@@ -30,9 +30,9 @@ Partial Class estadistica_residuo
         Me.Cantidad = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.cmbNombreEcopunto = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.DataRepeater1 = New Microsoft.VisualBasic.PowerPacks.DataRepeater()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dt_fecha = New System.Windows.Forms.DateTimePicker()
+        Me.cbfecha = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'btn_cerrar
@@ -55,9 +55,9 @@ Partial Class estadistica_residuo
         Me.Label4.ForeColor = System.Drawing.Color.Gainsboro
         Me.Label4.Location = New System.Drawing.Point(107, 9)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(294, 29)
+        Me.Label4.Size = New System.Drawing.Size(401, 29)
         Me.Label4.TabIndex = 175
-        Me.Label4.Text = "Estadística de Residuos"
+        Me.Label4.Text = "Historial de Residuos ingresados"
         '
         'btn_imprimir
         '
@@ -112,9 +112,9 @@ Partial Class estadistica_residuo
         Me.cmbNombreEcopunto.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbNombreEcopunto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbNombreEcopunto.FormattingEnabled = True
-        Me.cmbNombreEcopunto.Location = New System.Drawing.Point(422, 87)
+        Me.cmbNombreEcopunto.Location = New System.Drawing.Point(419, 87)
         Me.cmbNombreEcopunto.Name = "cmbNombreEcopunto"
-        Me.cmbNombreEcopunto.Size = New System.Drawing.Size(200, 21)
+        Me.cmbNombreEcopunto.Size = New System.Drawing.Size(194, 21)
         Me.cmbNombreEcopunto.TabIndex = 177
         '
         'Label2
@@ -123,23 +123,11 @@ Partial Class estadistica_residuo
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label2.Location = New System.Drawing.Point(419, 71)
+        Me.Label2.Location = New System.Drawing.Point(437, 71)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(133, 13)
         Me.Label2.TabIndex = 187
         Me.Label2.Text = "Nombre del Ecopunto:"
-        '
-        'Label5
-        '
-        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label5.Location = New System.Drawing.Point(419, 131)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(110, 13)
-        Me.Label5.TabIndex = 184
-        Me.Label5.Text = "fecha del registro:"
         '
         'DataRepeater1
         '
@@ -149,12 +137,27 @@ Partial Class estadistica_residuo
         Me.DataRepeater1.Size = New System.Drawing.Size(240, 150)
         Me.DataRepeater1.TabIndex = 0
         '
-        'DateTimePicker1
+        'dt_fecha
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(419, 147)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(203, 20)
-        Me.DateTimePicker1.TabIndex = 189
+        Me.dt_fecha.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dt_fecha.Enabled = False
+        Me.dt_fecha.Location = New System.Drawing.Point(419, 143)
+        Me.dt_fecha.Name = "dt_fecha"
+        Me.dt_fecha.Size = New System.Drawing.Size(194, 20)
+        Me.dt_fecha.TabIndex = 189
+        '
+        'cbfecha
+        '
+        Me.cbfecha.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbfecha.AutoSize = True
+        Me.cbfecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbfecha.ForeColor = System.Drawing.Color.Gainsboro
+        Me.cbfecha.Location = New System.Drawing.Point(391, 120)
+        Me.cbfecha.Name = "cbfecha"
+        Me.cbfecha.Size = New System.Drawing.Size(116, 17)
+        Me.cbfecha.TabIndex = 191
+        Me.cbfecha.Text = "Filtrar por fecha"
+        Me.cbfecha.UseVisualStyleBackColor = True
         '
         'estadistica_residuo
         '
@@ -162,11 +165,11 @@ Partial Class estadistica_residuo
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(92, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(625, 522)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.cbfecha)
+        Me.Controls.Add(Me.dt_fecha)
         Me.Controls.Add(Me.lviewResiduosHoy)
         Me.Controls.Add(Me.cmbNombreEcopunto)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btn_imprimir)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btn_cerrar)
@@ -186,7 +189,7 @@ Partial Class estadistica_residuo
     Friend WithEvents Cantidad As ColumnHeader
     Friend WithEvents cmbNombreEcopunto As ComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label5 As Label
     Friend WithEvents DataRepeater1 As PowerPacks.DataRepeater
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents dt_fecha As DateTimePicker
+    Friend WithEvents cbfecha As CheckBox
 End Class

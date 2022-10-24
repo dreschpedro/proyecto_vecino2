@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               10.0.13-MariaDB - mariadb.org binary distribution
--- Server OS:                    Win64
--- HeidiSQL Version:             12.1.0.6537
+-- Versión del servidor:         10.0.13-MariaDB - mariadb.org binary distribution
+-- SO del servidor:              Win64
+-- HeidiSQL Versión:             12.1.0.6537
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -15,12 +15,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for vecino_sustentable
+-- Volcando estructura de base de datos para vecino_sustentable
 DROP DATABASE IF EXISTS `vecino_sustentable`;
 CREATE DATABASE IF NOT EXISTS `vecino_sustentable` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `vecino_sustentable`;
 
--- Dumping structure for table vecino_sustentable.asistencia
+-- Volcando estructura para tabla vecino_sustentable.asistencia
 DROP TABLE IF EXISTS `asistencia`;
 CREATE TABLE IF NOT EXISTS `asistencia` (
   `id_asistencia` int(11) NOT NULL AUTO_INCREMENT,
@@ -33,14 +33,14 @@ CREATE TABLE IF NOT EXISTS `asistencia` (
   UNIQUE KEY `uk_asistencia` (`fecha`,`id_personal`,`id_ecopunto`),
   KEY `fk_personal` (`id_personal`),
   KEY `fk_eco` (`id_ecopunto`),
-  CONSTRAINT `fk_eco` FOREIGN KEY (`id_ecopunto`) REFERENCES `ecopunto` (`id_ecopunto`),
-  CONSTRAINT `fk_personal` FOREIGN KEY (`id_personal`) REFERENCES `personal` (`id_personal`)
+  CONSTRAINT `fk_personal` FOREIGN KEY (`id_personal`) REFERENCES `personal` (`id_personal`),
+  CONSTRAINT `fk_eco` FOREIGN KEY (`id_ecopunto`) REFERENCES `ecopunto` (`id_ecopunto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table vecino_sustentable.asistencia: ~0 rows (approximately)
+-- Volcando datos para la tabla vecino_sustentable.asistencia: ~0 rows (aproximadamente)
 DELETE FROM `asistencia`;
 
--- Dumping structure for table vecino_sustentable.cartonero
+-- Volcando estructura para tabla vecino_sustentable.cartonero
 DROP TABLE IF EXISTS `cartonero`;
 CREATE TABLE IF NOT EXISTS `cartonero` (
   `id_cartonero` int(11) NOT NULL AUTO_INCREMENT,
@@ -53,10 +53,10 @@ CREATE TABLE IF NOT EXISTS `cartonero` (
   UNIQUE KEY `uk_ape_nom` (`apellido`,`nombre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table vecino_sustentable.cartonero: ~0 rows (approximately)
+-- Volcando datos para la tabla vecino_sustentable.cartonero: ~0 rows (aproximadamente)
 DELETE FROM `cartonero`;
 
--- Dumping structure for table vecino_sustentable.ecopunto
+-- Volcando estructura para tabla vecino_sustentable.ecopunto
 DROP TABLE IF EXISTS `ecopunto`;
 CREATE TABLE IF NOT EXISTS `ecopunto` (
   `id_ecopunto` int(11) NOT NULL AUTO_INCREMENT,
@@ -64,36 +64,39 @@ CREATE TABLE IF NOT EXISTS `ecopunto` (
   `ubicacion` varchar(100) DEFAULT NULL,
   `horario` time DEFAULT NULL,
   `dia` date DEFAULT NULL,
+  `id_personal` int(11) NOT NULL,
   PRIMARY KEY (`id_ecopunto`),
-  UNIQUE KEY `uk_nombre` (`nombre`)
+  UNIQUE KEY `uk_nombre` (`nombre`),
+  KEY `fk_responsable` (`id_personal`),
+  CONSTRAINT `fk_responsable` FOREIGN KEY (`id_personal`) REFERENCES `personal` (`id_personal`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
--- Dumping data for table vecino_sustentable.ecopunto: ~21 rows (approximately)
+-- Volcando datos para la tabla vecino_sustentable.ecopunto: ~21 rows (aproximadamente)
 DELETE FROM `ecopunto`;
-INSERT INTO `ecopunto` (`id_ecopunto`, `nombre`, `ubicacion`, `horario`, `dia`) VALUES
-	(1, 'Chacra 32-33 Feria Franca', NULL, NULL, NULL),
-	(2, 'Cruz Roja', NULL, NULL, NULL),
-	(3, 'B° Alta Gracia', NULL, NULL, NULL),
-	(4, 'Club de los Abuelos', NULL, NULL, NULL),
-	(5, 'Cancha Guarani', NULL, NULL, NULL),
-	(6, 'Mercado Concentrador ', NULL, NULL, NULL),
-	(7, 'Murga de La Estacion', NULL, NULL, NULL),
-	(8, 'AgroRiegos-Optimus', NULL, NULL, NULL),
-	(9, 'Villa Cabello', NULL, NULL, NULL),
-	(10, 'Manantiales, Hijos del Rey', NULL, NULL, NULL),
-	(11, 'Chacra 83 Kiosco de Ada', NULL, NULL, NULL),
-	(12, 'Chacra 193 B° Laurel', NULL, NULL, NULL),
-	(13, 'Chacra 92 Centro Jubilados', NULL, NULL, NULL),
-	(14, 'Chacra 189 Comisión Vecinal', NULL, NULL, NULL),
-	(15, 'B° A-4', NULL, NULL, NULL),
-	(16, 'Centro de Educación Ambiental', NULL, NULL, NULL),
-	(17, 'B° San Jorge', NULL, NULL, NULL),
-	(18, 'B° San Pedro', NULL, NULL, NULL),
-	(19, 'B° Mini City', NULL, NULL, NULL),
-	(20, 'B° Sur Argentino ', NULL, NULL, NULL),
-	(21, 'B° El Porvenir I', NULL, NULL, NULL);
+INSERT INTO `ecopunto` (`id_ecopunto`, `nombre`, `ubicacion`, `horario`, `dia`, `id_personal`) VALUES
+	(1, 'Chacra 32-33 Feria Franca', NULL, NULL, NULL, 0),
+	(2, 'Cruz Roja', NULL, NULL, NULL, 0),
+	(3, 'B° Alta Gracia', NULL, NULL, NULL, 0),
+	(4, 'Club de los Abuelos', NULL, NULL, NULL, 0),
+	(5, 'Cancha Guarani', NULL, NULL, NULL, 0),
+	(6, 'Mercado Concentrador ', NULL, NULL, NULL, 0),
+	(7, 'Murga de La Estacion', NULL, NULL, NULL, 0),
+	(8, 'AgroRiegos-Optimus', NULL, NULL, NULL, 0),
+	(9, 'Villa Cabello', NULL, NULL, NULL, 0),
+	(10, 'Manantiales, Hijos del Rey', NULL, NULL, NULL, 0),
+	(11, 'Chacra 83 Kiosco de Ada', NULL, NULL, NULL, 0),
+	(12, 'Chacra 193 B° Laurel', NULL, NULL, NULL, 0),
+	(13, 'Chacra 92 Centro Jubilados', NULL, NULL, NULL, 0),
+	(14, 'Chacra 189 Comisión Vecinal', NULL, NULL, NULL, 0),
+	(15, 'B° A-4', NULL, NULL, NULL, 0),
+	(16, 'Centro de Educación Ambiental', NULL, NULL, NULL, 0),
+	(17, 'B° San Jorge', NULL, NULL, NULL, 0),
+	(18, 'B° San Pedro', NULL, NULL, NULL, 0),
+	(19, 'B° Mini City', NULL, NULL, NULL, 0),
+	(20, 'B° Sur Argentino ', NULL, NULL, NULL, 0),
+	(21, 'B° El Porvenir I', NULL, NULL, NULL, 0);
 
--- Dumping structure for table vecino_sustentable.ecopunto_cartonero
+-- Volcando estructura para tabla vecino_sustentable.ecopunto_cartonero
 DROP TABLE IF EXISTS `ecopunto_cartonero`;
 CREATE TABLE IF NOT EXISTS `ecopunto_cartonero` (
   `id_eco_carton` int(11) NOT NULL AUTO_INCREMENT,
@@ -106,24 +109,35 @@ CREATE TABLE IF NOT EXISTS `ecopunto_cartonero` (
   CONSTRAINT `fk_ecop` FOREIGN KEY (`id_ecopunto`) REFERENCES `ecopunto` (`id_ecopunto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table vecino_sustentable.ecopunto_cartonero: ~0 rows (approximately)
+-- Volcando datos para la tabla vecino_sustentable.ecopunto_cartonero: ~0 rows (aproximadamente)
 DELETE FROM `ecopunto_cartonero`;
 
--- Dumping structure for table vecino_sustentable.personal
+-- Volcando estructura para tabla vecino_sustentable.personal
 DROP TABLE IF EXISTS `personal`;
 CREATE TABLE IF NOT EXISTS `personal` (
   `id_personal` int(11) NOT NULL AUTO_INCREMENT,
   `apellido` varchar(20) NOT NULL,
   `nombre` varchar(30) NOT NULL,
   `telefono` varchar(15) DEFAULT NULL,
+  `usuario` varchar(20) NOT NULL,
+  `pass` varchar(15) NOT NULL,
+  `rol` varchar(15) NOT NULL,
   PRIMARY KEY (`id_personal`),
   UNIQUE KEY `uk_ape_nom` (`apellido`,`nombre`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table vecino_sustentable.personal: ~0 rows (approximately)
+-- Volcando datos para la tabla vecino_sustentable.personal: ~7 rows (aproximadamente)
 DELETE FROM `personal`;
+INSERT INTO `personal` (`id_personal`, `apellido`, `nombre`, `telefono`, `usuario`, `pass`, `rol`) VALUES
+	(1, 'Maradona', 'Diego', '1565165', 'dieguito', 'diego1', 'Voluntario'),
+	(2, 'Messi', 'Lionel', '65165165', 'leoM', 'messirve', 'Responsable'),
+	(3, 'De Arco', 'Juana', '36513651', 'arcor', 'juanita', 'Voluntario'),
+	(4, 'Miller', 'Adolf', '3651651', 'panzer', 'jabon', 'Voluntario'),
+	(5, 'Fernandez', 'Martina', '365165', 'martina', 'polenta', 'Responsable'),
+	(6, 'Johnson', 'Carl', '3141516', 'grove', 'street', 'Voluntario'),
+	(7, 'Stark', 'Tony', '2129704133', 'iron', 'tuAbuela', 'Voluntario');
 
--- Dumping structure for table vecino_sustentable.registros_hoy
+-- Volcando estructura para tabla vecino_sustentable.registros_hoy
 DROP TABLE IF EXISTS `registros_hoy`;
 CREATE TABLE IF NOT EXISTS `registros_hoy` (
   `id_eco_resid` int(11) NOT NULL AUTO_INCREMENT,
@@ -131,37 +145,19 @@ CREATE TABLE IF NOT EXISTS `registros_hoy` (
   `id_ecopunto` int(11) NOT NULL,
   `cantidad_residuo` int(11) NOT NULL,
   `fecha` date DEFAULT NULL,
-  `hora` time DEFAULT NULL,
   PRIMARY KEY (`id_eco_resid`),
   UNIQUE KEY `uk_res_eco_fecha` (`id_residuo`,`id_ecopunto`,`fecha`),
   KEY `fk_ecopun` (`id_ecopunto`),
-  CONSTRAINT `fk_ecopun` FOREIGN KEY (`id_ecopunto`) REFERENCES `ecopunto` (`id_ecopunto`),
-  CONSTRAINT `fk_res` FOREIGN KEY (`id_residuo`) REFERENCES `residuo` (`id_residuo`)
-) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=latin1;
+  CONSTRAINT `fk_res` FOREIGN KEY (`id_residuo`) REFERENCES `residuo` (`id_residuo`),
+  CONSTRAINT `fk_ecopun` FOREIGN KEY (`id_ecopunto`) REFERENCES `ecopunto` (`id_ecopunto`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table vecino_sustentable.registros_hoy: ~18 rows (approximately)
+-- Volcando datos para la tabla vecino_sustentable.registros_hoy: ~1 rows (aproximadamente)
 DELETE FROM `registros_hoy`;
-INSERT INTO `registros_hoy` (`id_eco_resid`, `id_residuo`, `id_ecopunto`, `cantidad_residuo`, `fecha`, `hora`) VALUES
-	(117, 1, 1, 1, NULL, NULL),
-	(118, 1, 1, 1, NULL, NULL),
-	(119, 3, 3, 2, NULL, NULL),
-	(120, 5, 3, 3, NULL, NULL),
-	(121, 4, 4, 4, NULL, NULL),
-	(122, 1, 1, 1, NULL, NULL),
-	(123, 1, 1, 1, NULL, NULL),
-	(124, 1, 11, 1, NULL, NULL),
-	(125, 1, 1, 1, NULL, NULL),
-	(128, 2, 3, 3, NULL, NULL),
-	(131, 1, 1, 1, NULL, NULL),
-	(135, 11, 21, 1, NULL, NULL),
-	(136, 4, 2, 4, NULL, NULL),
-	(137, 5, 1, 5, NULL, NULL),
-	(138, 1, 2, 1, NULL, NULL),
-	(139, 1, 6, 6, NULL, NULL),
-	(140, 5, 8, 4, NULL, NULL),
-	(141, 2, 3, 5, NULL, '23:09:15');
+INSERT INTO `registros_hoy` (`id_eco_resid`, `id_residuo`, `id_ecopunto`, `cantidad_residuo`, `fecha`) VALUES
+	(1, 3, 2, 3, NULL);
 
--- Dumping structure for table vecino_sustentable.residuo
+-- Volcando estructura para tabla vecino_sustentable.residuo
 DROP TABLE IF EXISTS `residuo`;
 CREATE TABLE IF NOT EXISTS `residuo` (
   `id_residuo` int(11) NOT NULL AUTO_INCREMENT,
@@ -170,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `residuo` (
   UNIQUE KEY `uk_nom_res` (`nombre_residuo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
--- Dumping data for table vecino_sustentable.residuo: ~24 rows (approximately)
+-- Volcando datos para la tabla vecino_sustentable.residuo: ~24 rows (aproximadamente)
 DELETE FROM `residuo`;
 INSERT INTO `residuo` (`id_residuo`, `nombre_residuo`) VALUES
 	(18, 'Aceite Vegetal'),
@@ -198,7 +194,7 @@ INSERT INTO `residuo` (`id_residuo`, `nombre_residuo`) VALUES
 	(22, 'Telgopor'),
 	(1, 'TetraPack');
 
--- Dumping structure for table vecino_sustentable.residuo_cartonero
+-- Volcando estructura para tabla vecino_sustentable.residuo_cartonero
 DROP TABLE IF EXISTS `residuo_cartonero`;
 CREATE TABLE IF NOT EXISTS `residuo_cartonero` (
   `id_res_carton` int(11) NOT NULL AUTO_INCREMENT,
@@ -211,26 +207,10 @@ CREATE TABLE IF NOT EXISTS `residuo_cartonero` (
   CONSTRAINT `fk_residuoo` FOREIGN KEY (`id_residuo`) REFERENCES `residuo` (`id_residuo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table vecino_sustentable.residuo_cartonero: ~0 rows (approximately)
+-- Volcando datos para la tabla vecino_sustentable.residuo_cartonero: ~0 rows (aproximadamente)
 DELETE FROM `residuo_cartonero`;
 
--- Dumping structure for table vecino_sustentable.roles
-DROP TABLE IF EXISTS `roles`;
-CREATE TABLE IF NOT EXISTS `roles` (
-  `id_rol` int(11) NOT NULL AUTO_INCREMENT,
-  `id_personal` int(11) NOT NULL,
-  `id_ecopunto` int(11) NOT NULL,
-  `rol` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`id_rol`),
-  UNIQUE KEY `uk_rol_per_eco` (`rol`,`id_personal`,`id_ecopunto`),
-  KEY `fk_per` (`id_personal`),
-  CONSTRAINT `fk_per` FOREIGN KEY (`id_personal`) REFERENCES `personal` (`id_personal`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Dumping data for table vecino_sustentable.roles: ~0 rows (approximately)
-DELETE FROM `roles`;
-
--- Dumping structure for table vecino_sustentable.salida_residuo
+-- Volcando estructura para tabla vecino_sustentable.salida_residuo
 DROP TABLE IF EXISTS `salida_residuo`;
 CREATE TABLE IF NOT EXISTS `salida_residuo` (
   `id_res_reti` int(11) NOT NULL AUTO_INCREMENT,
@@ -248,7 +228,7 @@ CREATE TABLE IF NOT EXISTS `salida_residuo` (
   CONSTRAINT `fk_ecopuntrr` FOREIGN KEY (`id_ecopunto`) REFERENCES `ecopunto` (`id_ecopunto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table vecino_sustentable.salida_residuo: ~0 rows (approximately)
+-- Volcando datos para la tabla vecino_sustentable.salida_residuo: ~0 rows (aproximadamente)
 DELETE FROM `salida_residuo`;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;

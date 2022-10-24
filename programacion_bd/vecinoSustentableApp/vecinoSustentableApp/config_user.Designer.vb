@@ -24,22 +24,23 @@ Partial Class config_user
     Private Sub InitializeComponent()
         Me.btn_eliminar = New FontAwesome.Sharp.IconButton()
         Me.btn_modificar = New FontAwesome.Sharp.IconButton()
-        Me.btn_buscar = New FontAwesome.Sharp.IconButton()
-        Me.btnAgregar = New FontAwesome.Sharp.IconButton()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.label1 = New System.Windows.Forms.Label()
         Me.btn_cerrar = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txt_telefono = New System.Windows.Forms.TextBox()
-        Me.txt_apeNom = New System.Windows.Forms.TextBox()
+        Me.txt_ape = New System.Windows.Forms.TextBox()
         Me.txt_usuario = New System.Windows.Forms.TextBox()
-        Me.txt_ecopunto = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.lbl_rol = New System.Windows.Forms.Label()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cmb_rol = New System.Windows.Forms.ComboBox()
+        Me.txt_clave = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.btn_buscar = New FontAwesome.Sharp.IconButton()
+        Me.btnAgregar = New FontAwesome.Sharp.IconButton()
+        Me.lb_usuario = New System.Windows.Forms.ListBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txt_nombre = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'btn_eliminar
@@ -88,6 +89,135 @@ Partial Class config_user
         Me.btn_modificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_modificar.UseVisualStyleBackColor = False
         '
+        'Label4
+        '
+        Me.Label4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label4.Location = New System.Drawing.Point(12, 53)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(316, 29)
+        Me.Label4.TabIndex = 115
+        Me.Label4.Text = "Configuración de Usuario:"
+        '
+        'label1
+        '
+        Me.label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.label1.AutoSize = True
+        Me.label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label1.ForeColor = System.Drawing.Color.Gainsboro
+        Me.label1.Location = New System.Drawing.Point(431, 83)
+        Me.label1.Name = "label1"
+        Me.label1.Size = New System.Drawing.Size(122, 13)
+        Me.label1.TabIndex = 114
+        Me.label1.Text = "Nombre del Usuario:"
+        '
+        'btn_cerrar
+        '
+        Me.btn_cerrar.BackColor = System.Drawing.Color.Red
+        Me.btn_cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn_cerrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_cerrar.ForeColor = System.Drawing.Color.White
+        Me.btn_cerrar.Location = New System.Drawing.Point(12, 12)
+        Me.btn_cerrar.Name = "btn_cerrar"
+        Me.btn_cerrar.Size = New System.Drawing.Size(75, 23)
+        Me.btn_cerrar.TabIndex = 113
+        Me.btn_cerrar.Text = "X"
+        Me.btn_cerrar.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label2.Location = New System.Drawing.Point(433, 163)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(30, 13)
+        Me.Label2.TabIndex = 124
+        Me.Label2.Text = "Rol:"
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label3.Location = New System.Drawing.Point(433, 203)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(56, 13)
+        Me.Label3.TabIndex = 123
+        Me.Label3.Text = "Apellido:"
+        '
+        'txt_telefono
+        '
+        Me.txt_telefono.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txt_telefono.Location = New System.Drawing.Point(435, 295)
+        Me.txt_telefono.Name = "txt_telefono"
+        Me.txt_telefono.Size = New System.Drawing.Size(190, 20)
+        Me.txt_telefono.TabIndex = 127
+        '
+        'txt_ape
+        '
+        Me.txt_ape.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txt_ape.Location = New System.Drawing.Point(435, 219)
+        Me.txt_ape.Name = "txt_ape"
+        Me.txt_ape.Size = New System.Drawing.Size(190, 20)
+        Me.txt_ape.TabIndex = 128
+        '
+        'txt_usuario
+        '
+        Me.txt_usuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txt_usuario.Location = New System.Drawing.Point(434, 99)
+        Me.txt_usuario.Name = "txt_usuario"
+        Me.txt_usuario.Size = New System.Drawing.Size(189, 20)
+        Me.txt_usuario.TabIndex = 130
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label5.Location = New System.Drawing.Point(434, 241)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(54, 13)
+        Me.Label5.TabIndex = 132
+        Me.Label5.Text = "Nombre:"
+        '
+        'cmb_rol
+        '
+        Me.cmb_rol.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmb_rol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_rol.FormattingEnabled = True
+        Me.cmb_rol.Location = New System.Drawing.Point(434, 179)
+        Me.cmb_rol.Name = "cmb_rol"
+        Me.cmb_rol.Size = New System.Drawing.Size(190, 21)
+        Me.cmb_rol.TabIndex = 134
+        '
+        'txt_clave
+        '
+        Me.txt_clave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txt_clave.Location = New System.Drawing.Point(434, 138)
+        Me.txt_clave.Name = "txt_clave"
+        Me.txt_clave.Size = New System.Drawing.Size(189, 20)
+        Me.txt_clave.TabIndex = 136
+        '
+        'Label7
+        '
+        Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label7.Location = New System.Drawing.Point(431, 122)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(75, 13)
+        Me.Label7.TabIndex = 135
+        Me.Label7.Text = "Contraseña:"
+        '
         'btn_buscar
         '
         Me.btn_buscar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -101,7 +231,7 @@ Partial Class config_user
         Me.btn_buscar.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btn_buscar.IconSize = 20
         Me.btn_buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscar.Location = New System.Drawing.Point(435, 403)
+        Me.btn_buscar.Location = New System.Drawing.Point(434, 431)
         Me.btn_buscar.MaximumSize = New System.Drawing.Size(194, 35)
         Me.btn_buscar.MinimumSize = New System.Drawing.Size(194, 35)
         Me.btn_buscar.Name = "btn_buscar"
@@ -124,7 +254,7 @@ Partial Class config_user
         Me.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnAgregar.IconSize = 20
         Me.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAgregar.Location = New System.Drawing.Point(435, 362)
+        Me.btnAgregar.Location = New System.Drawing.Point(434, 390)
         Me.btnAgregar.MaximumSize = New System.Drawing.Size(194, 35)
         Me.btnAgregar.MinimumSize = New System.Drawing.Size(194, 35)
         Me.btnAgregar.Name = "btnAgregar"
@@ -134,156 +264,52 @@ Partial Class config_user
         Me.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnAgregar.UseVisualStyleBackColor = False
         '
+        'lb_usuario
+        '
+        Me.lb_usuario.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lb_usuario.FormattingEnabled = True
+        Me.lb_usuario.Location = New System.Drawing.Point(12, 83)
+        Me.lb_usuario.Name = "lb_usuario"
+        Me.lb_usuario.Size = New System.Drawing.Size(413, 459)
+        Me.lb_usuario.TabIndex = 137
+        '
         'Label6
         '
         Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label6.Location = New System.Drawing.Point(431, 83)
+        Me.Label6.Location = New System.Drawing.Point(433, 279)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(133, 13)
-        Me.Label6.TabIndex = 116
-        Me.Label6.Text = "Nombre del Ecopunto:"
+        Me.Label6.Size = New System.Drawing.Size(61, 13)
+        Me.Label6.TabIndex = 139
+        Me.Label6.Text = "Telefono:"
         '
-        'Label4
+        'txt_nombre
         '
-        Me.Label4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label4.Location = New System.Drawing.Point(12, 53)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(316, 29)
-        Me.Label4.TabIndex = 115
-        Me.Label4.Text = "Configuración de Usuario:"
-        '
-        'label1
-        '
-        Me.label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.label1.AutoSize = True
-        Me.label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.label1.ForeColor = System.Drawing.Color.Gainsboro
-        Me.label1.Location = New System.Drawing.Point(432, 137)
-        Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(122, 13)
-        Me.label1.TabIndex = 114
-        Me.label1.Text = "Nombre del Usuario:"
-        '
-        'btn_cerrar
-        '
-        Me.btn_cerrar.BackColor = System.Drawing.Color.Red
-        Me.btn_cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn_cerrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_cerrar.ForeColor = System.Drawing.Color.White
-        Me.btn_cerrar.Location = New System.Drawing.Point(12, 12)
-        Me.btn_cerrar.Name = "btn_cerrar"
-        Me.btn_cerrar.Size = New System.Drawing.Size(75, 23)
-        Me.btn_cerrar.TabIndex = 113
-        Me.btn_cerrar.Text = "X"
-        Me.btn_cerrar.UseVisualStyleBackColor = False
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(11, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 83)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(413, 466)
-        Me.DataGridView1.TabIndex = 112
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label2.Location = New System.Drawing.Point(431, 199)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(30, 13)
-        Me.Label2.TabIndex = 124
-        Me.Label2.Text = "Rol:"
-        '
-        'Label3
-        '
-        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label3.Location = New System.Drawing.Point(432, 231)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(113, 13)
-        Me.Label3.TabIndex = 123
-        Me.Label3.Text = "Apellido y Nombre:"
-        '
-        'txt_telefono
-        '
-        Me.txt_telefono.Location = New System.Drawing.Point(431, 301)
-        Me.txt_telefono.Name = "txt_telefono"
-        Me.txt_telefono.Size = New System.Drawing.Size(193, 20)
-        Me.txt_telefono.TabIndex = 127
-        '
-        'txt_apeNom
-        '
-        Me.txt_apeNom.Location = New System.Drawing.Point(431, 247)
-        Me.txt_apeNom.Name = "txt_apeNom"
-        Me.txt_apeNom.Size = New System.Drawing.Size(193, 20)
-        Me.txt_apeNom.TabIndex = 128
-        '
-        'txt_usuario
-        '
-        Me.txt_usuario.Location = New System.Drawing.Point(431, 153)
-        Me.txt_usuario.Name = "txt_usuario"
-        Me.txt_usuario.Size = New System.Drawing.Size(193, 20)
-        Me.txt_usuario.TabIndex = 130
-        '
-        'txt_ecopunto
-        '
-        Me.txt_ecopunto.Location = New System.Drawing.Point(431, 99)
-        Me.txt_ecopunto.Name = "txt_ecopunto"
-        Me.txt_ecopunto.Size = New System.Drawing.Size(193, 20)
-        Me.txt_ecopunto.TabIndex = 131
-        '
-        'Label5
-        '
-        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label5.Location = New System.Drawing.Point(428, 285)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(61, 13)
-        Me.Label5.TabIndex = 132
-        Me.Label5.Text = "Telefono:"
-        '
-        'lbl_rol
-        '
-        Me.lbl_rol.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lbl_rol.AutoSize = True
-        Me.lbl_rol.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_rol.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lbl_rol.Location = New System.Drawing.Point(476, 199)
-        Me.lbl_rol.Name = "lbl_rol"
-        Me.lbl_rol.Size = New System.Drawing.Size(11, 13)
-        Me.lbl_rol.TabIndex = 133
-        Me.lbl_rol.Text = "-"
+        Me.txt_nombre.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txt_nombre.Location = New System.Drawing.Point(435, 257)
+        Me.txt_nombre.Name = "txt_nombre"
+        Me.txt_nombre.Size = New System.Drawing.Size(190, 20)
+        Me.txt_nombre.TabIndex = 138
         '
         'config_user
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(84, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.Green
         Me.ClientSize = New System.Drawing.Size(641, 561)
-        Me.Controls.Add(Me.lbl_rol)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.txt_nombre)
+        Me.Controls.Add(Me.lb_usuario)
+        Me.Controls.Add(Me.txt_clave)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.cmb_rol)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.txt_ecopunto)
         Me.Controls.Add(Me.txt_usuario)
-        Me.Controls.Add(Me.txt_apeNom)
+        Me.Controls.Add(Me.txt_ape)
         Me.Controls.Add(Me.txt_telefono)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label3)
@@ -291,15 +317,12 @@ Partial Class config_user
         Me.Controls.Add(Me.btn_modificar)
         Me.Controls.Add(Me.btn_buscar)
         Me.Controls.Add(Me.btnAgregar)
-        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.label1)
         Me.Controls.Add(Me.btn_cerrar)
-        Me.Controls.Add(Me.DataGridView1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "config_user"
         Me.Text = "Form5"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -307,19 +330,21 @@ Partial Class config_user
 
     Friend WithEvents btn_eliminar As FontAwesome.Sharp.IconButton
     Friend WithEvents btn_modificar As FontAwesome.Sharp.IconButton
-    Friend WithEvents btn_buscar As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnAgregar As FontAwesome.Sharp.IconButton
-    Friend WithEvents Label6 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents label1 As Label
     Friend WithEvents btn_cerrar As Button
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents txt_telefono As TextBox
-    Friend WithEvents txt_apeNom As TextBox
+    Friend WithEvents txt_ape As TextBox
     Friend WithEvents txt_usuario As TextBox
-    Friend WithEvents txt_ecopunto As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents lbl_rol As Label
+    Friend WithEvents cmb_rol As ComboBox
+    Friend WithEvents txt_clave As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents btn_buscar As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnAgregar As FontAwesome.Sharp.IconButton
+    Friend WithEvents lb_usuario As ListBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents txt_nombre As TextBox
 End Class

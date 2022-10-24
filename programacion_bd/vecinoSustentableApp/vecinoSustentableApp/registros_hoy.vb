@@ -4,7 +4,60 @@ Public Class registros_hoy
 
     Private encontrado As Integer = -1
 
+    Sub CargarLV(ByVal cadena As String)
+        Try
+            'conecto a la base
+            Call conectar()
+            conexion.Open()
 
+            'trabajo con los datos
+
+            'el objeto command permite ejecutar sentencias SQL
+            Dim Comando As New MySqlCommand
+
+            'conecto el objeto command
+            Comando.Connection = conexion
+
+            'configuro command para sentencia SQL
+            Comando.CommandType = CommandType.Text
+
+            'cargo la sentencia
+            Comando.CommandText = cadena
+
+            'obtengo los datos y los devuelvo a un objeto DataReader
+            Dim DReader As MySqlDataReader
+
+            'el método ExecuteReader trae los datos de la BD
+            DReader = Comando.ExecuteReader
+
+            'consulto si trajo registros
+            If DReader.HasRows Then
+                'limpio el list
+                lb_registro.Items.Clear()
+
+                'utilizo el DataReader para "navegar" por los datos
+                'cargo la grilla utilizando el DReader
+                Dim LV As New ListViewItem
+
+                Do While DReader.Read
+                    'LV = lb_registro.Items.Add(DReader("nombre_residuo"))
+                    LV.SubItems.Add(DReader("cantidad_residuo"))
+
+                Loop
+            End If
+
+            'cierro el DReader para poder ejecutar una nueva consulta SQL
+            DReader.Close()
+
+            'cierro la conexion
+            conexion.Close()
+
+        Catch ex As Exception
+            'SI HAY UN ERROR MUESTRO EL MENSAJE
+            MsgBox(ex.Message)
+            conexion.Close()
+        End Try
+    End Sub
 
     Sub CargarEcopunto(ByVal cadena As String)
         Try

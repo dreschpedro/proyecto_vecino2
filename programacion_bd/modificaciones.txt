@@ -1,3 +1,6 @@
-comboxes= propiedad DropDownStyle: DropDownList---> Al hacer clic sobre el campo del combobox, se despliegan las opciones, no permitiendo escribir
+FORM CONFIGURACION DE USUARIO
+------------------------------------
+* boton agregar hecho
+* agregado boton limpiar --> limpia los campos
 
-txt_cantidad= validacion de dato: solo se permiten numeros, se puede borrar con el Supr y backSpace
+**BUG** -> al seleccionar un usuario de la lista y limpiar los campos con el boton "limpiar" y luego clic en una zona vacía (SelectedIndex = -1) se cargan los campos del ultimo usuario seleccionado

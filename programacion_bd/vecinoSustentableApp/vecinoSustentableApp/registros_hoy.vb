@@ -198,7 +198,7 @@ Public Class registros_hoy
             Comando.CommandType = CommandType.Text
 
             'PRIMERO CONTROLO QUE EL REGISTRO NO EXISTA
-            Comando.CommandText = "select * from registros_hoy where id_eco_resid = '""';"
+            'Comando.CommandText = "select * from registros_hoy where id_eco_resid = '""';"
             'obtengo los datos y los devuelvo a un objeto DataReader
             Dim DReader As MySqlDataReader
             'el método ExecuteReader trae los datos de la BD

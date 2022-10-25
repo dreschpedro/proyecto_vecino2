@@ -6,3 +6,6 @@ FORM CONFIGURACION DE USUARIO
 **BUG ANTERIOR** ---> CORREGIDO
 
 nuevas consultas SQL
+
+login funcional en parte, solo funciona con admin/admin
+los demas usuarios y pass no funcionan

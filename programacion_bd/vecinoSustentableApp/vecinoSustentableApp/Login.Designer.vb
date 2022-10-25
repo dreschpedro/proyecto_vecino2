@@ -26,13 +26,14 @@ Partial Class Login
         Me.btnMinimize = New FontAwesome.Sharp.IconButton()
         Me.btnClose = New FontAwesome.Sharp.IconButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.txtUser = New System.Windows.Forms.TextBox()
+        Me.txt_usuario = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtPass = New System.Windows.Forms.TextBox()
+        Me.txt_pass = New System.Windows.Forms.TextBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
+        Me.btn_ingresar = New FontAwesome.Sharp.IconButton()
+        Me.btn_ojo = New FontAwesome.Sharp.IconButton()
         Me.TitleBar.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -95,15 +96,15 @@ Partial Class Login
         Me.Panel1.Size = New System.Drawing.Size(453, 15)
         Me.Panel1.TabIndex = 1
         '
-        'txtUser
+        'txt_usuario
         '
-        Me.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUser.ForeColor = System.Drawing.Color.DarkGreen
-        Me.txtUser.Location = New System.Drawing.Point(51, 311)
-        Me.txtUser.Name = "txtUser"
-        Me.txtUser.Size = New System.Drawing.Size(350, 19)
-        Me.txtUser.TabIndex = 2
+        Me.txt_usuario.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txt_usuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_usuario.ForeColor = System.Drawing.Color.DarkGreen
+        Me.txt_usuario.Location = New System.Drawing.Point(51, 311)
+        Me.txt_usuario.Name = "txt_usuario"
+        Me.txt_usuario.Size = New System.Drawing.Size(350, 19)
+        Me.txt_usuario.TabIndex = 2
         '
         'Label1
         '
@@ -127,15 +128,15 @@ Partial Class Login
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Contraseña"
         '
-        'txtPass
+        'txt_pass
         '
-        Me.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPass.ForeColor = System.Drawing.Color.DarkGreen
-        Me.txtPass.Location = New System.Drawing.Point(51, 393)
-        Me.txtPass.Name = "txtPass"
-        Me.txtPass.Size = New System.Drawing.Size(350, 19)
-        Me.txtPass.TabIndex = 4
+        Me.txt_pass.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txt_pass.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_pass.ForeColor = System.Drawing.Color.DarkGreen
+        Me.txt_pass.Location = New System.Drawing.Point(51, 393)
+        Me.txt_pass.Name = "txt_pass"
+        Me.txt_pass.Size = New System.Drawing.Size(350, 19)
+        Me.txt_pass.TabIndex = 4
         '
         'CheckBox1
         '
@@ -160,23 +161,37 @@ Partial Class Login
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
         '
-        'IconButton1
+        'btn_ingresar
         '
-        Me.IconButton1.BackColor = System.Drawing.Color.DarkGreen
-        Me.IconButton1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.IconButton1.FlatAppearance.BorderSize = 0
-        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton1.ForeColor = System.Drawing.Color.White
-        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.None
-        Me.IconButton1.IconColor = System.Drawing.Color.Black
-        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton1.Location = New System.Drawing.Point(51, 541)
-        Me.IconButton1.Name = "IconButton1"
-        Me.IconButton1.Size = New System.Drawing.Size(349, 48)
-        Me.IconButton1.TabIndex = 7
-        Me.IconButton1.Text = "Ingresar"
-        Me.IconButton1.UseVisualStyleBackColor = False
+        Me.btn_ingresar.BackColor = System.Drawing.Color.DarkGreen
+        Me.btn_ingresar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_ingresar.FlatAppearance.BorderSize = 0
+        Me.btn_ingresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_ingresar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_ingresar.ForeColor = System.Drawing.Color.White
+        Me.btn_ingresar.IconChar = FontAwesome.Sharp.IconChar.None
+        Me.btn_ingresar.IconColor = System.Drawing.Color.Black
+        Me.btn_ingresar.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btn_ingresar.Location = New System.Drawing.Point(51, 541)
+        Me.btn_ingresar.Name = "btn_ingresar"
+        Me.btn_ingresar.Size = New System.Drawing.Size(349, 48)
+        Me.btn_ingresar.TabIndex = 7
+        Me.btn_ingresar.Text = "Ingresar"
+        Me.btn_ingresar.UseVisualStyleBackColor = False
+        '
+        'btn_ojo
+        '
+        Me.btn_ojo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_ojo.IconChar = FontAwesome.Sharp.IconChar.Eye
+        Me.btn_ojo.IconColor = System.Drawing.Color.Black
+        Me.btn_ojo.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btn_ojo.IconSize = 25
+        Me.btn_ojo.Location = New System.Drawing.Point(407, 393)
+        Me.btn_ojo.Name = "btn_ojo"
+        Me.btn_ojo.Size = New System.Drawing.Size(35, 36)
+        Me.btn_ojo.TabIndex = 9
+        Me.btn_ojo.UseVisualStyleBackColor = True
         '
         'Login
         '
@@ -184,13 +199,14 @@ Partial Class Login
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(92, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(453, 666)
+        Me.Controls.Add(Me.btn_ojo)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.IconButton1)
+        Me.Controls.Add(Me.btn_ingresar)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.txtPass)
+        Me.Controls.Add(Me.txt_pass)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtUser)
+        Me.Controls.Add(Me.txt_usuario)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.TitleBar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -209,11 +225,12 @@ Partial Class Login
     Friend WithEvents btnClose As FontAwesome.Sharp.IconButton
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnMinimize As FontAwesome.Sharp.IconButton
-    Friend WithEvents txtUser As TextBox
+    Friend WithEvents txt_usuario As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents txtPass As TextBox
+    Friend WithEvents txt_pass As TextBox
     Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
+    Friend WithEvents btn_ingresar As FontAwesome.Sharp.IconButton
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents btn_ojo As FontAwesome.Sharp.IconButton
 End Class

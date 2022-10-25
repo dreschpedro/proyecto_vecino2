@@ -5,12 +5,12 @@ Public Class Login
 #Region "customize Controls"
     Private Sub CustomizeComponents()
         'txtUser
-        txtUser.AutoSize = False
-        txtUser.Size = New Size(350, 45)
+        txt_usuario.AutoSize = False
+        txt_usuario.Size = New Size(350, 45)
         'txtPass
-        txtPass.AutoSize = False
-        txtPass.Size = New Size(350, 45)
-        txtPass.UseSystemPasswordChar = True
+        txt_pass.AutoSize = False
+        txt_pass.Size = New Size(350, 45)
+        txt_pass.UseSystemPasswordChar = True
     End Sub
 #End Region
 
@@ -45,12 +45,12 @@ Public Class Login
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'txtUser
-        txtUser.AutoSize = False
-        txtUser.Size = New Size(350, 35)
+        txt_usuario.AutoSize = False
+        txt_usuario.Size = New Size(350, 35)
         'txtPass
-        txtPass.AutoSize = False
-        txtPass.Size = New Size(350, 35)
-        txtPass.UseSystemPasswordChar = True
+        txt_pass.AutoSize = False
+        txt_pass.Size = New Size(350, 35)
+        txt_pass.UseSystemPasswordChar = True
 
         Try
             'para ganar velocidad conecto y desconecto de la base
@@ -66,16 +66,66 @@ Public Class Login
 
     End Sub
 
-    Private Sub IconButton1_Paint(sender As Object, e As PaintEventArgs) Handles IconButton1.Paint
+    Private Sub IconButton1_Paint(sender As Object, e As PaintEventArgs) Handles btn_ingresar.Paint
         Dim buttonPath As Drawing2D.GraphicsPath = New Drawing2D.GraphicsPath()
-        Dim myrectangle As Rectangle = IconButton1.ClientRectangle
+        Dim myrectangle As Rectangle = btn_ingresar.ClientRectangle
         myrectangle.Inflate(0, 40)
         buttonPath.AddEllipse(myrectangle)
-        IconButton1.Region = New Region(buttonPath)
+        btn_ingresar.Region = New Region(buttonPath)
     End Sub
 
-    Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
-        principal.Show()
-        Me.Close()
+    Private Sub btn_ingresar_Click(sender As Object, e As EventArgs) Handles btn_ingresar.Click
+
+        '"SELECT * FROM usuarios WHERE nombre_usuario='"
+        Try
+            'conecto a la base
+            Call conectar()
+            conexion.Open()
+
+            'trabajo con los datos
+
+            'el objeto command permite ejecutar sentencias SQL
+            Dim Comando As New MySqlCommand
+
+            'conecto el objeto command
+            Comando.Connection = conexion
+
+            'configuro command para sentencia SQL
+            Comando.CommandType = CommandType.Text
+
+            'cargo la sentencia
+            Comando.CommandText = "SELECT usuario, pass FROM personal WHERE usuario='" & Trim(txt_usuario.Text) & "' AND pass='" & Trim(txt_usuario.Text) & "';"
+
+            'obtengo los datos y los devuelvo a un objeto DataReader
+            Dim DReader As MySqlDataReader
+
+            'el método ExecuteReader trae los datos de la BD
+            DReader = Comando.ExecuteReader
+
+            'consulto si trajo registros
+            If DReader.HasRows <> False Then
+                'si es verdadero, hay concidencia del usuario y clave cargados
+                DReader.Read()
+                'abro el formulario principal
+                principal.Show()
+            Else
+                MsgBox("USUARIO O CLAVE INCORRECTOS", MsgBoxStyle.Critical, "ATENCION")
+            End If
+
+            'cierro el DReader
+            DReader.Close()
+
+            'cierro la conexion
+            conexion.Close()
+
+        Catch ex As Exception
+            'SI HAY UN ERROR MUESTRO EL MENSAJE
+            MsgBox(ex.Message)
+            conexion.Close()
+        End Try
+
+        'principal.Show()
+        'Me.Close()
     End Sub
+
 End Class

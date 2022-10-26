@@ -131,7 +131,7 @@ INSERT INTO `personal` (`id_personal`, `apellido`, `nombre`, `telefono`, `usuari
 	(6, 'Johnson', 'Carl', '3141516', 'grove', 'street', 'Voluntario'),
 	(7, 'Stark', 'Tony', '2129704133', 'iron', 'tuAbuela', 'Voluntario'),
 	(8, 'Dresch', 'Pedro', '3216351', 'pedrito', 'pedro', 'Responsable'),
-	(17, 'jshbdcjshd', 'jhsdbkjdhf', '1651465', 'admin', 'admin', 'Responsable'),
+	(17, 'jshbdcjshd', 'jhsdbkjdhf', '1651465', 'admin', 'admin', 'Administrador'),
 	(18, 'dfv', 'dvfv', '61615', 'qwerty', '123456', 'Voluntario');
 
 -- Volcando estructura para tabla vecino_sustentable.registros_hoy

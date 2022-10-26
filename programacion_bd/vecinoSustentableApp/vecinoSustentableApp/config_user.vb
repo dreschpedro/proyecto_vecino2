@@ -258,10 +258,6 @@ Public Class config_user
         End Try
     End Sub
 
-    Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
-
-    End Sub
-
     Private Sub btn_modificar_Click(sender As Object, e As EventArgs) Handles btn_modificar.Click
         'primero controlo que esten los datos cargados
         If Trim(txt_usuario.Text) = "" And Trim(txt_pass.Text) = "" And Trim(cmb_rol.SelectedIndex) = -1 And Trim(txt_ape.Text) = "" And Trim(txt_nombre.Text) = "" And Trim(txt_telefono.Text) = "" Then

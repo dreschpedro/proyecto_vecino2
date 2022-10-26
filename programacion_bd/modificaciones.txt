@@ -1,11 +1,7 @@
-FORM CONFIGURACION DE USUARIO
-------------------------------------
-* boton modificar, eliminar y campo "buscar" hecho
-* boton buscar ---> sin funcion
+*config usuario --> boton buscar eliminado, en su lugar el BOTON LIMPIAR
 
-**BUG ANTERIOR** ---> CORREGIDO
+*agregado rol "Administrador" ---> el unico que puede modificar datos sensibles
 
-nuevas consultas SQL
+*corregido bug del login
 
-login funcional en parte, solo funciona con admin/admin
-los demas usuarios y pass no funcionan
+*se guarda el rol del usuario al ingresar

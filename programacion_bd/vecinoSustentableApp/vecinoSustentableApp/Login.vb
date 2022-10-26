@@ -66,7 +66,7 @@ Public Class Login
 
     End Sub
 
-    Private Sub IconButton1_Paint(sender As Object, e As PaintEventArgs) Handles btn_ingresar.Paint
+    Private Sub btn_ingresar_Paint(sender As Object, e As PaintEventArgs) Handles btn_ingresar.Paint
         Dim buttonPath As Drawing2D.GraphicsPath = New Drawing2D.GraphicsPath()
         Dim myrectangle As Rectangle = btn_ingresar.ClientRectangle
         myrectangle.Inflate(0, 40)
@@ -94,7 +94,7 @@ Public Class Login
             Comando.CommandType = CommandType.Text
 
             'cargo la sentencia
-            Comando.CommandText = "SELECT usuario, pass FROM personal WHERE usuario='" & Trim(txt_usuario.Text) & "' AND pass='" & Trim(txt_usuario.Text) & "';"
+            Comando.CommandText = "SELECT usuario, pass, rol FROM personal WHERE usuario='" & Trim(txt_usuario.Text) & "' AND pass='" & Trim(txt_pass.Text) & "';"
 
             'obtengo los datos y los devuelvo a un objeto DataReader
             Dim DReader As MySqlDataReader
@@ -106,8 +106,12 @@ Public Class Login
             If DReader.HasRows <> False Then
                 'si es verdadero, hay concidencia del usuario y clave cargados
                 DReader.Read()
+
+                'guardo el rol del usuario que ingreso
+                rol_usuario = DReader("rol")
                 'abro el formulario principal
                 principal.Show()
+                Me.Close()
             Else
                 MsgBox("USUARIO O CLAVE INCORRECTOS", MsgBoxStyle.Critical, "ATENCION")
             End If

@@ -38,6 +38,14 @@ Public Class principal
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If rol_usuario = "Voluntario" Then
+            btnDashboar.Enabled = False
+            btnEcopunto.Enabled = False
+            btnPersonal.Enabled = False
+        ElseIf rol_usuario = "Responsable" Then
+            btnEcopunto.Enabled = False
+            btnConfigUsers.Enabled = False
+        End If
         ocultarSubmenu()
     End Sub
 

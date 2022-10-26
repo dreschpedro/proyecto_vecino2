@@ -42,6 +42,7 @@ Public Class config_user
 
         'Opciones en el combobos de "Rol"
         'Se muestran al iniciar el formulario, solo se pueden elejir entre esas 2
+        cmb_rol.Items.Add("Administrador")
         cmb_rol.Items.Add("Responsable")
         cmb_rol.Items.Add("Voluntario")
     End Sub

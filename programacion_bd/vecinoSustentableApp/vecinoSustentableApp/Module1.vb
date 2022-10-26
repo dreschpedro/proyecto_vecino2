@@ -5,6 +5,8 @@ Module Module1
 
     Friend conexion As MySqlConnection
 
+    Friend rol_usuario As String
+
     Sub conectar()
         'uso try para controlar errores
         Try

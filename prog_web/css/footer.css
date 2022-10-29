@@ -1,0 +1,119 @@
+/* colores */
+
+:root {
+    --black: rgb(25, 25, 25);
+    --verde_ele: rgb(0, 220, 0);
+    --azul: rgb(13, 16, 66);
+    --grey: rgb(89, 89, 89);
+    --gris_claro: rgb(154, 154, 154);
+    --blanco: rgb(220, 220, 220);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    color: var(--gris_claro);
+}
+
+.container {
+    display: flex;
+    background-color: var(--grey);
+    height: 250px;
+}
+
+footer {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    background-color: var(--gris_claro);
+    width: 100%;
+    text-decoration: none;
+    border: 1px solid var(--gris_claro);
+    margin: 10px auto;
+}
+
+.social .seguinos,
+.social a i {
+    color: var(--blanco);
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 320px) {
+    /* Mobile */
+
+}
+
+@media (min-width: 481px) {
+    /* Tablets */
+
+}
+
+@media (min-width: 769px) {/* Laptops */
+    footer {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 80%;
+        margin: 0 auto;
+        justify-content: space-around;
+        /* align-self: flex-end; */
+    }
+
+    .primer {
+        display: flex;
+        flex-direction: row;
+        /* border: 2px solid pink; */
+        margin: 10px;
+        /* justify-content: space-around; */
+    }
+
+    .primer .navbar {
+        /* border: 5px solid green; */
+        display: flex;
+        flex: 1 1 60%;
+    }
+
+    .navbar .link {
+        flex: 1 1 auto;
+        text-align: center;
+        height: 70px;
+        line-height: 70px;
+    }
+
+    .primer .social {
+        flex: 1 1 20%;
+        margin-left: 30px;
+        justify-content: center;
+        align-self: center;
+        /* height: 70; */
+    }
+
+    .social .seguinos {
+        text-align: center;
+        /* border: 2px solid black; */
+    }
+
+    .navbar .link {
+        /* border: 2px solid red; */
+    }
+
+    .primer .social .iconos {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        /* border: 2px solid black; */
+    }
+
+    .vecino {
+        text-align: center;
+        /* border: 2px solid red; */
+        margin: 10px;
+    }
+}

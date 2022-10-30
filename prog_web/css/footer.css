@@ -9,18 +9,14 @@
     --blanco: rgb(220, 220, 220);
 }
 
-* {
-    box-sizing: border-box;
-    padding: 0;
-    border: 0;
-    margin: 0;
-    color: var(--gris_claro);
+*{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .container {
     display: flex;
     background-color: var(--grey);
-    height: 250px;
+    /* height: 650px; */
 }
 
 footer {
@@ -31,6 +27,13 @@ a {
     text-decoration: none;
 }
 
+/* al pasar el Mouse por el link */
+.navbar .link:hover,
+.iconos a i:hover {
+    /* border: 2px solid red; */
+    color: var(--verde_ele);
+}
+
 hr {
     background-color: var(--gris_claro);
     width: 100%;
@@ -39,21 +42,162 @@ hr {
     margin: 10px auto;
 }
 
+.social .seguinos{
+    font-size: 1em;
+}
+
 .social .seguinos,
 .social a i {
     color: var(--blanco);
 }
 
-/* MEDIA QUERIES */
-
-@media (min-width: 320px) {
-    /* Mobile */
-
+.navbar .link,
+footer .vecino{
+    color: var(--gris_claro);
 }
 
-@media (min-width: 481px) {
-    /* Tablets */
+/* ########################################### */
+/* BORDES DE PUEBA*/
 
+.primer {
+    /* border: 1px solid pink; */
+}
+
+.primer .navbar {
+    /* border: 2px solid green; */
+}
+
+.navbar .link {
+    /* border: 1px solid red; */
+}
+
+.primer .social {
+    /* border: 1px solid orange; */
+}
+
+.social .seguinos {
+    /* border: 1px solid black; */
+}
+
+.primer .social .iconos {
+    /* border: 1px solid aqua; */
+}
+
+.vecino {
+    /* border: 1px solid red; */
+}
+/* ########################################### */
+
+/* MEDIA QUERIES */
+
+@media (min-width: 320px) and (max-width: 480px) {/* Mobile */
+    footer {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 80%;
+        margin: 0 auto;
+        justify-content: space-around;
+        /* align-self: flex-end; */
+    }
+
+    .primer {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        /* justify-content: space-around; */
+    }
+
+    .primer .navbar {
+        display: flex;
+        flex-flow: row wrap;
+        /* flex: 1 1 60%; */
+        justify-content: center;
+    }
+
+    .navbar .link {
+        /* flex: 1 1 auto; */
+        width: 120px;
+        text-align: center;
+        height: 70px;
+        line-height: 70px;
+    }
+
+    .primer .social {
+        /* flex: 1 1 20%; */
+        /* margin-left: 30px; */
+        justify-content: center;
+        align-self: center;
+        /* height: 70; */
+    }
+
+    .social .seguinos {
+        text-align: center;
+    }
+
+    .primer .social .iconos {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .vecino {
+        text-align: center;
+        margin: 10px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {/* Tablet */
+    footer {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 80%;
+        margin: 0 auto;
+        justify-content: space-around;
+        /* align-self: flex-end; */
+    }
+
+    .primer {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        /* justify-content: space-around; */
+    }
+
+    .primer .navbar {
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 60%;
+    }
+
+    .navbar .link {
+        flex: 1 1 auto;
+        text-align: center;
+        height: 70px;
+        line-height: 70px;
+    }
+
+    .primer .social {
+        flex: 1 1 20%;
+        /* margin-left: 30px; */
+        justify-content: center;
+        align-self: center;
+        /* height: 70; */
+    }
+
+    .social .seguinos {
+        text-align: center;
+    }
+
+    .primer .social .iconos {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .vecino {
+        text-align: center;
+        margin: 10px;
+    }
 }
 
 @media (min-width: 769px) {/* Laptops */
@@ -69,13 +213,11 @@ hr {
     .primer {
         display: flex;
         flex-direction: row;
-        /* border: 2px solid pink; */
         margin: 10px;
         /* justify-content: space-around; */
     }
 
     .primer .navbar {
-        /* border: 5px solid green; */
         display: flex;
         flex: 1 1 60%;
     }
@@ -97,23 +239,18 @@ hr {
 
     .social .seguinos {
         text-align: center;
-        /* border: 2px solid black; */
     }
 
-    .navbar .link {
-        /* border: 2px solid red; */
-    }
+
 
     .primer .social .iconos {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        /* border: 2px solid black; */
     }
 
     .vecino {
         text-align: center;
-        /* border: 2px solid red; */
         margin: 10px;
     }
 }

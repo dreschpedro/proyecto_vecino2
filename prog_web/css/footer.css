@@ -7,9 +7,11 @@
     --grey: rgb(89, 89, 89);
     --gris_claro: rgb(154, 154, 154);
     --blanco: rgb(220, 220, 220);
+    --celeste: rgb(59, 89, 152);
+    --ig: #fff #3051f1 #c92bb7 #f73344 #fa8e37 #fcdf8f #fbd377;
 }
 
-*{
+* {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -25,13 +27,19 @@ footer {
 
 a {
     text-decoration: none;
+    /* border: 2px solid red; */
+}
+
+.navbar .link {
+    font-weight: bold;
+    margin: 5px;
 }
 
 /* al pasar el Mouse por el link */
-.navbar .link:hover,
-.iconos a i:hover {
+.navbar .link:hover {
     /* border: 2px solid red; */
-    color: var(--verde_ele);
+    background-color: var(--verde_ele);
+    color: var(--black);
 }
 
 hr {
@@ -42,7 +50,7 @@ hr {
     margin: 10px auto;
 }
 
-.social .seguinos{
+.social .seguinos {
     font-size: 1em;
 }
 
@@ -51,206 +59,248 @@ hr {
     color: var(--blanco);
 }
 
-.navbar .link,
-footer .vecino{
-    color: var(--gris_claro);
-}
-
-/* ########################################### */
-/* BORDES DE PUEBA*/
-
-.primer {
-    /* border: 1px solid pink; */
-}
-
-.primer .navbar {
-    /* border: 2px solid green; */
-}
-
-.navbar .link {
-    /* border: 1px solid red; */
-}
-
-.primer .social {
-    /* border: 1px solid orange; */
-}
-
-.social .seguinos {
-    /* border: 1px solid black; */
-}
 
 .primer .social .iconos {
-    /* border: 1px solid aqua; */
+    display: flex;
+    flex-direction: row;
+    /* border: 2px solid orange; */
+    justify-content: space-evenly;
+    align-items: center;
+    align-self: center;
 }
 
-.vecino {
-    /* border: 1px solid red; */
+.primer .social .iconos a {
+    display: flex;
+    /* border: 2px solid red; */
 }
-/* ########################################### */
 
-/* MEDIA QUERIES */
 
-@media (min-width: 320px) and (max-width: 480px) {/* Mobile */
-    footer {
-        display: flex;
-        flex-direction: column;
-        flex: 0 0 80%;
-        margin: 0 auto;
-        justify-content: space-around;
-        /* align-self: flex-end; */
+.primer .social .iconos a i {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.primer .social .iconos a .face:hover {
+    background-color: var(--celeste);
+    color: var(--blanco);
+    transform: scale(1.1);
+}
+
+.primer .social .iconos a .insta:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background-clip: text;
+    /* border-radius: 20%; */
+    transform: scale(1.1);
+    color:transparent;
+}
+
+    .navbar .link,
+    footer .vecino {
+        color: var(--gris_claro);
     }
 
+    /* ########################################### */
+    /* BORDES DE PUEBA*/
+
     .primer {
-        display: flex;
-        flex-direction: column;
-        margin: 10px;
-        /* justify-content: space-around; */
+        /* border: 1px solid pink; */
     }
 
     .primer .navbar {
-        display: flex;
-        flex-flow: row wrap;
-        /* flex: 1 1 60%; */
-        justify-content: center;
+        /* border: 2px solid green; */
     }
 
     .navbar .link {
-        /* flex: 1 1 auto; */
-        width: 120px;
-        text-align: center;
-        height: 70px;
-        line-height: 70px;
+        /* border: 1px solid red; */
     }
 
     .primer .social {
-        /* flex: 1 1 20%; */
-        /* margin-left: 30px; */
-        justify-content: center;
-        align-self: center;
-        /* height: 70; */
+        /* border: 1px solid orange; */
     }
 
     .social .seguinos {
-        text-align: center;
+        /* border: 1px solid black; */
     }
 
-    .primer .social .iconos {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-
-    .vecino {
-        text-align: center;
-        margin: 10px;
-    }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {/* Tablet */
-    footer {
-        display: flex;
-        flex-direction: column;
-        flex: 0 0 80%;
-        margin: 0 auto;
-        justify-content: space-around;
-        /* align-self: flex-end; */
-    }
-
-    .primer {
-        display: flex;
-        flex-direction: column;
-        margin: 10px;
-        /* justify-content: space-around; */
-    }
-
-    .primer .navbar {
-        display: flex;
-        flex-direction: row;
-        flex: 1 1 60%;
-    }
-
-    .navbar .link {
-        flex: 1 1 auto;
-        text-align: center;
-        height: 70px;
-        line-height: 70px;
-    }
-
-    .primer .social {
-        flex: 1 1 20%;
-        /* margin-left: 30px; */
-        justify-content: center;
-        align-self: center;
-        /* height: 70; */
-    }
-
-    .social .seguinos {
-        text-align: center;
-    }
-
-    .primer .social .iconos {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
+    .primer .social .iconos a i {
+        /* border: 1px solid aqua; */
     }
 
     .vecino {
-        text-align: center;
-        margin: 10px;
-    }
-}
-
-@media (min-width: 769px) {/* Laptops */
-    footer {
-        display: flex;
-        flex-direction: column;
-        flex: 0 0 80%;
-        margin: 0 auto;
-        justify-content: space-around;
-        /* align-self: flex-end; */
+        /* border: 1px solid red; */
     }
 
-    .primer {
-        display: flex;
-        flex-direction: row;
-        margin: 10px;
-        /* justify-content: space-around; */
+    /* ########################################### */
+
+    /* MEDIA QUERIES */
+
+    @media (min-width: 320px) and (max-width: 480px) {
+
+        /* Mobile */
+        footer {
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 80%;
+            margin: 0 auto;
+            justify-content: space-around;
+            /* align-self: flex-end; */
+        }
+
+        .primer {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+            /* justify-content: space-around; */
+        }
+
+        .primer .navbar {
+            display: flex;
+            flex-flow: row wrap;
+            /* flex: 1 1 60%; */
+            justify-content: space-evenly;
+        }
+
+        .navbar .link {
+            /* flex: 1 1 auto; */
+            width: 120px;
+            text-align: center;
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            align-self: center;
+            border-radius: 5px;
+        }
+
+        .primer .social {
+            /* flex: 1 1 20%; */
+            /* margin-left: 30px; */
+            justify-content: center;
+            align-self: center;
+            /* height: 70; */
+        }
+
+        .social .seguinos {
+            text-align: center;
+        }
+
+        .vecino {
+            text-align: center;
+            margin: 10px;
+        }
     }
 
-    .primer .navbar {
-        display: flex;
-        flex: 1 1 60%;
+    @media (min-width: 481px) and (max-width: 768px) {
+
+        /* Tablet */
+        footer {
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 80%;
+            margin: 0 auto;
+            justify-content: space-around;
+            /* align-self: flex-end; */
+        }
+
+        .primer {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+            /* justify-content: space-around; */
+        }
+
+        .primer .navbar {
+            display: flex;
+            flex-direction: row;
+            flex: 1 1 60%;
+            justify-content: space-around;
+        }
+
+        .navbar .link {
+            /* flex: 1 1 auto; */
+            text-align: center;
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            align-self: center;
+            border-radius: 5px;
+        }
+
+        .primer .social {
+            flex: 1 1 20%;
+            /* margin-left: 30px; */
+            justify-content: center;
+            align-self: center;
+            /* height: 70; */
+        }
+
+        .social .seguinos {
+            text-align: center;
+        }
+
+        .vecino {
+            text-align: center;
+            margin: 10px;
+        }
     }
 
-    .navbar .link {
-        flex: 1 1 auto;
-        text-align: center;
-        height: 70px;
-        line-height: 70px;
+    @media (min-width: 769px) {
+
+        /* Laptops */
+        footer {
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 80%;
+            margin: 0 auto;
+            justify-content: space-around;
+            /* align-self: flex-end; */
+        }
+
+        .primer {
+            display: flex;
+            flex-direction: row;
+            margin: 10px;
+            /* justify-content: space-around; */
+        }
+
+        .primer .navbar {
+            display: flex;
+            flex: 1 1 60%;
+            height: 60px;
+            /* line-height: 60px; */
+            justify-content: space-around;
+            align-self: center;
+        }
+
+        .navbar .link {
+            /* flex: 1 1 auto; */
+            text-align: center;
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            align-self: center;
+            border-radius: 5px;
+        }
+
+        .primer .social {
+            flex: 1 1 20%;
+            margin-left: 30px;
+            justify-content: center;
+            align-self: center;
+            /* height: 70; */
+        }
+
+        .social .seguinos {
+            text-align: center;
+        }
+
+        .vecino {
+            text-align: center;
+            margin: 10px;
+        }
     }
-
-    .primer .social {
-        flex: 1 1 20%;
-        margin-left: 30px;
-        justify-content: center;
-        align-self: center;
-        /* height: 70; */
-    }
-
-    .social .seguinos {
-        text-align: center;
-    }
-
-
-
-    .primer .social .iconos {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-
-    .vecino {
-        text-align: center;
-        margin: 10px;
-    }
-}

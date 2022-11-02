@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "vecinoSustentableApp", "vecinoSustentableApp\vecinoSustentableApp.vbproj", "{16283122-9EDD-4313-BB53-436FFFAAB9CB}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ReportLibrary", "ReportLibrary\ReportLibrary.vbproj", "{14FC5AAD-0A8D-4C63-BD78-7C098FA8D10E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{16283122-9EDD-4313-BB53-436FFFAAB9CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16283122-9EDD-4313-BB53-436FFFAAB9CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16283122-9EDD-4313-BB53-436FFFAAB9CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14FC5AAD-0A8D-4C63-BD78-7C098FA8D10E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14FC5AAD-0A8D-4C63-BD78-7C098FA8D10E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14FC5AAD-0A8D-4C63-BD78-7C098FA8D10E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14FC5AAD-0A8D-4C63-BD78-7C098FA8D10E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

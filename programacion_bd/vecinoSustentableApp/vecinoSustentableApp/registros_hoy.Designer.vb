@@ -23,20 +23,21 @@ Partial Class registros_hoy
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.txtCantidad = New System.Windows.Forms.TextBox()
+        Me.txt_cantidad = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnEliminar = New FontAwesome.Sharp.IconButton()
         Me.btnModificar = New FontAwesome.Sharp.IconButton()
-        Me.btnBuscar = New FontAwesome.Sharp.IconButton()
         Me.btnAgregar = New FontAwesome.Sharp.IconButton()
         Me.lblMedida = New System.Windows.Forms.Label()
-        Me.cmbNombreResiduo = New System.Windows.Forms.ComboBox()
-        Me.cmbNombreEcopunto = New System.Windows.Forms.ComboBox()
+        Me.cmb_residuo = New System.Windows.Forms.ComboBox()
+        Me.cmb_ecopunto = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.lbl_id_registro = New System.Windows.Forms.Label()
-        Me.lb_registro = New System.Windows.Forms.ListBox()
+        Me.lv_registro = New System.Windows.Forms.ListView()
+        Me.residuo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.cantidad = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.btn_imprimir = New FontAwesome.Sharp.IconButton()
         Me.SuspendLayout()
         '
         'Button2
@@ -52,15 +53,15 @@ Partial Class registros_hoy
         Me.Button2.Text = "X"
         Me.Button2.UseVisualStyleBackColor = False
         '
-        'txtCantidad
+        'txt_cantidad
         '
-        Me.txtCantidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCantidad.Location = New System.Drawing.Point(483, 230)
-        Me.txtCantidad.MaximumSize = New System.Drawing.Size(140, 20)
-        Me.txtCantidad.MinimumSize = New System.Drawing.Size(140, 20)
-        Me.txtCantidad.Name = "txtCantidad"
-        Me.txtCantidad.Size = New System.Drawing.Size(140, 20)
-        Me.txtCantidad.TabIndex = 3
+        Me.txt_cantidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txt_cantidad.Location = New System.Drawing.Point(483, 230)
+        Me.txt_cantidad.MaximumSize = New System.Drawing.Size(140, 20)
+        Me.txt_cantidad.MinimumSize = New System.Drawing.Size(140, 20)
+        Me.txt_cantidad.Name = "txt_cantidad"
+        Me.txt_cantidad.Size = New System.Drawing.Size(140, 20)
+        Me.txt_cantidad.TabIndex = 3
         '
         'Label1
         '
@@ -145,30 +146,6 @@ Partial Class registros_hoy
         Me.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnModificar.UseVisualStyleBackColor = False
         '
-        'btnBuscar
-        '
-        Me.btnBuscar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnBuscar.AutoSize = True
-        Me.btnBuscar.BackColor = System.Drawing.Color.DodgerBlue
-        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search
-        Me.btnBuscar.IconColor = System.Drawing.Color.Black
-        Me.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnBuscar.IconSize = 15
-        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnBuscar.Location = New System.Drawing.Point(483, 480)
-        Me.btnBuscar.MaximumSize = New System.Drawing.Size(194, 35)
-        Me.btnBuscar.MinimumSize = New System.Drawing.Size(194, 35)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(194, 35)
-        Me.btnBuscar.TabIndex = 5
-        Me.btnBuscar.Text = "Buscar"
-        Me.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnBuscar.UseVisualStyleBackColor = False
-        '
         'btnAgregar
         '
         Me.btnAgregar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -183,7 +160,7 @@ Partial Class registros_hoy
         Me.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnAgregar.IconSize = 15
         Me.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAgregar.Location = New System.Drawing.Point(482, 439)
+        Me.btnAgregar.Location = New System.Drawing.Point(483, 478)
         Me.btnAgregar.MaximumSize = New System.Drawing.Size(194, 35)
         Me.btnAgregar.MinimumSize = New System.Drawing.Size(194, 35)
         Me.btnAgregar.Name = "btnAgregar"
@@ -201,29 +178,29 @@ Partial Class registros_hoy
         Me.lblMedida.ForeColor = System.Drawing.Color.Gainsboro
         Me.lblMedida.Location = New System.Drawing.Point(645, 234)
         Me.lblMedida.Name = "lblMedida"
-        Me.lblMedida.Size = New System.Drawing.Size(14, 16)
+        Me.lblMedida.Size = New System.Drawing.Size(13, 16)
         Me.lblMedida.TabIndex = 22
         Me.lblMedida.Text = "-"
         '
-        'cmbNombreResiduo
+        'cmb_residuo
         '
-        Me.cmbNombreResiduo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbNombreResiduo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbNombreResiduo.FormattingEnabled = True
-        Me.cmbNombreResiduo.Location = New System.Drawing.Point(482, 174)
-        Me.cmbNombreResiduo.Name = "cmbNombreResiduo"
-        Me.cmbNombreResiduo.Size = New System.Drawing.Size(193, 21)
-        Me.cmbNombreResiduo.TabIndex = 2
+        Me.cmb_residuo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmb_residuo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_residuo.FormattingEnabled = True
+        Me.cmb_residuo.Location = New System.Drawing.Point(482, 174)
+        Me.cmb_residuo.Name = "cmb_residuo"
+        Me.cmb_residuo.Size = New System.Drawing.Size(193, 21)
+        Me.cmb_residuo.TabIndex = 2
         '
-        'cmbNombreEcopunto
+        'cmb_ecopunto
         '
-        Me.cmbNombreEcopunto.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbNombreEcopunto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbNombreEcopunto.FormattingEnabled = True
-        Me.cmbNombreEcopunto.Location = New System.Drawing.Point(482, 114)
-        Me.cmbNombreEcopunto.Name = "cmbNombreEcopunto"
-        Me.cmbNombreEcopunto.Size = New System.Drawing.Size(193, 21)
-        Me.cmbNombreEcopunto.TabIndex = 1
+        Me.cmb_ecopunto.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmb_ecopunto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_ecopunto.FormattingEnabled = True
+        Me.cmb_ecopunto.Location = New System.Drawing.Point(482, 114)
+        Me.cmb_ecopunto.Name = "cmb_ecopunto"
+        Me.cmb_ecopunto.Size = New System.Drawing.Size(193, 21)
+        Me.cmb_ecopunto.TabIndex = 1
         '
         'Label2
         '
@@ -237,28 +214,54 @@ Partial Class registros_hoy
         Me.Label2.TabIndex = 24
         Me.Label2.Text = "Nombre del Ecopunto:"
         '
-        'lbl_id_registro
+        'lv_registro
         '
-        Me.lbl_id_registro.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lbl_id_registro.AutoSize = True
-        Me.lbl_id_registro.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_id_registro.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lbl_id_registro.Location = New System.Drawing.Point(525, 42)
-        Me.lbl_id_registro.Name = "lbl_id_registro"
-        Me.lbl_id_registro.Size = New System.Drawing.Size(124, 25)
-        Me.lbl_id_registro.TabIndex = 29
-        Me.lbl_id_registro.Text = "id_registro"
-        '
-        'lb_registro
-        '
-        Me.lb_registro.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.lv_registro.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lb_registro.FormattingEnabled = True
-        Me.lb_registro.Location = New System.Drawing.Point(16, 101)
-        Me.lb_registro.Name = "lb_registro"
-        Me.lb_registro.Size = New System.Drawing.Size(457, 498)
-        Me.lb_registro.TabIndex = 30
+        Me.lv_registro.AutoArrange = False
+        Me.lv_registro.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.residuo, Me.cantidad})
+        Me.lv_registro.FullRowSelect = True
+        Me.lv_registro.HideSelection = False
+        Me.lv_registro.Location = New System.Drawing.Point(16, 101)
+        Me.lv_registro.Name = "lv_registro"
+        Me.lv_registro.Size = New System.Drawing.Size(457, 498)
+        Me.lv_registro.TabIndex = 31
+        Me.lv_registro.UseCompatibleStateImageBehavior = False
+        Me.lv_registro.View = System.Windows.Forms.View.Details
+        '
+        'residuo
+        '
+        Me.residuo.Text = "Residuo"
+        Me.residuo.Width = 200
+        '
+        'cantidad
+        '
+        Me.cantidad.Text = "Cantidad"
+        Me.cantidad.Width = 100
+        '
+        'btn_imprimir
+        '
+        Me.btn_imprimir.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_imprimir.BackColor = System.Drawing.Color.MediumPurple
+        Me.btn_imprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn_imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn_imprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_imprimir.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btn_imprimir.IconChar = FontAwesome.Sharp.IconChar.Print
+        Me.btn_imprimir.IconColor = System.Drawing.Color.White
+        Me.btn_imprimir.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btn_imprimir.IconSize = 20
+        Me.btn_imprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_imprimir.Location = New System.Drawing.Point(484, 437)
+        Me.btn_imprimir.MaximumSize = New System.Drawing.Size(194, 35)
+        Me.btn_imprimir.MinimumSize = New System.Drawing.Size(194, 35)
+        Me.btn_imprimir.Name = "btn_imprimir"
+        Me.btn_imprimir.Size = New System.Drawing.Size(194, 35)
+        Me.btn_imprimir.TabIndex = 177
+        Me.btn_imprimir.Text = "Imprimir"
+        Me.btn_imprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_imprimir.UseVisualStyleBackColor = False
         '
         'registros_hoy
         '
@@ -266,20 +269,19 @@ Partial Class registros_hoy
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(92, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(691, 611)
-        Me.Controls.Add(Me.lb_registro)
-        Me.Controls.Add(Me.lbl_id_registro)
-        Me.Controls.Add(Me.cmbNombreEcopunto)
+        Me.Controls.Add(Me.btn_imprimir)
+        Me.Controls.Add(Me.lv_registro)
+        Me.Controls.Add(Me.cmb_ecopunto)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.cmbNombreResiduo)
+        Me.Controls.Add(Me.cmb_residuo)
         Me.Controls.Add(Me.lblMedida)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnModificar)
-        Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtCantidad)
+        Me.Controls.Add(Me.txt_cantidad)
         Me.Controls.Add(Me.Button2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "registros_hoy"
@@ -289,18 +291,19 @@ Partial Class registros_hoy
 
     End Sub
     Friend WithEvents Button2 As Button
-    Friend WithEvents txtCantidad As TextBox
+    Friend WithEvents txt_cantidad As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents btnAgregar As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnBuscar As FontAwesome.Sharp.IconButton
     Friend WithEvents btnModificar As FontAwesome.Sharp.IconButton
     Friend WithEvents btnEliminar As FontAwesome.Sharp.IconButton
     Friend WithEvents Label4 As Label
     Friend WithEvents lblMedida As Label
-    Friend WithEvents cmbNombreResiduo As ComboBox
-    Friend WithEvents cmbNombreEcopunto As ComboBox
+    Friend WithEvents cmb_residuo As ComboBox
+    Friend WithEvents cmb_ecopunto As ComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents lbl_id_registro As Label
-    Friend WithEvents lb_registro As ListBox
+    Friend WithEvents lv_registro As ListView
+    Friend WithEvents residuo As ColumnHeader
+    Friend WithEvents cantidad As ColumnHeader
+    Friend WithEvents btn_imprimir As FontAwesome.Sharp.IconButton
 End Class

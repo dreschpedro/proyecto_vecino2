@@ -209,7 +209,7 @@ Public Class registros_hoy
             Comando.CommandType = CommandType.Text
 
             'PRIMERO CONTROLO QUE EL REGISTRO NO EXISTA
-            Comando.CommandText = "select * from registros_hoy where id_eco_resid = '""';"
+            'Comando.CommandText = "select * from registros_hoy where id_eco_resid = '""';"
             'obtengo los datos y los devuelvo a un objeto DataReader
             'Dim DReader As MySqlDataReader
             'el método ExecuteReader trae los datos de la BD
@@ -282,11 +282,16 @@ Public Class registros_hoy
             Comando.CommandType = CommandType.Text
 
             'PRIMERO CONTROLO QUE EL REGISTRO EXISTA
-            'Comando.CommandText = "select usuario, pass, rol, apellido, nombre, telefono from personal where usuario = '" & Trim(txt_usuario.Text) & "';"
+            Comando.CommandText = "select * from registros_hoy"
+
+
             'obtengo los datos y los devuelvo a un objeto DataReader
-            'Dim DReader As MySqlDataReader
+            Dim DReader As MySqlDataReader
             'el método ExecuteReader trae los datos de la BD
-            'DReader = Comando.ExecuteReader
+            DReader = Comando.ExecuteReader
+
+            Dim id_registro As String = DReader("id_eco_resid")
+            MsgBox("Valor: ", id_registro.ToString)
 
             'si encontro, entonces modifico
             'If DReader.HasRows Then 'estoompueba sy egistros cargados en el List
@@ -410,7 +415,62 @@ Public Class registros_hoy
     End Sub
 
     Private Sub cmb_ecopunto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_ecopunto.SelectedIndexChanged
-        MsgBox("Valor: " & cmb_ecopunto.ValueMember)
+        'MsgBox("Valor: " & cmb_ecopunto.ValueMember)
     End Sub
 
+    Private Sub lv_registro_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lv_registro.SelectedIndexChanged
+        If lv_registro.SelectedIndex >= 0 Then
+            Try
+
+                'conecto a la base
+                Call conectar()
+                conexion.Open()
+
+                'trabajo con los datos
+
+                'el objeto command permite ejecutar sentencias SQL
+                Dim Comando As New MySqlCommand
+
+                'conecto el objeto command
+                Comando.Connection = conexion
+
+                'configuro command para sentencia SQL
+                Comando.CommandType = CommandType.Text
+
+                'cargo la sentencia para buscar un registro
+                Comando.CommandText = "select * from registros_hoy where usuario = '" & lv_registro.SelectedItems.ToString & "' ;"
+
+                'obtengo los datos y los devuelvo a un objeto DataReader
+                Dim DReader As MySqlDataReader
+
+                'el método ExecuteReader trae los datos de la BD
+                DReader = Comando.ExecuteReader
+
+                'consulto si trajo registros
+                If DReader.HasRows Then
+                    'utilizo el DataReader para "mostrar" por los datos
+                    DReader.Read()
+                    txt_usuario.Text = DReader("usuario")
+                    txt_pass.Text = DReader("pass")
+                    cmb_rol.Text = DReader("rol")
+                    txt_ape.Text = DReader("apellido")
+                    txt_nombre.Text = DReader("nombre")
+                    txt_telefono.Text = DReader("telefono")
+                Else
+                    MsgBox("El Socio no existe")
+                End If
+
+                'cierro el DReader para poder ejecutar una nueva consulta SQL
+                DReader.Close()
+
+                'cierro la conexion
+                conexion.Close()
+
+            Catch ex As Exception
+                'SI HAY UN ERROR MUESTRO EL MENSAJE
+                MsgBox(ex.Message)
+                conexion.Close()
+            End Try
+        End If
+    End Sub
 End Class

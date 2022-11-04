@@ -1,8 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Data
 
 Public Class registros_hoy
     Private encontrado As String = ""
-    Dim sql_rH_sin_hora As String = "SELECT * FROM residuo JOIN registros_hoy ON registros_hoy.id_residuo = residuo.id_residuo"
+    Dim sql_rH_sin_hora As String = "SELECT residuo.nombre_residuo AS residuo, registros_hoy.cantidad_residuo AS cantidad FROM residuo JOIN registros_hoy ON registros_hoy.id_residuo = residuo.id_residuo"
 
     Sub CargarLV(ByVal cadena As String)
         Try
@@ -93,6 +94,12 @@ Public Class registros_hoy
                 Do While DReader.Read
                     'se muestra el nombre del ecopunto (2da posicion)
                     cmb_ecopunto.Items.Add(DReader(1))
+
+                    '##########################################################################
+                    'cmb_ecopunto.ValueMember = DReader(0) 'valor con el que se trabaja (id del ecopunto)
+                    'cmb_ecopunto.DisplayMember = DReader(1) 'valor que se muestra (nombre del ecopunto)
+
+                    'cmb_ecopunto.Items.Add(cmb_ecopunto.DisplayMember)
                 Loop
 
             End If
@@ -142,9 +149,13 @@ Public Class registros_hoy
                 'cargo el combobox utilizando el DReader
 
                 Do While DReader.Read
-                    'se muestra el nombre del ecopunto (2da posicion)
+
+                    cmb_residuo.ValueMember = DReader(0) 'valor con el que se trabaja (id del residuo)
+                    cmb_residuo.DisplayMember = DReader(1) 'valor que se muestra (nombre del residuo)
+
                     cmb_residuo.Items.Add(DReader(1))
-                    'cmbNombreResiduo.Items.Add(DReader(1))
+
+
                 Loop
 
             End If
@@ -164,12 +175,12 @@ Public Class registros_hoy
 
     Private Sub registros_hoy_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Call CargarLV(sql_rH_sin_hora)
-        Call CargarEcopunto("SELECT * FROM ecopunto")
-        Call CargarResiduo("SELECT * FROM residuo ORDER BY residuo.id_residuo")
+        Call CargarEcopunto("SELECT ecopunto.id_ecopunto, nombre FROM ecopunto")
+        Call CargarResiduo("SELECT residuo.id_residuo as id, residuo.nombre_residuo AS nombre FROM residuo ORDER BY residuo.id_residuo")
     End Sub
 
     Private Sub LimpiarForm()
-        cmb_residuo.SelectedIndex = -1
+        cmb_residuo.Text = ""
         txt_cantidad.Text = ""
     End Sub
 
@@ -189,16 +200,16 @@ Public Class registros_hoy
             Call conectar()
             conexion.Open()
 
-            'trabajo con los datos
-            'el objeto command permite ejecutar sentencias SQL
+            ''trabajo con los datos
+            ''el objeto command permite ejecutar sentencias SQL
             Dim Comando As New MySqlCommand
-            'conecto el objeto command
+            ''conecto el objeto command
             Comando.Connection = conexion
-            'configuro command para sentencia SQL
+            ''configuro Command para sentencia SQL
             Comando.CommandType = CommandType.Text
 
             'PRIMERO CONTROLO QUE EL REGISTRO NO EXISTA
-            'Comando.CommandText = "select * from registros_hoy where id_eco_resid = '""';"
+            Comando.CommandText = "select * from registros_hoy where id_eco_resid = '""';"
             'obtengo los datos y los devuelvo a un objeto DataReader
             'Dim DReader As MySqlDataReader
             'el método ExecuteReader trae los datos de la BD
@@ -212,17 +223,18 @@ Public Class registros_hoy
             'cierro el DataReader
             'DReader.Close()
 
+
             'cargo la sentencia para AGREGAR un registro
             Comando.CommandText = "insert into registros_hoy (id_residuo, id_ecopunto, cantidad_residuo) values (" & (cmb_residuo.SelectedIndex + 1) & "," & (cmb_ecopunto.SelectedIndex + 1) & "," & Trim(txt_cantidad.Text) & ");"
             'variable para recibir respuesta de ejecucion
             Dim Resultado As Integer
                 'el método ExecuteNonQuery devuelve solo la cantidad de registros afectados por la operacion
                 Resultado = Comando.ExecuteNonQuery
-            MsgBox("Registros Agregados: " & Resultado, MsgBoxStyle.Information, "Atención")
+                MsgBox("Registros Agregados: " & Resultado, MsgBoxStyle.Information, "Atención")
 
-            'cargo el list
-            Call CargarLV(sql_rH_sin_hora)
-            Call LimpiarForm()
+                'cargo el list
+                Call CargarLV(sql_rH_sin_hora)
+            'Call LimpiarForm()
             'End If
             'cierro la conexion
             conexion.Close()
@@ -272,19 +284,19 @@ Public Class registros_hoy
             'PRIMERO CONTROLO QUE EL REGISTRO EXISTA
             'Comando.CommandText = "select usuario, pass, rol, apellido, nombre, telefono from personal where usuario = '" & Trim(txt_usuario.Text) & "';"
             'obtengo los datos y los devuelvo a un objeto DataReader
-            Dim DReader As MySqlDataReader
+            'Dim DReader As MySqlDataReader
             'el método ExecuteReader trae los datos de la BD
             'DReader = Comando.ExecuteReader
 
             'si encontro, entonces modifico
-            If DReader.HasRows Then
-                'cierro el DataReader
-                DReader.Close()
+            'If DReader.HasRows Then 'estoompueba sy egistros cargados en el List
+            'cierro el DataReader
+            'DReader.Close()
 
-                'cargo la sentencia para MODIFICAR un registro
-                'Comando.CommandText = "update personal set usuario='" & Trim(txt_usuario.Text) & "',pass='" & Trim(txt_pass.Text) & "',rol='" & Trim(cmb_rol.Text) & "',apellido='" & Trim(txt_ape.Text) & "',nombre='" & Trim(txt_nombre.Text) & "',telefono='" & Trim(txt_telefono.Text) & "' where usuario = '" & Trim(txt_usuario.Text) & "';"
-                'variable para recibir respuesta de ejecucion
-                Dim Resultado As Integer
+            'cargo la sentencia para MODIFICAR un registro
+            'Comando.CommandText = "update personal set usuario='" & Trim(txt_usuario.Text) & "',pass='" & Trim(txt_pass.Text) & "',rol='" & Trim(cmb_rol.Text) & "',apellido='" & Trim(txt_ape.Text) & "',nombre='" & Trim(txt_nombre.Text) & "',telefono='" & Trim(txt_telefono.Text) & "' where usuario = '" & Trim(txt_usuario.Text) & "';"
+            'variable para recibir respuesta de ejecucion
+            Dim Resultado As Integer
                 'el método ExecuteNonQuery devuelve solo la cantidad de registros afectados por la operacion
                 Resultado = Comando.ExecuteNonQuery
 
@@ -293,11 +305,11 @@ Public Class registros_hoy
                 'cargo el list
                 Call CargarLV(sql_rH_sin_hora)
                 Call LimpiarForm()
-            Else
-                MsgBox("EL REGISTRO NO EXISTE", MsgBoxStyle.Critical, "ATENCION")
-                'cierro el DataReader
-                DReader.Close()
-            End If
+            'Else
+            MsgBox("EL REGISTRO NO EXISTE", MsgBoxStyle.Critical, "ATENCION")
+            'cierro el DataReader
+            'DReader.Close()
+            'End If
             'cierro la conexion
             conexion.Close()
 
@@ -381,11 +393,24 @@ Public Class registros_hoy
 
     End Sub
 
-    Private Sub btn_imprimir_Click(sender As Object, e As EventArgs) Handles btn_imprimir.Click
+    Private Sub lv_registro_ColumnClick(sender As Object, e As ColumnClickEventArgs) Handles lv_registro.ColumnClick
 
+        Dim consulta As String
+
+        'depende la columna que hace click ordena la lista
+
+        Select Case e.Column
+            Case 0
+                consulta = "SELECT residuo.nombre_residuo AS residuo,  registros_hoy.cantidad_residuo AS cantidad FROM residuo JOIN registros_hoy ON registros_hoy.id_residuo = residuo.id_residuo ORDER BY registros_hoy.id_residuo"
+            Case 1
+                consulta = "SELECT residuo.nombre_residuo AS residuo, registros_hoy.cantidad_residuo AS cantidad FROM residuo JOIN registros_hoy ON registros_hoy.id_residuo = residuo.id_residuo ORDER BY registros_hoy.cantidad_residuo"
+        End Select
+
+        Call CargarLV(consulta)
     End Sub
 
-    Private Sub lv_registro_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lv_registro.SelectedIndexChanged
-        'encontrado = MsgBox("Valor: " & cmb_residuo.Text)
+    Private Sub cmb_ecopunto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_ecopunto.SelectedIndexChanged
+        MsgBox("Valor: " & cmb_ecopunto.ValueMember)
     End Sub
+
 End Class

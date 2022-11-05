@@ -44,6 +44,7 @@ Public Class Login
     End Sub
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         'txtUser
         txt_usuario.AutoSize = False
         txt_usuario.Size = New Size(350, 35)

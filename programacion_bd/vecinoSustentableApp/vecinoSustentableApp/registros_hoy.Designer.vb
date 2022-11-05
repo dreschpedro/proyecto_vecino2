@@ -38,6 +38,9 @@ Partial Class registros_hoy
         Me.residuo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.cantidad = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.btn_imprimir = New FontAwesome.Sharp.IconButton()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txt_buscar = New System.Windows.Forms.TextBox()
+        Me.ecopunto = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.SuspendLayout()
         '
         'Button2
@@ -92,7 +95,7 @@ Partial Class registros_hoy
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label4.Location = New System.Drawing.Point(12, 63)
+        Me.Label4.Location = New System.Drawing.Point(117, 11)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(252, 24)
         Me.Label4.TabIndex = 21
@@ -220,7 +223,7 @@ Partial Class registros_hoy
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lv_registro.AutoArrange = False
-        Me.lv_registro.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.residuo, Me.cantidad})
+        Me.lv_registro.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ecopunto, Me.residuo, Me.cantidad})
         Me.lv_registro.FullRowSelect = True
         Me.lv_registro.HideSelection = False
         Me.lv_registro.Location = New System.Drawing.Point(16, 101)
@@ -263,12 +266,37 @@ Partial Class registros_hoy
         Me.btn_imprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_imprimir.UseVisualStyleBackColor = False
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label8.Location = New System.Drawing.Point(16, 78)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(50, 13)
+        Me.Label8.TabIndex = 179
+        Me.Label8.Text = "Buscar:"
+        '
+        'txt_buscar
+        '
+        Me.txt_buscar.Location = New System.Drawing.Point(78, 75)
+        Me.txt_buscar.Name = "txt_buscar"
+        Me.txt_buscar.Size = New System.Drawing.Size(190, 20)
+        Me.txt_buscar.TabIndex = 178
+        '
+        'ecopunto
+        '
+        Me.ecopunto.Text = "Ecopunto"
+        Me.ecopunto.Width = 80
+        '
         'registros_hoy
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(92, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(691, 611)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.txt_buscar)
         Me.Controls.Add(Me.btn_imprimir)
         Me.Controls.Add(Me.lv_registro)
         Me.Controls.Add(Me.cmb_ecopunto)
@@ -306,4 +334,7 @@ Partial Class registros_hoy
     Friend WithEvents residuo As ColumnHeader
     Friend WithEvents cantidad As ColumnHeader
     Friend WithEvents btn_imprimir As FontAwesome.Sharp.IconButton
+    Friend WithEvents Label8 As Label
+    Friend WithEvents txt_buscar As TextBox
+    Friend WithEvents ecopunto As ColumnHeader
 End Class

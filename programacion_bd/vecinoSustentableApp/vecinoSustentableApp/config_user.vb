@@ -260,7 +260,7 @@ Public Class config_user
 
     Private Sub btn_modificar_Click(sender As Object, e As EventArgs) Handles btn_modificar.Click
         'primero controlo que esten los datos cargados
-        If Trim(txt_usuario.Text) = "" And Trim(txt_pass.Text) = "" And Trim(cmb_rol.SelectedIndex) = -1 And Trim(txt_ape.Text) = "" And Trim(txt_nombre.Text) = "" And Trim(txt_telefono.Text) = "" Then
+        If Trim(txt_usuario.Text) = "" Or Trim(txt_pass.Text) = "" Or Trim(cmb_rol.SelectedIndex) = -1 Or Trim(txt_ape.Text) = "" Or Trim(txt_nombre.Text) = "" Or Trim(txt_telefono.Text) = "" Then
             MsgBox("SELECCIONE REGISTRO A MODIFICAR", MsgBoxStyle.Critical, "ATENCION")
             lb_usuario.Focus()
             Exit Sub
@@ -289,6 +289,7 @@ Public Class config_user
 
             'si encontro, entonces modifico
             If DReader.HasRows Then
+
                 'cierro el DataReader
                 DReader.Close()
 
@@ -299,7 +300,7 @@ Public Class config_user
                 'el método ExecuteNonQuery devuelve solo la cantidad de registros afectados por la operacion
                 Resultado = Comando.ExecuteNonQuery
 
-                MsgBox("Registros Modificados: " & Resultado, MsgBoxStyle.Information, "ATENCION")
+                'MsgBox("Registros Modificados: " & Resultado, MsgBoxStyle.Information, "ATENCION")
 
                 'cargo el list
                 Call CargarList(consulta_personal)

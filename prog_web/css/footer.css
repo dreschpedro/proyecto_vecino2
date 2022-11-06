@@ -38,8 +38,9 @@ a {
 /* al pasar el Mouse por el link */
 .navbar .link:hover {
     /* border: 2px solid red; */
-    background-color: var(--verde_ele);
-    color: var(--black);
+    /* background-color: var(--blanco); */
+    color: var(--verde_ele);
+    transform: scale(1.07);
 }
 
 hr {

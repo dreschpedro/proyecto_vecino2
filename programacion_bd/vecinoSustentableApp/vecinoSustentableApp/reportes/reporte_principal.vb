@@ -4,7 +4,7 @@ Imports System.Windows.Forms
 Imports Telerik.Reporting
 Imports Telerik.Reporting.Drawing
 
-Partial Public Class Report1
+Partial Public Class reporte_principal
     Inherits Telerik.Reporting.Report
     Public Sub New()
         InitializeComponent()

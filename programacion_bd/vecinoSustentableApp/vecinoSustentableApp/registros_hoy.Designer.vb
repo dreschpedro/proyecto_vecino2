@@ -45,6 +45,7 @@ Partial Class registros_hoy
         Me.lbl_id_registro = New System.Windows.Forms.Label()
         Me.lbl_eco = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.btn_vista = New FontAwesome.Sharp.IconButton()
         Me.SuspendLayout()
         '
         'Button2
@@ -331,12 +332,36 @@ Partial Class registros_hoy
         Me.Label7.TabIndex = 183
         Me.Label7.Text = "id_eco:"
         '
+        'btn_vista
+        '
+        Me.btn_vista.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_vista.BackColor = System.Drawing.Color.DodgerBlue
+        Me.btn_vista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn_vista.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn_vista.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_vista.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btn_vista.IconChar = FontAwesome.Sharp.IconChar.Eye
+        Me.btn_vista.IconColor = System.Drawing.Color.White
+        Me.btn_vista.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btn_vista.IconSize = 20
+        Me.btn_vista.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_vista.Location = New System.Drawing.Point(485, 396)
+        Me.btn_vista.MaximumSize = New System.Drawing.Size(194, 35)
+        Me.btn_vista.MinimumSize = New System.Drawing.Size(194, 35)
+        Me.btn_vista.Name = "btn_vista"
+        Me.btn_vista.Size = New System.Drawing.Size(194, 35)
+        Me.btn_vista.TabIndex = 185
+        Me.btn_vista.Text = "Vista Previa"
+        Me.btn_vista.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_vista.UseVisualStyleBackColor = False
+        '
         'registros_hoy
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(92, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(691, 611)
+        Me.Controls.Add(Me.btn_vista)
         Me.Controls.Add(Me.lbl_eco)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.lbl_id_registro)
@@ -386,4 +411,5 @@ Partial Class registros_hoy
     Friend WithEvents lbl_id_registro As Label
     Friend WithEvents lbl_eco As Label
     Friend WithEvents Label7 As Label
+    Friend WithEvents btn_vista As FontAwesome.Sharp.IconButton
 End Class

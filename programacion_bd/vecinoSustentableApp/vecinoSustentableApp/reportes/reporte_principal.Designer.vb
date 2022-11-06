@@ -1,10 +1,10 @@
-Partial Class Report1
+Partial Class reporte_principal
 
     'NOTE: The following procedure is required by the telerik Reporting Designer
     'It can be modified using the telerik Reporting Designer.  
     'Do not modify it using the code editor.
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Report1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(reporte_principal))
         Dim TableGroup1 As Telerik.Reporting.TableGroup = New Telerik.Reporting.TableGroup()
         Dim TableGroup2 As Telerik.Reporting.TableGroup = New Telerik.Reporting.TableGroup()
         Dim TableGroup3 As Telerik.Reporting.TableGroup = New Telerik.Reporting.TableGroup()

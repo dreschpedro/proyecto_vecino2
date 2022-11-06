@@ -323,7 +323,7 @@ Public Class config_user
     Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
         'primero controlo que esten los datos cargados
         If Trim(txt_usuario.Text) = "" And Trim(txt_pass.Text) = "" And Trim(cmb_rol.SelectedIndex) = -1 And Trim(txt_ape.Text) = "" And Trim(txt_nombre.Text) = "" And Trim(txt_telefono.Text) = "" Then
-            MsgBox("SELECCIONE REGISTRO A ELIMINAR", MsgBoxStyle.Critical, "AAAAAAA")
+            MsgBox("SELECCIONE REGISTRO A ELIMINAR", MsgBoxStyle.Critical, "ATENCION")
             lb_usuario.Focus()
             Exit Sub
         End If
@@ -366,7 +366,7 @@ Public Class config_user
                 Call CargarList(consulta_personal)
                 Call LimpiarForm()
             Else
-                MsgBox("EL REGISTRO NO EXISTE", MsgBoxStyle.Critical, "CCCCCCCC")
+                MsgBox("EL REGISTRO NO EXISTE", MsgBoxStyle.Critical, "ATENCION")
                 'cierro el DataReader
                 DReader.Close()
             End If

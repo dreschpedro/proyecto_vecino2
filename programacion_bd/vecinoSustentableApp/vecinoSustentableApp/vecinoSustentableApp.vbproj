@@ -128,17 +128,11 @@
     <Compile Include="registros_hoy.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="reportes\Report1.Designer.vb">
-      <DependentUpon>Report1.vb</DependentUpon>
+    <Compile Include="reportes\reporte_principal.Designer.vb">
+      <DependentUpon>reporte_principal.vb</DependentUpon>
     </Compile>
-    <Compile Include="reportes\Report1.vb">
+    <Compile Include="reportes\reporte_principal.vb">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="reportes\ReportViewerForm1.Designer.vb">
-      <DependentUpon>ReportViewerForm1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="reportes\ReportViewerForm1.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="salida_residuo.Designer.vb">
       <DependentUpon>salida_residuo.vb</DependentUpon>
@@ -223,11 +217,8 @@
     <EmbeddedResource Include="registros_hoy.resx">
       <DependentUpon>registros_hoy.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="reportes\Report1.resx">
-      <DependentUpon>Report1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="reportes\ReportViewerForm1.resx">
-      <DependentUpon>ReportViewerForm1.vb</DependentUpon>
+    <EmbeddedResource Include="reportes\reporte_principal.resx">
+      <DependentUpon>reporte_principal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="salida_residuo.resx">
       <DependentUpon>salida_residuo.vb</DependentUpon>

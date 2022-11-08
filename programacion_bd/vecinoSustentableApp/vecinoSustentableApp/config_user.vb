@@ -399,4 +399,99 @@ Public Class config_user
     End Sub
 
 
+    '###################        IMPRESORA       ################
+
+    Private Sub factura_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles HojaImpresion.PrintPage
+        Try
+            ' La fuente a usar
+            Dim prFont As New Font("Arial", 15, FontStyle.Bold)
+            ' la posicion superior
+            'imprimir una imagen
+            'e.Graphics.DrawImage(Pboximagen.Image, 10, 10, 200, 200)
+            'direccion
+            e.Graphics.DrawString("av 3 de febrero 1860", prFont, Brushes.Black, 10, 205)
+            'tel
+            e.Graphics.DrawString("tel:376446897", prFont, Brushes.Black, 40, 235)
+            ' factura lado derecho superior
+            e.Graphics.DrawString("n°de factura", prFont, Brushes.Black, 650, 10)
+            'e.Graphics.DrawString(labelcantidaddefactura.Text, prFont, Brushes.Black, 650, 40)
+            'tipo de factura
+            e.Graphics.DrawRectangle(Pens.Black, 300, 10, 200, 200)
+
+            'imprimimos la fecha y hora
+            prFont = New Font("Arial", 12, FontStyle.Italic)
+            e.Graphics.DrawString(Date.Now.ToShortDateString.ToString & " - " &
+                                  Date.Now.ToShortTimeString.ToString, prFont, Brushes.Black, 610, 100)
+
+            'stilo A,B.C
+            prFont = New Font("arial", 120, FontStyle.Underline)
+            e.Graphics.DrawString("B", prFont, Brushes.Black, 320, 0)
+
+            'GRAFICAR LINE 
+            e.Graphics.DrawLine(Pens.Black, 0, 300, 850, 300)
+
+            prFont = New Font("Arial", 18, FontStyle.Bold)
+            e.Graphics.DrawString("PACIENTE", prFont, Brushes.Black, 15, 310)
+
+            prFont = New Font("Arial", 12, FontStyle.Italic)
+            'datos de paciente 
+            e.Graphics.DrawString("MIA KHALIFA:", prFont, Brushes.Black, 10, 350)
+            'e.Graphics.DrawString(lblnombre.Text, prFont, Brushes.Black, 80, 350)
+            e.Graphics.DrawString("apellido:", prFont, Brushes.Black, 10, 370)
+            'e.Graphics.DrawString(Lblapellido.Text, prFont, Brushes.Black, 80, 370)
+            e.Graphics.DrawString("dni :", prFont, Brushes.Black, 10, 390)
+            'e.Graphics.DrawString(Lbldni.Text, prFont, Brushes.Black, 80, 390)
+            e.Graphics.DrawString("numero afiliado :", prFont, Brushes.Black, 10, 410)
+            'e.Graphics.DrawString(Lblafiliado.Text, prFont, Brushes.Black, 130, 410)
+            e.Graphics.DrawLine(Pens.Black, 0, 440, 850, 440)
+
+            prFont = New Font("Arial", 18, FontStyle.Bold)
+            e.Graphics.DrawString("tratamiento", prFont, Brushes.Black, 10, 460)
+            'e.Graphics.DrawString(ComboBoxtratamiento2.Text, prFont, Brushes.Black, 10, 520)
+            e.Graphics.DrawString("precio.uni", prFont, Brushes.Black, 210, 460)
+            'e.Graphics.DrawString(Txtprecio.Text, prFont, Brushes.Black, 210, 520)
+            e.Graphics.DrawString("cantidad ", prFont, Brushes.Black, 410, 460)
+            'e.Graphics.DrawString(Txtcantidad.Text, prFont, Brushes.Black, 410, 520)
+            e.Graphics.DrawString("total ", prFont, Brushes.Black, 610, 460)
+            'e.Graphics.DrawString(Txttotal.Text, prFont, Brushes.Black, 610, 520)
+            'imprimir lineas
+            e.Graphics.DrawLine(Pens.Black, 0, 490, 850, 490)
+            e.Graphics.DrawLine(Pens.Black, 210, 440, 210, 1000)
+            e.Graphics.DrawLine(Pens.Black, 410, 440, 410, 1000)
+            e.Graphics.DrawLine(Pens.Black, 610, 440, 610, 1000)
+            e.Graphics.DrawLine(Pens.Black, 0, 1000, 850, 1000)
+            'imprimir un rectangulo
+            ' e.Graphics.DrawRectangle(Pens.Green, 90, 90, 250, 100)
+            'imprimir un circulo
+            'e.Graphics.DrawEllipse(Pens.Indigo, 350, 900, 300, 100)
+        Catch ex As Exception
+            MessageBox.Show("ERROR: " & ex.Message, "Administrador", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        End Try
+    End Sub
+
+    Private Sub btn_vista_Click(sender As Object, e As EventArgs) Handles btn_vista.Click
+        'para una vista previa
+        'selecciono PrintDocument generado
+        VistaPrevia.Document = HojaImpresion
+        'tamaño de ventana
+        VistaPrevia.Width = 900
+        VistaPrevia.Height = 700
+        'vista previa
+        VistaPrevia.ShowDialog()
+    End Sub
+
+    Private Sub btn_imprimir_Click(sender As Object, e As EventArgs) Handles btn_imprimir.Click
+        If OpcionImpresora.ShowDialog = 1 Then
+            'defino impresora seleccionada
+            HojaImpresion.PrinterSettings = OpcionImpresora.PrinterSettings
+            'imprimie directamente
+            HojaImpresion.Print()
+        End If
+    End Sub
+
+
+
+
+
 End Class

@@ -219,16 +219,17 @@ Partial Class registros_hoy
         'id_registro
         '
         Me.id_registro.Text = "id_registro"
+        Me.id_registro.Width = 0
         '
         'ecopunto
         '
         Me.ecopunto.Text = "Ecopunto"
-        Me.ecopunto.Width = 50
+        Me.ecopunto.Width = 0
         '
         'residuo
         '
         Me.residuo.Text = "Residuo"
-        Me.residuo.Width = 100
+        Me.residuo.Width = 230
         '
         'cantidad
         '
@@ -295,6 +296,7 @@ Partial Class registros_hoy
         Me.Label5.Size = New System.Drawing.Size(46, 13)
         Me.Label5.TabIndex = 181
         Me.Label5.Text = "id_reg:"
+        Me.Label5.Visible = False
         '
         'lbl_id_registro
         '
@@ -307,6 +309,7 @@ Partial Class registros_hoy
         Me.lbl_id_registro.Size = New System.Drawing.Size(11, 13)
         Me.lbl_id_registro.TabIndex = 182
         Me.lbl_id_registro.Text = "-"
+        Me.lbl_id_registro.Visible = False
         '
         'lbl_eco
         '
@@ -319,6 +322,7 @@ Partial Class registros_hoy
         Me.lbl_eco.Size = New System.Drawing.Size(11, 13)
         Me.lbl_eco.TabIndex = 184
         Me.lbl_eco.Text = "-"
+        Me.lbl_eco.Visible = False
         '
         'Label7
         '
@@ -331,6 +335,7 @@ Partial Class registros_hoy
         Me.Label7.Size = New System.Drawing.Size(49, 13)
         Me.Label7.TabIndex = 183
         Me.Label7.Text = "id_eco:"
+        Me.Label7.Visible = False
         '
         'btn_vista
         '

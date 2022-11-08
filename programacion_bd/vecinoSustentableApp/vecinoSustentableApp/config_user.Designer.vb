@@ -22,6 +22,7 @@ Partial Class config_user
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(config_user))
         Me.btn_eliminar = New FontAwesome.Sharp.IconButton()
         Me.btn_modificar = New FontAwesome.Sharp.IconButton()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -43,6 +44,11 @@ Partial Class config_user
         Me.btn_limpiar_campos = New FontAwesome.Sharp.IconButton()
         Me.txt_buscar = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.btn_vista = New FontAwesome.Sharp.IconButton()
+        Me.btn_imprimir = New FontAwesome.Sharp.IconButton()
+        Me.OpcionImpresora = New System.Windows.Forms.PrintDialog()
+        Me.HojaImpresion = New System.Drawing.Printing.PrintDocument()
+        Me.VistaPrevia = New System.Windows.Forms.PrintPreviewDialog()
         Me.SuspendLayout()
         '
         'btn_eliminar
@@ -310,12 +316,54 @@ Partial Class config_user
         Me.Label8.TabIndex = 141
         Me.Label8.Text = "Buscar:"
         '
+        'btn_vista
+        '
+        Me.btn_vista.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_vista.IconChar = FontAwesome.Sharp.IconChar.None
+        Me.btn_vista.IconColor = System.Drawing.Color.Black
+        Me.btn_vista.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btn_vista.Location = New System.Drawing.Point(486, 398)
+        Me.btn_vista.Name = "btn_vista"
+        Me.btn_vista.Size = New System.Drawing.Size(184, 23)
+        Me.btn_vista.TabIndex = 142
+        Me.btn_vista.Text = "laputavista"
+        Me.btn_vista.UseVisualStyleBackColor = True
+        '
+        'btn_imprimir
+        '
+        Me.btn_imprimir.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_imprimir.IconChar = FontAwesome.Sharp.IconChar.None
+        Me.btn_imprimir.IconColor = System.Drawing.Color.Black
+        Me.btn_imprimir.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btn_imprimir.Location = New System.Drawing.Point(487, 427)
+        Me.btn_imprimir.Name = "btn_imprimir"
+        Me.btn_imprimir.Size = New System.Drawing.Size(182, 23)
+        Me.btn_imprimir.TabIndex = 143
+        Me.btn_imprimir.Text = "impresiondemierda"
+        Me.btn_imprimir.UseVisualStyleBackColor = True
+        '
+        'OpcionImpresora
+        '
+        Me.OpcionImpresora.UseEXDialog = True
+        '
+        'VistaPrevia
+        '
+        Me.VistaPrevia.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.VistaPrevia.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.VistaPrevia.ClientSize = New System.Drawing.Size(400, 300)
+        Me.VistaPrevia.Enabled = True
+        Me.VistaPrevia.Icon = CType(resources.GetObject("VistaPrevia.Icon"), System.Drawing.Icon)
+        Me.VistaPrevia.Name = "VistaPrevia"
+        Me.VistaPrevia.Visible = False
+        '
         'config_user
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Green
         Me.ClientSize = New System.Drawing.Size(691, 611)
+        Me.Controls.Add(Me.btn_imprimir)
+        Me.Controls.Add(Me.btn_vista)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txt_buscar)
         Me.Controls.Add(Me.btn_limpiar_campos)
@@ -366,4 +414,9 @@ Partial Class config_user
     Friend WithEvents btn_limpiar_campos As FontAwesome.Sharp.IconButton
     Friend WithEvents txt_buscar As TextBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents btn_vista As FontAwesome.Sharp.IconButton
+    Friend WithEvents btn_imprimir As FontAwesome.Sharp.IconButton
+    Friend WithEvents OpcionImpresora As PrintDialog
+    Friend WithEvents HojaImpresion As Printing.PrintDocument
+    Friend WithEvents VistaPrevia As PrintPreviewDialog
 End Class

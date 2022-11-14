@@ -118,9 +118,9 @@ CREATE TABLE IF NOT EXISTS `personal` (
   `rol` varchar(15) NOT NULL,
   PRIMARY KEY (`id_personal`),
   UNIQUE KEY `uk_ape_nom` (`apellido`,`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla vecino_sustentable.personal: ~10 rows (aproximadamente)
+-- Volcando datos para la tabla vecino_sustentable.personal: ~15 rows (aproximadamente)
 DELETE FROM `personal`;
 INSERT INTO `personal` (`id_personal`, `apellido`, `nombre`, `telefono`, `usuario`, `pass`, `rol`) VALUES
 	(1, 'Maradona', 'Diego', '1565165', 'dieguito', 'diego1', 'Voluntario'),
@@ -129,10 +129,15 @@ INSERT INTO `personal` (`id_personal`, `apellido`, `nombre`, `telefono`, `usuari
 	(4, 'Miller', 'Adolf', '3651651', 'panzer', 'jabon', 'Voluntario'),
 	(5, 'Fernandez', 'Martina', '365165', 'martina', 'polenta', 'Responsable'),
 	(6, 'Johnson', 'Carl', '3141516', 'grove', 'street', 'Voluntario'),
-	(7, 'Stark', 'Tony', '2129704133', 'iron', 'tuAbuela', 'Voluntario'),
+	(7, 'Stark', 'Tony', '55555555', 'iron', 'tuAbuela', 'Voluntario'),
 	(8, 'Dresch', 'Pedro', '3216351', 'pedrito', 'pedro', 'Responsable'),
-	(17, 'jshbdcjshd', 'jhsdbkjdhf', '1651465', 'admin', 'admin', 'Administrador'),
-	(18, 'dfv', 'dvfv', '61615', 'qwerty', '123456', 'Voluntario');
+	(17, 'DON', 'RAMON', '1651465', 'admin', 'admin', 'Administrador'),
+	(18, 'dfv', 'dvfv', '61615', 'qwerty', '123456', 'Voluntario'),
+	(22, 'dfghfdghdfgh', 'fdghdfghfdgh', '3453245345', 'dfgdhgfd', 'hgfdfghfdgh', 'Administrador'),
+	(23, 'dgfsdfgsgdfsgsfdsad', 'dfgsfdgdfgsf', '2344234234', 'asdfsafasdfsxcv', 'cbxedfgsdgfsdfa', 'Administrador'),
+	(24, 'gfdsaergfg', 'gfewer', '885547', 'sdfgfdsdfg', 'fgdsdfgfds', 'Responsable'),
+	(25, 'saeafgff', 'sdfasf', '584748', 'sdfgfdsgf', 'fgdsdfgfsd', 'Administrador'),
+	(26, 'dfsgsdfg', 'sdfgdfg', '889965', 'sdfgfds', 'gfdsdfg', 'Voluntario');
 
 -- Volcando estructura para tabla vecino_sustentable.registros_hoy
 CREATE TABLE IF NOT EXISTS `registros_hoy` (
@@ -146,12 +151,29 @@ CREATE TABLE IF NOT EXISTS `registros_hoy` (
   KEY `fk_ecopun` (`id_ecopunto`),
   CONSTRAINT `fk_ecopun` FOREIGN KEY (`id_ecopunto`) REFERENCES `ecopunto` (`id_ecopunto`),
   CONSTRAINT `fk_res` FOREIGN KEY (`id_residuo`) REFERENCES `residuo` (`id_residuo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla vecino_sustentable.registros_hoy: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla vecino_sustentable.registros_hoy: ~18 rows (aproximadamente)
 DELETE FROM `registros_hoy`;
 INSERT INTO `registros_hoy` (`id_eco_resid`, `id_residuo`, `id_ecopunto`, `cantidad_residuo`, `fecha`) VALUES
-	(1, 3, 2, 3, NULL);
+	(33, 2, 8, 3, NULL),
+	(38, 15, 1, 2, NULL),
+	(64, 8, 1, 2, NULL),
+	(71, 6, 1, 2, NULL),
+	(74, 7, 3, 3, NULL),
+	(85, 4, 4, 4, NULL),
+	(89, 5, 1, 2, NULL),
+	(90, 17, 1, 2, NULL),
+	(91, 4, 2, 4, NULL),
+	(92, 4, 2, 4, NULL),
+	(93, 4, 2, 4, NULL),
+	(94, 4, 1, 4, NULL),
+	(95, 4, 1, 4, NULL),
+	(96, 7, 2, 9, NULL),
+	(97, 17, 2, 5, NULL),
+	(98, 19, 2, 4, NULL),
+	(99, 19, 2, 4, NULL),
+	(100, 19, 2, 2, NULL);
 
 -- Volcando estructura para tabla vecino_sustentable.residuo
 CREATE TABLE IF NOT EXISTS `residuo` (

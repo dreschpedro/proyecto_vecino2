@@ -4,7 +4,7 @@ nombre VARCHAR (100) NOT NULL,
 ubicacion VARCHAR (100),
 horario TIME,
 dia DATE,
-rol VARCHAR(50) NOT NULL,
+id_personal VARCHAR(50) NOT NULL,
 PRIMARY KEY (id_ecopunto),
 UNIQUE uk_nombre (nombre)
 )

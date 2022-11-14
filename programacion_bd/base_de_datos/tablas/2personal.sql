@@ -6,6 +6,5 @@ telefono VARCHAR (15),
 usuario VARCHAR(20) NOT NULL,
 pass VARCHAR(15) NOT NULL,
 rol VARCHAR(15) NOT NULL,
-PRIMARY KEY (id_personal),
-UNIQUE uk_ape_nom (apellido, nombre)
+PRIMARY KEY (id_personal)
 )

@@ -6,6 +6,11 @@ Module Module1
     Friend conexion As MySqlConnection
 
     Friend rol_usuario As String
+    Friend ape_usuario As String
+    Friend nom_usuario As String
+    Friend user As String
+    Friend id_ecopunto As String
+    Friend nombre_ecopunto As String
 
     Sub conectar()
         'uso try para controlar errores

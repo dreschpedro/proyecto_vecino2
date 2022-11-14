@@ -36,6 +36,8 @@ Partial Class principal
         Me.IconEgreso = New FontAwesome.Sharp.IconButton()
         Me.btnIngreso = New FontAwesome.Sharp.IconButton()
         Me.PanelLogo = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lbl_nom_eco = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PanelMenu = New System.Windows.Forms.Panel()
         Me.btnAyuda = New FontAwesome.Sharp.IconButton()
@@ -48,6 +50,8 @@ Partial Class principal
         Me.LblHora = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.fechayhora = New System.Windows.Forms.Timer(Me.components)
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lbl_usuario = New System.Windows.Forms.Label()
         Me.PanelEstadisticasSubmenu.SuspendLayout()
         Me.PanelPersonalSubmenu.SuspendLayout()
         Me.PanelResiduosSubmenu.SuspendLayout()
@@ -264,6 +268,10 @@ Partial Class principal
         'PanelLogo
         '
         Me.PanelLogo.BackColor = System.Drawing.Color.FromArgb(CType(CType(9, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.PanelLogo.Controls.Add(Me.Label2)
+        Me.PanelLogo.Controls.Add(Me.lbl_usuario)
+        Me.PanelLogo.Controls.Add(Me.Label1)
+        Me.PanelLogo.Controls.Add(Me.lbl_nom_eco)
         Me.PanelLogo.Controls.Add(Me.PictureBox1)
         Me.PanelLogo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PanelLogo.Dock = System.Windows.Forms.DockStyle.Top
@@ -273,13 +281,38 @@ Partial Class principal
         Me.PanelLogo.Size = New System.Drawing.Size(276, 147)
         Me.PanelLogo.TabIndex = 0
         '
+        'Label1
+        '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label1.Location = New System.Drawing.Point(1, 111)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(77, 16)
+        Me.Label1.TabIndex = 191
+        Me.Label1.Text = "Ecopunto:"
+        '
+        'lbl_nom_eco
+        '
+        Me.lbl_nom_eco.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbl_nom_eco.AutoSize = True
+        Me.lbl_nom_eco.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_nom_eco.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lbl_nom_eco.Location = New System.Drawing.Point(3, 127)
+        Me.lbl_nom_eco.Name = "lbl_nom_eco"
+        Me.lbl_nom_eco.Size = New System.Drawing.Size(13, 16)
+        Me.lbl_nom_eco.TabIndex = 190
+        Me.lbl_nom_eco.Text = "-"
+        '
         'PictureBox1
         '
-        Me.PictureBox1.BackgroundImage = Global.vecinoSustentableApp.My.Resources.Resources.horizontal21
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(28, 20)
+        Me.PictureBox1.Image = Global.vecinoSustentableApp.My.Resources.Resources.horizontal2
+        Me.PictureBox1.Location = New System.Drawing.Point(34, 0)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(210, 69)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
@@ -459,17 +492,42 @@ Partial Class principal
         'PictureBox2
         '
         Me.PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PictureBox2.BackgroundImage = Global.vecinoSustentableApp.My.Resources.Resources.vecino_blanco_cutout1
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox2.Image = Global.vecinoSustentableApp.My.Resources.Resources.vecino_blanco_cutout4
         Me.PictureBox2.Location = New System.Drawing.Point(192, 61)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(318, 294)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 0
         Me.PictureBox2.TabStop = False
         '
         'fechayhora
         '
         Me.fechayhora.Enabled = True
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label2.Location = New System.Drawing.Point(3, 95)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(66, 16)
+        Me.Label2.TabIndex = 194
+        Me.Label2.Text = "Usuario:"
+        '
+        'lbl_usuario
+        '
+        Me.lbl_usuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbl_usuario.AutoSize = True
+        Me.lbl_usuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_usuario.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lbl_usuario.Location = New System.Drawing.Point(75, 95)
+        Me.lbl_usuario.Name = "lbl_usuario"
+        Me.lbl_usuario.Size = New System.Drawing.Size(13, 16)
+        Me.lbl_usuario.TabIndex = 192
+        Me.lbl_usuario.Text = "-"
         '
         'principal
         '
@@ -489,6 +547,7 @@ Partial Class principal
         Me.PanelPersonalSubmenu.ResumeLayout(False)
         Me.PanelResiduosSubmenu.ResumeLayout(False)
         Me.PanelLogo.ResumeLayout(False)
+        Me.PanelLogo.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelMenu.ResumeLayout(False)
         Me.PanelhijoForm.ResumeLayout(False)
@@ -521,4 +580,8 @@ Partial Class principal
     Friend WithEvents LblFecha As Label
     Friend WithEvents LblHora As Label
     Friend WithEvents fechayhora As Timer
+    Friend WithEvents Label1 As Label
+    Friend WithEvents lbl_nom_eco As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents lbl_usuario As Label
 End Class

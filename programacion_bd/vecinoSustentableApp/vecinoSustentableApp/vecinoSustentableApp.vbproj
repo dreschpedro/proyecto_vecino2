@@ -103,6 +103,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="principal.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +138,12 @@
     </Compile>
     <Compile Include="reportes\reporte_principal.vb">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewerForm1.Designer.vb">
+      <DependentUpon>ReportViewerForm1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewerForm1.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="salida_residuo.Designer.vb">
       <DependentUpon>salida_residuo.vb</DependentUpon>
@@ -189,11 +200,6 @@
       <DependentUpon>Application.myapp</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -219,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reportes\reporte_principal.resx">
       <DependentUpon>reporte_principal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewerForm1.resx">
+      <DependentUpon>ReportViewerForm1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="salida_residuo.resx">
       <DependentUpon>salida_residuo.vb</DependentUpon>
@@ -268,6 +277,8 @@
     <Content Include="Reports\SampleReport.trdp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\cj.png" />
+    <None Include="Resources\vecino_blanco-cutout.png" />
     <None Include="Resources\logo_chico_transparente-cutout.png" />
   </ItemGroup>
   <ItemGroup>

@@ -30,22 +30,21 @@ Partial Class registros_hoy
         Me.btnModificar = New FontAwesome.Sharp.IconButton()
         Me.btnAgregar = New FontAwesome.Sharp.IconButton()
         Me.cmb_residuo = New System.Windows.Forms.ComboBox()
-        Me.cmb_ecopunto = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.lv_registro = New System.Windows.Forms.ListView()
         Me.id_registro = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ecopunto = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.residuo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.cantidad = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.total = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.btn_imprimir = New FontAwesome.Sharp.IconButton()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txt_buscar = New System.Windows.Forms.TextBox()
         Me.txt_cantidad = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lbl_id_registro = New System.Windows.Forms.Label()
-        Me.lbl_eco = New System.Windows.Forms.Label()
+        Me.lbl_res_cmb = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lbl_res_lv = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.btn_vista = New FontAwesome.Sharp.IconButton()
         Me.SuspendLayout()
         '
         'Button2
@@ -67,7 +66,7 @@ Partial Class registros_hoy
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label1.Location = New System.Drawing.Point(479, 151)
+        Me.Label1.Location = New System.Drawing.Point(479, 104)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(125, 13)
         Me.Label1.TabIndex = 9
@@ -79,7 +78,7 @@ Partial Class registros_hoy
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label3.Location = New System.Drawing.Point(479, 214)
+        Me.Label3.Location = New System.Drawing.Point(479, 167)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(61, 13)
         Me.Label3.TabIndex = 11
@@ -173,32 +172,10 @@ Partial Class registros_hoy
         Me.cmb_residuo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmb_residuo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_residuo.FormattingEnabled = True
-        Me.cmb_residuo.Location = New System.Drawing.Point(482, 174)
+        Me.cmb_residuo.Location = New System.Drawing.Point(482, 127)
         Me.cmb_residuo.Name = "cmb_residuo"
         Me.cmb_residuo.Size = New System.Drawing.Size(193, 21)
         Me.cmb_residuo.TabIndex = 2
-        '
-        'cmb_ecopunto
-        '
-        Me.cmb_ecopunto.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmb_ecopunto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmb_ecopunto.FormattingEnabled = True
-        Me.cmb_ecopunto.Location = New System.Drawing.Point(482, 114)
-        Me.cmb_ecopunto.Name = "cmb_ecopunto"
-        Me.cmb_ecopunto.Size = New System.Drawing.Size(193, 21)
-        Me.cmb_ecopunto.TabIndex = 1
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label2.Location = New System.Drawing.Point(479, 91)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(133, 13)
-        Me.Label2.TabIndex = 24
-        Me.Label2.Text = "Nombre del Ecopunto:"
         '
         'lv_registro
         '
@@ -206,12 +183,12 @@ Partial Class registros_hoy
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lv_registro.AutoArrange = False
-        Me.lv_registro.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.id_registro, Me.ecopunto, Me.residuo, Me.cantidad})
+        Me.lv_registro.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.id_registro, Me.ecopunto, Me.residuo, Me.total})
         Me.lv_registro.FullRowSelect = True
         Me.lv_registro.HideSelection = False
         Me.lv_registro.Location = New System.Drawing.Point(16, 101)
         Me.lv_registro.Name = "lv_registro"
-        Me.lv_registro.Size = New System.Drawing.Size(457, 498)
+        Me.lv_registro.Size = New System.Drawing.Size(442, 496)
         Me.lv_registro.TabIndex = 31
         Me.lv_registro.UseCompatibleStateImageBehavior = False
         Me.lv_registro.View = System.Windows.Forms.View.Details
@@ -231,10 +208,10 @@ Partial Class registros_hoy
         Me.residuo.Text = "Residuo"
         Me.residuo.Width = 230
         '
-        'cantidad
+        'total
         '
-        Me.cantidad.Text = "Cantidad"
-        Me.cantidad.Width = 100
+        Me.total.Text = "Total"
+        Me.total.Width = 100
         '
         'btn_imprimir
         '
@@ -280,9 +257,9 @@ Partial Class registros_hoy
         'txt_cantidad
         '
         Me.txt_cantidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txt_cantidad.Location = New System.Drawing.Point(482, 230)
+        Me.txt_cantidad.Location = New System.Drawing.Point(482, 183)
         Me.txt_cantidad.Name = "txt_cantidad"
-        Me.txt_cantidad.Size = New System.Drawing.Size(193, 20)
+        Me.txt_cantidad.Size = New System.Drawing.Size(143, 20)
         Me.txt_cantidad.TabIndex = 180
         '
         'Label5
@@ -291,12 +268,11 @@ Partial Class registros_hoy
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label5.Location = New System.Drawing.Point(501, 35)
+        Me.Label5.Location = New System.Drawing.Point(300, 47)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(46, 13)
         Me.Label5.TabIndex = 181
         Me.Label5.Text = "id_reg:"
-        Me.Label5.Visible = False
         '
         'lbl_id_registro
         '
@@ -304,25 +280,47 @@ Partial Class registros_hoy
         Me.lbl_id_registro.AutoSize = True
         Me.lbl_id_registro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_id_registro.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lbl_id_registro.Location = New System.Drawing.Point(553, 35)
+        Me.lbl_id_registro.Location = New System.Drawing.Point(352, 47)
         Me.lbl_id_registro.Name = "lbl_id_registro"
         Me.lbl_id_registro.Size = New System.Drawing.Size(11, 13)
         Me.lbl_id_registro.TabIndex = 182
         Me.lbl_id_registro.Text = "-"
-        Me.lbl_id_registro.Visible = False
         '
-        'lbl_eco
+        'lbl_res_cmb
         '
-        Me.lbl_eco.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lbl_eco.AutoSize = True
-        Me.lbl_eco.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_eco.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lbl_eco.Location = New System.Drawing.Point(553, 57)
-        Me.lbl_eco.Name = "lbl_eco"
-        Me.lbl_eco.Size = New System.Drawing.Size(11, 13)
-        Me.lbl_eco.TabIndex = 184
-        Me.lbl_eco.Text = "-"
-        Me.lbl_eco.Visible = False
+        Me.lbl_res_cmb.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbl_res_cmb.AutoSize = True
+        Me.lbl_res_cmb.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_res_cmb.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lbl_res_cmb.Location = New System.Drawing.Point(583, 78)
+        Me.lbl_res_cmb.Name = "lbl_res_cmb"
+        Me.lbl_res_cmb.Size = New System.Drawing.Size(11, 13)
+        Me.lbl_res_cmb.TabIndex = 184
+        Me.lbl_res_cmb.Text = "-"
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label6.Location = New System.Drawing.Point(531, 78)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(45, 13)
+        Me.Label6.TabIndex = 183
+        Me.Label6.Text = "id_res:"
+        '
+        'lbl_res_lv
+        '
+        Me.lbl_res_lv.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbl_res_lv.AutoSize = True
+        Me.lbl_res_lv.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_res_lv.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lbl_res_lv.Location = New System.Drawing.Point(454, 47)
+        Me.lbl_res_lv.Name = "lbl_res_lv"
+        Me.lbl_res_lv.Size = New System.Drawing.Size(11, 13)
+        Me.lbl_res_lv.TabIndex = 186
+        Me.lbl_res_lv.Text = "-"
         '
         'Label7
         '
@@ -330,35 +328,11 @@ Partial Class registros_hoy
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label7.Location = New System.Drawing.Point(501, 57)
+        Me.Label7.Location = New System.Drawing.Point(381, 47)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(49, 13)
-        Me.Label7.TabIndex = 183
-        Me.Label7.Text = "id_eco:"
-        Me.Label7.Visible = False
-        '
-        'btn_vista
-        '
-        Me.btn_vista.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btn_vista.BackColor = System.Drawing.Color.DodgerBlue
-        Me.btn_vista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btn_vista.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn_vista.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_vista.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btn_vista.IconChar = FontAwesome.Sharp.IconChar.Eye
-        Me.btn_vista.IconColor = System.Drawing.Color.White
-        Me.btn_vista.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btn_vista.IconSize = 20
-        Me.btn_vista.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_vista.Location = New System.Drawing.Point(485, 396)
-        Me.btn_vista.MaximumSize = New System.Drawing.Size(194, 35)
-        Me.btn_vista.MinimumSize = New System.Drawing.Size(194, 35)
-        Me.btn_vista.Name = "btn_vista"
-        Me.btn_vista.Size = New System.Drawing.Size(194, 35)
-        Me.btn_vista.TabIndex = 185
-        Me.btn_vista.Text = "Vista Previa"
-        Me.btn_vista.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btn_vista.UseVisualStyleBackColor = False
+        Me.Label7.Size = New System.Drawing.Size(67, 13)
+        Me.Label7.TabIndex = 185
+        Me.Label7.Text = "id_res_LV:"
         '
         'registros_hoy
         '
@@ -366,9 +340,10 @@ Partial Class registros_hoy
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(92, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(691, 611)
-        Me.Controls.Add(Me.btn_vista)
-        Me.Controls.Add(Me.lbl_eco)
+        Me.Controls.Add(Me.lbl_res_lv)
         Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.lbl_res_cmb)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.lbl_id_registro)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txt_cantidad)
@@ -376,8 +351,6 @@ Partial Class registros_hoy
         Me.Controls.Add(Me.txt_buscar)
         Me.Controls.Add(Me.btn_imprimir)
         Me.Controls.Add(Me.lv_registro)
-        Me.Controls.Add(Me.cmb_ecopunto)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cmb_residuo)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnEliminar)
@@ -388,7 +361,7 @@ Partial Class registros_hoy
         Me.Controls.Add(Me.Button2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "registros_hoy"
-        Me.Text = "Form2"
+        Me.Text = "3.0"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -401,11 +374,9 @@ Partial Class registros_hoy
     Friend WithEvents btnEliminar As FontAwesome.Sharp.IconButton
     Friend WithEvents Label4 As Label
     Friend WithEvents cmb_residuo As ComboBox
-    Friend WithEvents cmb_ecopunto As ComboBox
-    Friend WithEvents Label2 As Label
     Friend WithEvents lv_registro As ListView
     Friend WithEvents residuo As ColumnHeader
-    Friend WithEvents cantidad As ColumnHeader
+    Friend WithEvents total As ColumnHeader
     Friend WithEvents btn_imprimir As FontAwesome.Sharp.IconButton
     Friend WithEvents Label8 As Label
     Friend WithEvents txt_buscar As TextBox
@@ -414,7 +385,8 @@ Partial Class registros_hoy
     Friend WithEvents id_registro As ColumnHeader
     Friend WithEvents Label5 As Label
     Friend WithEvents lbl_id_registro As Label
-    Friend WithEvents lbl_eco As Label
+    Friend WithEvents lbl_res_cmb As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents lbl_res_lv As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents btn_vista As FontAwesome.Sharp.IconButton
 End Class

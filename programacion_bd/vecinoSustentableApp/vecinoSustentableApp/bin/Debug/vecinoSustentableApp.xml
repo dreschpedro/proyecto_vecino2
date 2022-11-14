@@ -32,6 +32,11 @@ vecinoSustentableApp
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:vecinoSustentableApp.My.Resources.Resources.cj">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:vecinoSustentableApp.My.Resources.Resources.fondo_form_1">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
@@ -83,6 +88,21 @@ vecinoSustentableApp
 </summary>
 </member>
 <member name="P:vecinoSustentableApp.My.Resources.Resources.vecino_blanco_cutout2">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:vecinoSustentableApp.My.Resources.Resources.vecino_blanco_cutout3">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:vecinoSustentableApp.My.Resources.Resources.vecino_blanco_cutout4">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:vecinoSustentableApp.My.Resources.Resources.vecino_blanco_cutout5">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>

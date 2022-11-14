@@ -83,6 +83,16 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property cj() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("cj", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property fondo_form_1() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("fondo_form_1", resourceCulture)
@@ -186,6 +196,36 @@ Namespace My.Resources
         Friend ReadOnly Property vecino_blanco_cutout2() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("vecino_blanco-cutout2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property vecino_blanco_cutout3() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("vecino_blanco-cutout3", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property vecino_blanco_cutout4() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("vecino_blanco-cutout4", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property vecino_blanco_cutout5() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("vecino_blanco-cutout5", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

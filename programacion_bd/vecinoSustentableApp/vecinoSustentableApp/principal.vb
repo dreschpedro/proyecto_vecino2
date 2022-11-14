@@ -38,6 +38,10 @@ Public Class principal
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        lbl_nom_eco.Text = nombre_ecopunto
+        lbl_usuario.Text = user
+
         If rol_usuario = "Voluntario" Then
             btnDashboar.Enabled = False
             btnEcopunto.Enabled = False
@@ -177,11 +181,6 @@ Public Class principal
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         End
     End Sub
-
-    Private Sub PanelhijoForm_Paint(sender As Object, e As PaintEventArgs) Handles PanelhijoForm.Paint
-
-    End Sub
-
 
     'Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
     '    Login.Show()

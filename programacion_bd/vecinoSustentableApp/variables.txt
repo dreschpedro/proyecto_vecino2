@@ -1,0 +1,11 @@
+rol_usuario = Adminiistrador, Responsable o Voluntario
+
+ape_usuario = Dresch, Sobko, Rodriguez, etc
+
+nom_usuario = pedro, Rolfi, Pablo, etc
+
+	user	= admin, panzer123, bithexa256, etc
+
+id_ecopunto = 1, 5, 14, etc
+
+nombre_ecopunto = murga de la estacion, cruz roja, etc

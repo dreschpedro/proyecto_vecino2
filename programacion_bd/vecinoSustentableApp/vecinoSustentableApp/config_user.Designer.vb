@@ -101,7 +101,7 @@ Partial Class config_user
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label2.Location = New System.Drawing.Point(415, 430)
+        Me.Label2.Location = New System.Drawing.Point(472, 390)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(30, 13)
         Me.Label2.TabIndex = 124
@@ -113,7 +113,7 @@ Partial Class config_user
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label3.Location = New System.Drawing.Point(548, 430)
+        Me.Label3.Location = New System.Drawing.Point(412, 430)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(56, 13)
         Me.Label3.TabIndex = 123
@@ -122,7 +122,7 @@ Partial Class config_user
         'txt_telefono
         '
         Me.txt_telefono.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txt_telefono.Location = New System.Drawing.Point(550, 513)
+        Me.txt_telefono.Location = New System.Drawing.Point(549, 477)
         Me.txt_telefono.Name = "txt_telefono"
         Me.txt_telefono.Size = New System.Drawing.Size(128, 20)
         Me.txt_telefono.TabIndex = 6
@@ -130,7 +130,7 @@ Partial Class config_user
         'txt_ape
         '
         Me.txt_ape.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txt_ape.Location = New System.Drawing.Point(550, 442)
+        Me.txt_ape.Location = New System.Drawing.Point(414, 442)
         Me.txt_ape.Name = "txt_ape"
         Me.txt_ape.Size = New System.Drawing.Size(128, 20)
         Me.txt_ape.TabIndex = 4
@@ -149,7 +149,7 @@ Partial Class config_user
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label5.Location = New System.Drawing.Point(549, 465)
+        Me.Label5.Location = New System.Drawing.Point(548, 429)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(54, 13)
         Me.Label5.TabIndex = 132
@@ -160,7 +160,7 @@ Partial Class config_user
         Me.cmb_rol.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmb_rol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_rol.FormattingEnabled = True
-        Me.cmb_rol.Location = New System.Drawing.Point(415, 442)
+        Me.cmb_rol.Location = New System.Drawing.Point(475, 406)
         Me.cmb_rol.Name = "cmb_rol"
         Me.cmb_rol.Size = New System.Drawing.Size(128, 21)
         Me.cmb_rol.TabIndex = 3
@@ -199,7 +199,7 @@ Partial Class config_user
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label6.Location = New System.Drawing.Point(548, 500)
+        Me.Label6.Location = New System.Drawing.Point(547, 464)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(61, 13)
         Me.Label6.TabIndex = 139
@@ -208,7 +208,7 @@ Partial Class config_user
         'txt_nombre
         '
         Me.txt_nombre.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txt_nombre.Location = New System.Drawing.Point(550, 477)
+        Me.txt_nombre.Location = New System.Drawing.Point(549, 441)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(128, 20)
         Me.txt_nombre.TabIndex = 5
@@ -267,7 +267,7 @@ Partial Class config_user
         Me.btn_imprimir.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btn_imprimir.IconSize = 20
         Me.btn_imprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_imprimir.Location = New System.Drawing.Point(495, 150)
+        Me.btn_imprimir.Location = New System.Drawing.Point(495, 116)
         Me.btn_imprimir.Name = "btn_imprimir"
         Me.btn_imprimir.Size = New System.Drawing.Size(184, 29)
         Me.btn_imprimir.TabIndex = 143
@@ -282,7 +282,7 @@ Partial Class config_user
         Me.btn_vista.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btn_vista.IconSize = 25
         Me.btn_vista.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_vista.Location = New System.Drawing.Point(494, 185)
+        Me.btn_vista.Location = New System.Drawing.Point(494, 151)
         Me.btn_vista.Name = "btn_vista"
         Me.btn_vista.Size = New System.Drawing.Size(184, 29)
         Me.btn_vista.TabIndex = 142
@@ -291,7 +291,7 @@ Partial Class config_user
         '
         'btn_limpiar_campos
         '
-        Me.btn_limpiar_campos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_limpiar_campos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn_limpiar_campos.BackColor = System.Drawing.Color.CornflowerBlue
         Me.btn_limpiar_campos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_limpiar_campos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -300,9 +300,9 @@ Partial Class config_user
         Me.btn_limpiar_campos.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btn_limpiar_campos.IconSize = 20
         Me.btn_limpiar_campos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_limpiar_campos.Location = New System.Drawing.Point(495, 115)
+        Me.btn_limpiar_campos.Location = New System.Drawing.Point(549, 507)
         Me.btn_limpiar_campos.Name = "btn_limpiar_campos"
-        Me.btn_limpiar_campos.Size = New System.Drawing.Size(184, 29)
+        Me.btn_limpiar_campos.Size = New System.Drawing.Size(131, 29)
         Me.btn_limpiar_campos.TabIndex = 7
         Me.btn_limpiar_campos.Text = "Limpiar"
         Me.btn_limpiar_campos.UseVisualStyleBackColor = False
@@ -320,7 +320,7 @@ Partial Class config_user
         Me.btn_eliminar.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btn_eliminar.IconSize = 20
         Me.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_eliminar.Location = New System.Drawing.Point(493, 256)
+        Me.btn_eliminar.Location = New System.Drawing.Point(493, 222)
         Me.btn_eliminar.MaximumSize = New System.Drawing.Size(194, 35)
         Me.btn_eliminar.MinimumSize = New System.Drawing.Size(185, 30)
         Me.btn_eliminar.Name = "btn_eliminar"
@@ -343,7 +343,7 @@ Partial Class config_user
         Me.btn_modificar.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btn_modificar.IconSize = 20
         Me.btn_modificar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_modificar.Location = New System.Drawing.Point(495, 220)
+        Me.btn_modificar.Location = New System.Drawing.Point(495, 186)
         Me.btn_modificar.MaximumSize = New System.Drawing.Size(194, 35)
         Me.btn_modificar.MinimumSize = New System.Drawing.Size(185, 30)
         Me.btn_modificar.Name = "btn_modificar"

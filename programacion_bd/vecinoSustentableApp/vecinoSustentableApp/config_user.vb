@@ -426,8 +426,8 @@ Public Class config_user
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        'primero controlo que esten los datos cargados
-        'If Trim(txt_usuario.Text = "") Or Trim(txt_pass.Text = "") Or Trim(cmb_rol.SelectedIndex = -1) Or Trim(txt_ape.Text = "") Or Trim(txt_nombre.Text = "") Or Trim(txt_telefono.Text = "") Then
+        ''primero controlo que esten los datos cargados
+        'If Trim(txt_usuario.Text = "") Or Trim(txt _pass.Text = "") Or Trim(cmb_rol.SelectedIndex = -1) Or Trim(txt_ape.Text = "") Or Trim(txt_nombre.Text = "") Or Trim(txt_telefono.Text = "") Then
         '    MsgBox("CARGA TODOS LOS DATOS", MsgBoxStyle.Critical, "ATENCION")
         '    lb_usuario.Focus()
         '    Exit Sub
@@ -450,6 +450,33 @@ Public Class config_user
             'configuro command para sentencia SQL
             Comando.CommandType = CommandType.Text
 
+
+
+
+
+            '###################################################################
+
+            'informo el path del archivo de imagen a la funcion
+            Dim filename As String = img_path
+            Dim FileSize As UInt32
+
+            Dim mstream As System.IO.MemoryStream = ConvertImageFiletoMemoryStream(filename)
+
+            Dim arrImage() As Byte = ConvertImageFiletoBytes(filename)
+
+            FileSize = mstream.Length
+            mstream.Close()
+
+            '###################################################################
+
+
+
+
+
+
+
+
+
             'PRIMERO CONTROLO QUE EL REGISTRO NO EXISTA
             Comando.CommandText = "select usuario, pass, rol, apellido, nombre, telefono from personal where usuario = '" & txt_usuario.Text & "';"
 
@@ -469,7 +496,46 @@ Public Class config_user
                 DReader.Close()
 
                 'cargo la sentencia para AGREGAR un registro
-                Comando.CommandText = "insert into personal (usuario, pass, rol, apellido, nombre, telefono) values ('" & Trim(txt_usuario.Text) & "','" & Trim(txt_pass.Text) & "','" & Trim(cmb_rol.Text) & "','" & Trim(txt_ape.Text) & "','" & Trim(txt_nombre.Text) & "','" & Trim(txt_telefono.Text) & "');"
+                'Comando.CommandText = "insert into personal (usuario, pass, rol, apellido, nombre, telefono, foto, tam_archivo, nom_archivo) values ('" & Trim(txt_usuario.Text) & "','" & Trim(txt_pass.Text) & "','" & Trim(cmb_rol.Text) & "','" & Trim(txt_ape.Text) & "','" & Trim(txt_nombre.Text) & "','" & Trim(txt_telefono.Text) & "', @Archi, @TamArchi, @NomArchi);"
+
+
+
+
+
+
+
+
+                '###################################################################
+                Dim sql As String = ""
+                Comando.CommandText = sql
+
+
+                sql = "insert into personal (usuario, pass, rol, apellido, nombre, telefono, foto, tam_archivo, nom_archivo) values ('" & Trim(txt_usuario.Text) & "','" & Trim(txt_pass.Text) & "','" & Trim(cmb_rol.Text) & "','" & Trim(txt_ape.Text) & "','" & Trim(txt_nombre.Text) & "','" & Trim(txt_telefono.Text) & "', @Archi, @TamArchi, @NomArchi);"
+
+                With Comando
+                    .CommandText = sql
+                    '.Connection = conexion
+                    .Parameters.AddWithValue("@NomArchi", filename)
+                    .Parameters.AddWithValue("@TamArchi", FileSize)
+                    .Parameters.AddWithValue("@Archi", arrImage)
+                    '.ExecuteNonQuery()
+                End With
+                '###################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 'variable para recibir respuesta de ejecucion
                 Dim Resultado As Integer
@@ -482,6 +548,32 @@ Public Class config_user
                 'cargo el list
                 Call CargarList(consulta_personal)
                 Call LimpiarForm()
+
+
+
+
+
+
+
+                '###################################################################
+
+                'limpio imagen
+                img_path = ""
+                pbPicture.Image = Nothing
+
+                'pbPicture.
+                MsgBox("IMAGEN GUARDADA EN BD")
+
+                '###################################################################
+
+
+
+
+
+
+
+
+
             End If
 
 
@@ -555,7 +647,7 @@ Public Class config_user
 
         'End If
 
-        Call guardaFoto()
+        'Call guardaFoto()
 
     End Sub
 

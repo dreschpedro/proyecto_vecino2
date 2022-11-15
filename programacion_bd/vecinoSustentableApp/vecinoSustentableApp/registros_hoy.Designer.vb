@@ -186,7 +186,7 @@ Partial Class registros_hoy
         Me.lv_registro.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.id_registro, Me.ecopunto, Me.residuo, Me.total})
         Me.lv_registro.FullRowSelect = True
         Me.lv_registro.HideSelection = False
-        Me.lv_registro.Location = New System.Drawing.Point(16, 101)
+        Me.lv_registro.Location = New System.Drawing.Point(12, 103)
         Me.lv_registro.Name = "lv_registro"
         Me.lv_registro.Size = New System.Drawing.Size(442, 496)
         Me.lv_registro.TabIndex = 31
@@ -196,22 +196,22 @@ Partial Class registros_hoy
         'id_registro
         '
         Me.id_registro.Text = "id_registro"
-        Me.id_registro.Width = 0
+        Me.id_registro.Width = 98
         '
         'ecopunto
         '
         Me.ecopunto.Text = "Ecopunto"
-        Me.ecopunto.Width = 0
+        Me.ecopunto.Width = 101
         '
         'residuo
         '
         Me.residuo.Text = "Residuo"
-        Me.residuo.Width = 230
+        Me.residuo.Width = 88
         '
         'total
         '
         Me.total.Text = "Total"
-        Me.total.Width = 100
+        Me.total.Width = 62
         '
         'btn_imprimir
         '

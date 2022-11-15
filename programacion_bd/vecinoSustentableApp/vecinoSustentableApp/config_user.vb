@@ -4,9 +4,12 @@ Public Class config_user
 
     Dim consulta_personal = "SELECT personal.usuario AS usuario FROM personal ORDER BY personal.id_personal;"
 
+    Public id_foto As String
     Public img_path As String = ""
     Public txtId As String
-    Public iddelabosta As Integer
+    Public iddelabosta, idnum As Integer
+    Public id_actual As String
+    Public id_alto As String
 
     '############## VALIDACION DE ESCRITURA  ######################
     '           USUARIO Y CLAVE
@@ -37,12 +40,68 @@ Public Class config_user
     End Sub
 
 
+    Private Sub the_last_id()
+
+
+        Try
+
+                'conecto a la base
+                Call conectar()
+                conexion.Open()
+
+                'trabajo con los datos
+
+                'el objeto command permite ejecutar sentencias SQL
+                Dim Comando As New MySqlCommand
+
+                'conecto el objeto command
+                Comando.Connection = conexion
+
+                'configuro command para sentencia SQL
+                Comando.CommandType = CommandType.Text
+
+                'cargo la sentencia para buscar un registro
+                Comando.CommandText = "SELECT MAX(id_personal+1) AS idmasuno
+                                          From personal"
+
+                'obtengo los datos y los devuelvo a un objeto DataReader
+                Dim DReader As MySqlDataReader
+
+                'el método ExecuteReader trae los datos de la BD
+                DReader = Comando.ExecuteReader
+
+                'consulto si trajo registros
+                If DReader.HasRows Then
+                    'Call BuscarImagenBD("id_personal")
+                    'utilizo el DataReader para "mostrar" los datos
+                    DReader.Read()
+                id_alto = DReader("idmasuno")
+                'Label9.Text = id_alto
+
+            Else
+                    'MsgBox("EL SOCIO NO EXISTE", MsgBoxStyle.Critical, "ATENCION")
+                End If
+
+                'cierro el DReader para poder ejecutar una nueva consulta SQL
+                DReader.Close()
+
+                'cierro la conexion
+                conexion.Close()
+
+            Catch ex As Exception
+                'SI HAY UN ERROR MUESTRO EL MENSAJE
+                MsgBox(ex.Message)
+                conexion.Close()
+            End Try
+
+    End Sub
+
     '           FORM LOAD
     Private Sub config_user_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'pruebo conexion a la base de datos
         Call conectar()
         Call CargarList(consulta_personal)
-
+        Call the_last_id()
 
         'Opciones en el combobos de "Rol"
         'Se muestran al iniciar el formulario, solo se pueden elejir entre esas 2
@@ -99,10 +158,8 @@ Public Class config_user
         Return ConvertBytesToMemoryStream(ConvertImageFiletoBytes(ImageFilePath))
     End Function
 
-
-
     '           buscar IMG en BD
-    Sub BuscarImagenBD(ByVal idImagen As Integer)
+    Sub BuscarImagenBD(ByVal id_personal_IMG As Integer)
         Dim Conn As MySql.Data.MySqlClient.MySqlConnection
         Conn = New MySql.Data.MySqlClient.MySqlConnection
 
@@ -115,10 +172,15 @@ Public Class config_user
             MessageBox.Show(ex.ToString, "Connect")
         End Try
 
-        Dim adapter As New MySql.Data.MySqlClient.MySqlDataAdapter
-        adapter.SelectCommand = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM imagenes WHERE id= " & idImagen & ";", Conn)
+        Dim cons_sql As String
+        cons_sql = "Select *
+                    From imagenes
+                    Where id_img = " & id_personal_IMG & ";"
 
-        Dim Data As New DataTable
+        Dim adapter As New MySql.Data.MySqlClient.MySqlDataAdapter
+        adapter.SelectCommand = New MySql.Data.MySqlClient.MySqlCommand(cons_sql, Conn)
+
+        Dim Data As New DataTable 'Data debe estar cargado con algun dato -> ¿?
         Dim commandbuild As New MySql.Data.MySqlClient.MySqlCommandBuilder(adapter)
         adapter.Fill(Data)
 
@@ -126,14 +188,15 @@ Public Class config_user
             'cargo la imagen
             Dim lb() As Byte = Data.Rows(Data.Rows.Count - 1).Item("foto")
             Dim lstr As New System.IO.MemoryStream(lb)
-            'cargo la imagen en el picture
+            'cargo la imagen en el+ picture
             pbPicture.Image = Image.FromStream(lstr)
             pbPicture.SizeMode = PictureBoxSizeMode.StretchImage
             lstr.Close()
         Else
-            MsgBox("NO HAY IMAGEN")
+            MsgBox("NO HAY IMAGEN", MsgBoxStyle.Critical, "ATENCION")
         End If
     End Sub
+
     Sub LimpiarForm()
         txt_usuario.Text = ""
         txt_pass.Text = ""
@@ -142,8 +205,77 @@ Public Class config_user
         txt_nombre.Text = ""
         txt_telefono.Text = ""
         txt_buscar.Text = ""
+        pbPicture.Image = Nothing
+        lb_usuario.SelectedIndex = -1
+
 
     End Sub
+
+    'Private Sub guardaFoto()
+    '    'guarda la imagen seleccionada en la BD
+    '    If img_path <> "" Then
+
+    '        'informo el path del archivo de imagen a la funcion
+    '        Dim filename As String = img_path
+    '        Dim FileSize As UInt32
+
+    '        Dim Conn As MySql.Data.MySqlClient.MySqlConnection
+    '        Conn = New MySql.Data.MySqlClient.MySqlConnection
+
+    '        Try
+    '            If Conn.State = ConnectionState.Open Then Conn.Close()
+    '            Conn.ConnectionString = "server=localhost; user id=root; password=123456; database=vecino_sustentable; port=3306"
+    '            Conn.Open()
+
+    '        Catch ex As Exception
+    '            MessageBox.Show(ex.ToString, "Connect")
+    '        End Try
+
+    '        Dim mstream As System.IO.MemoryStream = ConvertImageFiletoMemoryStream(filename)
+
+    '        Dim arrImage() As Byte = ConvertImageFiletoBytes(filename)
+
+    '        FileSize = mstream.Length
+
+    '        Dim sqlcmd As New MySql.Data.MySqlClient.MySqlCommand
+    '        Dim sql As String
+    '        mstream.Close()
+
+    '        iddelabosta = lb_usuario.Items.Count + 1
+
+
+    '        sql = "insert into personal (foto, tam_archivo, nom_archivo) VALUES( @Archi, @TamArchi, @NomArchi)"
+
+
+    '        Try
+
+    '            With sqlcmd
+    '                .CommandText = sql
+    '                .Connection = Conn
+    '                .Parameters.AddWithValue("@NomArchi", filename)
+    '                .Parameters.AddWithValue("@TamArchi", FileSize)
+    '                .Parameters.AddWithValue("@Archi", arrImage)
+    '                .ExecuteNonQuery()
+    '            End With
+
+    '            'limpio imagen
+    '            img_path = ""
+    '            pbPicture.Image = Nothing
+
+    '            'pbPicture.
+    '            MsgBox("IMAGEN GUARDADA EN BD")
+    '            'Call CargarList()
+
+    '            Conn.Close()
+
+    '        Catch ex As Exception
+    '            MsgBox(ex.Message)
+    '        End Try
+
+    '    End If
+
+    '    Call LimpiarForm()
+    'End Sub
 
     Sub CargarList(ByVal cadena As String)
         'cargo el list con los nombres
@@ -191,7 +323,7 @@ Public Class config_user
 
             'nueva consulta SQL
             'cuento la cantidad de registros
-            'Comando.CommandText = "select COUNT(clavesocio) as Total from socio;"
+            'Comando.CommandText = "Select COUNT(clavesocio) As Total from socio;"
 
             'cierro el DReader
             'DReader.Close()
@@ -206,6 +338,128 @@ Public Class config_user
         End Try
     End Sub
 
+    Private Sub actualizar_IMG(ByVal id_person_nuevo As String)
+        'guarda la imagen seleccionada en la BD
+        If img_path <> "" Then
+
+            'informo el path del archivo de imagen a la funcion
+            Dim filename As String = img_path
+            Dim FileSize As UInt32
+
+            Dim Conn As MySql.Data.MySqlClient.MySqlConnection
+            Conn = New MySql.Data.MySqlClient.MySqlConnection
+
+            Try
+                If Conn.State = ConnectionState.Open Then Conn.Close()
+                Conn.ConnectionString = "server= localhost; user id=root; password=123456; database=vecino_sustentable; port=3306;"
+                Conn.Open()
+
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString, "Connect")
+            End Try
+
+            Dim mstream As System.IO.MemoryStream = ConvertImageFiletoMemoryStream(filename)
+
+            Dim arrImage() As Byte = ConvertImageFiletoBytes(filename)
+
+            FileSize = mstream.Length
+
+            Dim sqlcmd As New MySql.Data.MySqlClient.MySqlCommand
+            Dim sql As String
+            mstream.Close()
+
+            sql = "Update imagenes
+                    SET foto= @Archi,
+                    tam_archivo = @TamArchi,
+                    nom_archivo = @NomArchi
+                    WHERE id_personal ='" & id_person_nuevo & "';"
+
+
+
+            Try
+
+                With sqlcmd
+                    .CommandText = sql
+                    .Connection = Conn
+                    .Parameters.AddWithValue("@NomArchi", filename)
+                    .Parameters.AddWithValue("@TamArchi", FileSize)
+                    .Parameters.AddWithValue("@Archi", arrImage)
+                    .ExecuteNonQuery()
+                End With
+
+                'limpio imagen
+                img_path = ""
+                pbPicture.Image = Nothing
+
+                'pbPicture.
+                MsgBox("IMAGEN ACTUALIZADA EN BD")
+                Call CargarList(consulta_personal)
+
+                Conn.Close()
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+        End If
+    End Sub
+
+    Private Sub guardarIMG(ByVal id_person_nuevo As String)
+        'guarda la imagen seleccionada en la BD
+        If img_path <> "" Then
+
+            'informo el path del archivo de imagen a la funcion
+            Dim filename As String = img_path
+            Dim FileSize As UInt32
+
+            Dim Conn As MySql.Data.MySqlClient.MySqlConnection
+            Conn = New MySql.Data.MySqlClient.MySqlConnection
+
+            Try
+                If Conn.State = ConnectionState.Open Then Conn.Close()
+                Conn.ConnectionString = "server= localhost; user id=root; password=123456; database=vecino_sustentable; port=3306;"
+                Conn.Open()
+
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString, "Connect")
+            End Try
+
+            Dim mstream As System.IO.MemoryStream = ConvertImageFiletoMemoryStream(filename)
+
+            Dim arrImage() As Byte = ConvertImageFiletoBytes(filename)
+
+            FileSize = mstream.Length
+
+            Dim sqlcmd As New MySql.Data.MySqlClient.MySqlCommand
+            Dim sql As String
+            mstream.Close()
+
+            sql = "insert into imagenes (id_personal, foto, tam_archivo, nom_archivo) VALUES('" & id_person_nuevo & "', @Archi, @TamArchi, @NomArchi)"
+
+            Try
+                With sqlcmd
+                    .CommandText = sql
+                    .Connection = Conn
+                    .Parameters.AddWithValue("@NomArchi", filename)
+                    .Parameters.AddWithValue("@TamArchi", FileSize)
+                    .Parameters.AddWithValue("@Archi", arrImage)
+                    .ExecuteNonQuery()
+                End With
+                'limpio imagen
+                img_path = ""
+                pbPicture.Image = Nothing
+
+                'pbPicture.
+                MsgBox("IMAGEN GUARDADA EN BD")
+                Call CargarList(consulta_personal)
+                Conn.Close()
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+        End If
+    End Sub
 
     ''subrutina agregar imagen a BD
     ''guarda la imagen seleccionada en la BD
@@ -284,72 +538,6 @@ Public Class config_user
     'End If
 
 
-    Private Sub guardaFoto()
-        'guarda la imagen seleccionada en la BD
-        If img_path <> "" Then
-
-            'informo el path del archivo de imagen a la funcion
-            Dim filename As String = img_path
-            Dim FileSize As UInt32
-
-            Dim Conn As MySql.Data.MySqlClient.MySqlConnection
-            Conn = New MySql.Data.MySqlClient.MySqlConnection
-
-            Try
-                If Conn.State = ConnectionState.Open Then Conn.Close()
-                Conn.ConnectionString = "server=localhost; user id=root; password=123456; database=vecino_sustentable; port=3306"
-                Conn.Open()
-
-            Catch ex As Exception
-                MessageBox.Show(ex.ToString, "Connect")
-            End Try
-
-            Dim mstream As System.IO.MemoryStream = ConvertImageFiletoMemoryStream(filename)
-
-            Dim arrImage() As Byte = ConvertImageFiletoBytes(filename)
-
-            FileSize = mstream.Length
-
-            Dim sqlcmd As New MySql.Data.MySqlClient.MySqlCommand
-            Dim sql As String
-            mstream.Close()
-
-            iddelabosta = lb_usuario.Items.Count + 1
-
-
-            sql = "insert into imagenes (foto, tam_archivo, nom_archivo) VALUES( @Archi, @TamArchi, @NomArchi)"
-
-
-            Try
-
-                With sqlcmd
-                    .CommandText = sql
-                    .Connection = Conn
-                    .Parameters.AddWithValue("@NomArchi", filename)
-                    .Parameters.AddWithValue("@TamArchi", FileSize)
-                    .Parameters.AddWithValue("@Archi", arrImage)
-                    .ExecuteNonQuery()
-                End With
-
-                'limpio imagen
-                img_path = ""
-                pbPicture.Image = Nothing
-
-                'pbPicture.
-                MsgBox("IMAGEN GUARDADA EN BD")
-                'Call CargarList()
-
-                Conn.Close()
-
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-
-        End If
-
-        Call LimpiarForm()
-    End Sub
-
     '#############  BOTONES ##############
 
     Private Sub lb_usuario_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lb_usuario.SelectedIndexChanged
@@ -372,7 +560,17 @@ Public Class config_user
                 Comando.CommandType = CommandType.Text
 
                 'cargo la sentencia para buscar un registro
-                Comando.CommandText = "select * from personal where usuario = '" & lb_usuario.SelectedItem.ToString & "' ;"
+                Comando.CommandText = "SELECT personal.id_personal AS id_personal,
+                                        personal.usuario AS usuario,
+                                        personal.pass AS pass,
+                                        personal.rol AS rol,
+                                        personal.apellido AS apellido,
+                                        personal.nombre AS nombre,
+                                        personal.telefono AS telefono,
+                                        imagenes.id_img AS id_img
+                                        FROM imagenes
+                                        JOIN personal ON personal.id_personal = imagenes.id_personal
+                                        WHERE personal.usuario = '" & lb_usuario.SelectedItem.ToString & "';"
 
                 'obtengo los datos y los devuelvo a un objeto DataReader
                 Dim DReader As MySqlDataReader
@@ -382,17 +580,21 @@ Public Class config_user
 
                 'consulto si trajo registros
                 If DReader.HasRows Then
-                    'utilizo el DataReader para "mostrar" por los datos
+                    'Call BuscarImagenBD("id_personal")
+                    'utilizo el DataReader para "mostrar" los datos
                     DReader.Read()
+                    txtId = DReader("id_personal")
+                    id_actual = DReader("id_personal")
                     txt_usuario.Text = DReader("usuario")
                     txt_pass.Text = DReader("pass")
                     cmb_rol.Text = DReader("rol")
                     txt_ape.Text = DReader("apellido")
                     txt_nombre.Text = DReader("nombre")
                     txt_telefono.Text = DReader("telefono")
-                    Call BuscarImagenBD(txtId)
+                    id_foto = DReader("id_img")
+                    Call BuscarImagenBD(Trim(id_foto))
                 Else
-                    MsgBox("El Socio no existe")
+                    MsgBox("EL SOCIO NO TIENE IMAGEN CARGADA", MsgBoxStyle.Critical, "ATENCION")
                 End If
 
                 'cierro el DReader para poder ejecutar una nueva consulta SQL
@@ -407,13 +609,13 @@ Public Class config_user
                 conexion.Close()
             End Try
         End If
-
+        'Call BuscarImagenBD(txtId)
         '##################################################################################################
         'buscar imagen BD
         'busco una imagen cargada en la BD y la traigo
-        If txtId <> "" Then
-            Call BuscarImagenBD(txtId)
-        End If
+        'If txtId <> "" Then
+        '    Call BuscarImagenBD(txtId)
+        'End If
     End Sub
 
     Private Sub btn_cerrar_Click(sender As Object, e As EventArgs) Handles btn_cerrar.Click
@@ -422,16 +624,17 @@ Public Class config_user
 
     Private Sub btn_limpiar_campos_Click(sender As Object, e As EventArgs) Handles btn_limpiar_campos.Click
         Call LimpiarForm()
-        lb_usuario.SelectedIndex = -1
+
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        ''primero controlo que esten los datos cargados
-        'If Trim(txt_usuario.Text = "") Or Trim(txt _pass.Text = "") Or Trim(cmb_rol.SelectedIndex = -1) Or Trim(txt_ape.Text = "") Or Trim(txt_nombre.Text = "") Or Trim(txt_telefono.Text = "") Then
-        '    MsgBox("CARGA TODOS LOS DATOS", MsgBoxStyle.Critical, "ATENCION")
-        '    lb_usuario.Focus()
-        '    Exit Sub
-        'End If
+        'primero controlo que esten los datos cargados
+
+        If (img_path = "") Or (cmb_rol.SelectedIndex = -1) Or Trim(txt_ape.Text = "") Or Trim(txt_nombre.Text = "") Or Trim(txt_usuario.Text = "") Or Trim(txt_pass.Text = "") Or Trim(txt_telefono.Text = "") Then
+            MsgBox("INGRESE LOS DATOS", MsgBoxStyle.Critical, "ATENCION")
+            txt_nombre.Focus()
+            Exit Sub
+        End If
 
         'agrego un registro a la tabla
         Try
@@ -450,35 +653,8 @@ Public Class config_user
             'configuro command para sentencia SQL
             Comando.CommandType = CommandType.Text
 
-
-
-
-
-            '###################################################################
-
-            'informo el path del archivo de imagen a la funcion
-            Dim filename As String = img_path
-            Dim FileSize As UInt32
-
-            Dim mstream As System.IO.MemoryStream = ConvertImageFiletoMemoryStream(filename)
-
-            Dim arrImage() As Byte = ConvertImageFiletoBytes(filename)
-
-            FileSize = mstream.Length
-            mstream.Close()
-
-            '###################################################################
-
-
-
-
-
-
-
-
-
             'PRIMERO CONTROLO QUE EL REGISTRO NO EXISTA
-            Comando.CommandText = "select usuario, pass, rol, apellido, nombre, telefono from personal where usuario = '" & txt_usuario.Text & "';"
+            Comando.CommandText = "select id_personal, usuario, pass, rol, apellido, nombre, telefono from personal where usuario = '" & txt_usuario.Text & "';"
 
             'obtengo los datos y los devuelvo a un objeto DataReader
             Dim DReader As MySqlDataReader
@@ -495,46 +671,32 @@ Public Class config_user
                 'cierro el DataReader
                 DReader.Close()
 
-                'cargo la sentencia para AGREGAR un registro
-                'Comando.CommandText = "insert into personal (usuario, pass, rol, apellido, nombre, telefono, foto, tam_archivo, nom_archivo) values ('" & Trim(txt_usuario.Text) & "','" & Trim(txt_pass.Text) & "','" & Trim(cmb_rol.Text) & "','" & Trim(txt_ape.Text) & "','" & Trim(txt_nombre.Text) & "','" & Trim(txt_telefono.Text) & "', @Archi, @TamArchi, @NomArchi);"
+                Comando.CommandText = "insert into personal (usuario, pass, rol, apellido, nombre, telefono) 
+                                        values ('" & Trim(txt_usuario.Text) & "',
+                                        '" & Trim(txt_pass.Text) & "',
+                                        '" & Trim(cmb_rol.Text) & "',
+                                        '" & Trim(txt_ape.Text) & "',
+                                        '" & Trim(txt_nombre.Text) & "',
+                                        '" & Trim(txt_telefono.Text) & "');"
 
 
 
+                ''#################################################
 
+                'Comando.CommandText = "SELECT MAX(id_personal+1) AS idmasuno
+                '                          From personal"
 
+                ''el método ExecuteReader trae los datos de la BD
+                'DReader = Comando.ExecuteReader
 
+                ''consulto si trajo registros
+                ''If DReader.HasRows Then
+                ''Call BuscarImagenBD("id_personal")
+                ''utilizo el DataReader para "mostrar" los datos
+                'DReader.Read()
+                '    id_alto = DReader("idmasuno")
 
-
-                '###################################################################
-                Dim sql As String = ""
-                Comando.CommandText = sql
-
-
-                sql = "insert into personal (usuario, pass, rol, apellido, nombre, telefono, foto, tam_archivo, nom_archivo) values ('" & Trim(txt_usuario.Text) & "','" & Trim(txt_pass.Text) & "','" & Trim(cmb_rol.Text) & "','" & Trim(txt_ape.Text) & "','" & Trim(txt_nombre.Text) & "','" & Trim(txt_telefono.Text) & "', @Archi, @TamArchi, @NomArchi);"
-
-                With Comando
-                    .CommandText = sql
-                    '.Connection = conexion
-                    .Parameters.AddWithValue("@NomArchi", filename)
-                    .Parameters.AddWithValue("@TamArchi", FileSize)
-                    .Parameters.AddWithValue("@Archi", arrImage)
-                    '.ExecuteNonQuery()
-                End With
-                '###################################################################
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                '    '################################################
 
 
                 'variable para recibir respuesta de ejecucion
@@ -546,36 +708,11 @@ Public Class config_user
                 MsgBox("Registros Agregados: " & Resultado, MsgBoxStyle.Information, "ATENCION")
 
                 'cargo el list
+                Call guardarIMG(Trim(id_alto))
                 Call CargarList(consulta_personal)
                 Call LimpiarForm()
 
-
-
-
-
-
-
-                '###################################################################
-
-                'limpio imagen
-                img_path = ""
-                pbPicture.Image = Nothing
-
-                'pbPicture.
-                MsgBox("IMAGEN GUARDADA EN BD")
-
-                '###################################################################
-
-
-
-
-
-
-
-
-
             End If
-
 
             'cierro la conexion
             conexion.Close()
@@ -586,80 +723,14 @@ Public Class config_user
             conexion.Close()
         End Try
 
-
-        ''##################################################################################
-        ''subrutina agregar imagen a BD
-        ''guarda la imagen seleccionada en la BD
-        'If img_path <> "" Then
-
-        '    'informo el path del archivo de imagen a la funcion
-        '    Dim filename As String = img_path
-        '    Dim FileSize As UInt32
-
-        '    Dim Conn As MySql.Data.MySqlClient.MySqlConnection
-        '    Conn = New MySql.Data.MySqlClient.MySqlConnection
-
-        '    Try
-        '        If Conn.State = ConnectionState.Open Then Conn.Close()
-        '        Conn.ConnectionString = "server=localhost; user id=root; password=123456; database=vecino_sustentable; port=3306;"
-        '        Conn.Open()
-
-        '    Catch ex As Exception
-        '        MessageBox.Show(ex.ToString, "Connect")
-        '    End Try
-
-        '    Dim mstream As System.IO.MemoryStream = ConvertImageFiletoMemoryStream(filename)
-
-        '    Dim arrImage() As Byte = ConvertImageFiletoBytes(filename)
-
-        '    FileSize = mstream.Length
-
-        '    Dim sqlcmd As New MySql.Data.MySqlClient.MySqlCommand
-        '    Dim sql As String
-        '    mstream.Close()
-
-        '    sql = "insert into imagenes (foto, tam_archivo, nom_archivo) VALUES(@Archi, @TamArchi, @NomArchi)"
-
-        '    Try
-
-        '        With sqlcmd
-        '            .CommandText = sql
-        '            .Connection = Conn
-        '            .Parameters.AddWithValue("@NomArchi", filename)
-        '            .Parameters.AddWithValue("@TamArchi", FileSize)
-        '            .Parameters.AddWithValue("@Archi", arrImage)
-        '            .ExecuteNonQuery()
-        '        End With
-
-        '        'limpio imagen
-        '        img_path = ""
-        '        pbPicture.Image = Nothing
-
-        '        'pbPicture.
-        '        MsgBox("IMAGEN GUARDADA EN BD")
-        '        Call CargarList(consulta_personal)
-
-        '        Conn.Close()
-
-        '    Catch ex As Exception
-        '        MsgBox(ex.Message)
-        '    End Try
-
-        'End If
-
-        'Call guardaFoto()
-
     End Sub
 
     Private Sub btn_modificar_Click(sender As Object, e As EventArgs) Handles btn_modificar.Click
-
-        Dim id_personal As String = ""
-
-
         'primero controlo que esten los datos cargados
-        If (lb_usuario.SelectedIndex = -1) Then
-            MsgBox("SELECCIONE REGISTRO A MODIFICAR", MsgBoxStyle.Critical, "ATENCION")
-            lb_usuario.Focus()
+
+        If (lb_usuario.SelectedIndex = -1) Or (cmb_rol.SelectedIndex = -1) Or Trim(txt_ape.Text = "") Or Trim(txt_nombre.Text = "") Or Trim(txt_usuario.Text = "") Or Trim(txt_pass.Text = "") Or Trim(txt_telefono.Text = "") Then
+            MsgBox("SELECCIONE REGISTRO A MODIFICAR", MsgBoxStyle.Information, "ATENCION")
+            txt_nombre.Focus()
             Exit Sub
         End If
 
@@ -678,22 +749,12 @@ Public Class config_user
             Comando.CommandType = CommandType.Text
 
             'PRIMERO CONTROLO QUE EL REGISTRO EXISTA
-            Comando.CommandText = "select usuario, pass, rol, apellido, nombre, telefono from personal where usuario = '" & Trim(txt_usuario.Text) & "';"
+            Comando.CommandText = "select id_personal, usuario, pass, rol, apellido, nombre, telefono from personal where usuario = '" & Trim(txt_usuario.Text) & "';"
 
             'obtengo los datos y los devuelvo a un objeto DataReader
             Dim DReader As MySqlDataReader
             'el método ExecuteReader trae los datos de la BD
             DReader = Comando.ExecuteReader
-
-            '###########################################################################
-
-            Comando.CommandText = "select * from imagenes"
-
-            id_personal = DReader("id_personal")
-            Dim eso As String = ""
-            '###########################################################################
-
-
 
             'si encontro, entonces modifico
             If DReader.HasRows Then
@@ -701,19 +762,30 @@ Public Class config_user
                 'cierro el DataReader
                 DReader.Close()
 
-                'cargo la sentencia para MODIFICAR un registro
-                Comando.CommandText = "update personal set usuario='" & Trim(txt_usuario.Text) & "',pass='" & Trim(txt_pass.Text) & "',rol='" & Trim(cmb_rol.Text) & "',apellido='" & Trim(txt_ape.Text) & "',nombre='" & Trim(txt_nombre.Text) & "',telefono='" & Trim(txt_telefono.Text) & "' where usuario = '" & Trim(txt_usuario.Text) & "';"
+
+
+                Comando.CommandText = "update personal 
+                                        set usuario='" & Trim(txt_usuario.Text) & "',
+                                        pass='" & Trim(txt_pass.Text) & "',
+                                        rol='" & Trim(cmb_rol.Text) & "',
+                                        apellido='" & Trim(txt_ape.Text) & "',
+                                        nombre='" & Trim(txt_nombre.Text) & "',
+                                        telefono='" & Trim(txt_telefono.Text) & "' 
+                                        where usuario = '" & Trim(txt_usuario.Text) & "';"
 
                 'variable para recibir respuesta de ejecucion
                 Dim Resultado As Integer
                 'el método ExecuteNonQuery devuelve solo la cantidad de registros afectados por la operacion
                 Resultado = Comando.ExecuteNonQuery
 
-                'MsgBox("Registros Modificados: " & Resultado, MsgBoxStyle.Information, "ATENCION")
+                MsgBox("Registros Modificados: " & Resultado, MsgBoxStyle.Information, "ATENCION")
 
                 'cargo el list
+                'Call guardarIMG(Trim(id_foto))
+                Call actualizar_IMG(txtId)
                 Call CargarList(consulta_personal)
-                'Call LimpiarForm()
+                Call LimpiarForm()
+
             Else
                 MsgBox("EL REGISTRO NO EXISTE", MsgBoxStyle.Critical, "ATENCION")
                 'cierro el DataReader
@@ -727,86 +799,6 @@ Public Class config_user
             MsgBox(ex.Message)
             conexion.Close()
         End Try
-
-
-        ''##################################################################################
-        ''subrutina agregar imagen a BD
-        ''guarda la imagen seleccionada en la BD
-        'If img_path <> "" Then
-
-        '    'informo el path del archivo de imagen a la funcion
-        '    Dim filename As String = img_path
-        '    Dim FileSize As UInt32
-
-        '    Dim Conn As MySql.Data.MySqlClient.MySqlConnection
-        '    Conn = New MySql.Data.MySqlClient.MySqlConnection
-
-        '    Try
-        '        If Conn.State = ConnectionState.Open Then Conn.Close()
-        '        Conn.ConnectionString = "server=localhost; user id=root; password=123456; database=vecino_sustentable; port=3306;"
-        '        Conn.Open()
-
-        '    Catch ex As Exception
-        '        MessageBox.Show(ex.ToString, "Connect")
-        '    End Try
-
-
-        '    '###########################################################################
-        '    'Dim Comando As New MySqlCommand
-        '    'Comando.CommandText = "select * imagenes where id_personal = '" & id_personal & "';"
-        '    ''obtengo los datos y los devuelvo a un objeto DataReader
-        '    'Dim DReader As MySqlDataReader
-        '    ''el método ExecuteReader trae los datos de la BD
-        '    'DReader = Comando.ExecuteReader
-
-        '    'id_personal = DReader("id_personal")
-
-        '    'Dim eso As String = ""
-
-        '    '###########################################################################
-
-        '    Dim mstream As System.IO.MemoryStream = ConvertImageFiletoMemoryStream(filename)
-
-        '    Dim arrImage() As Byte = ConvertImageFiletoBytes(filename)
-
-        '    FileSize = mstream.Length
-
-        '    Dim sqlcmd As New MySql.Data.MySqlClient.MySqlCommand
-        '    Dim sql As String
-        '    mstream.Close()
-
-        '    'sql = "insert into imagenes (id_personal, foto, tam_archivo, nom_archivo) VALUES(" & id_personal & ", @Archi, @TamArchi, @NomArchi)"
-        '    sql = "insert into imagenes (foto, tam_archivo, nom_archivo) VALUES( @Archi, @TamArchi, @NomArchi) "
-
-        '    Try
-
-        '        With sqlcmd
-        '            .CommandText = sql
-        '            .Connection = Conn
-
-        '            .Parameters.AddWithValue("@NomArchi", filename)
-        '            .Parameters.AddWithValue("@TamArchi", FileSize)
-        '            .Parameters.AddWithValue("@Archi", arrImage)
-        '            .ExecuteNonQuery()
-        '        End With
-
-        '        'limpio imagen
-        '        img_path = ""
-        '        pbPicture.Image = Nothing
-
-        '        'pbPicture.
-        '        MsgBox("IMAGEN GUARDADA EN BD")
-        '        Call CargarList(consulta_personal)
-
-        '        Conn.Close()
-
-        '    Catch ex As Exception
-        '        MsgBox(ex.Message)
-        '    End Try
-
-        'End If
-
-        Call guardaFoto()
 
     End Sub
 
@@ -999,8 +991,8 @@ Public Class config_user
             'selecciono PrintDocument generado
             VistaPrevia.Document = HojaImpresion
             'tamaño de ventana
-            VistaPrevia.Width = 900
-            VistaPrevia.Height = 700
+            VistaPrevia.Width = 300
+            VistaPrevia.Height = 300
             'vista previa
             VistaPrevia.ShowDialog()
         Else

@@ -1,0 +1,110 @@
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        ''primero controlo que esten los datos cargados
+        'If Trim(txt_usuario.Text = "") Or Trim(txt _pass.Text = "") Or Trim(cmb_rol.SelectedIndex = -1) Or Trim(txt_ape.Text = "") Or Trim(txt_nombre.Text = "") Or Trim(txt_telefono.Text = "") Then
+        '    MsgBox("CARGA TODOS LOS DATOS", MsgBoxStyle.Critical, "ATENCION")
+        '    lb_usuario.Focus()
+        '    Exit Sub
+        'End If
+
+        'agrego un registro a la tabla
+        Try
+            'conecto a la base
+            Call conectar()
+            conexion.Open()
+
+            'trabajo con los datos
+
+            'el objeto command permite ejecutar sentencias SQL
+            Dim Comando As New MySqlCommand
+
+            'conecto el objeto command
+            Comando.Connection = conexion
+
+            'configuro command para sentencia SQL
+            Comando.CommandType = CommandType.Text
+
+            '###################################################################
+
+            'informo el path del archivo de imagen a la funcion
+            Dim filename As String = img_path
+            Dim FileSize As UInt32
+
+            Dim mstream As System.IO.MemoryStream = ConvertImageFiletoMemoryStream(filename)
+
+            Dim arrImage() As Byte = ConvertImageFiletoBytes(filename)
+
+            FileSize = mstream.Length
+            mstream.Close()
+
+            '###################################################################
+
+            'PRIMERO CONTROLO QUE EL REGISTRO NO EXISTA
+            Comando.CommandText = "select usuario, pass, rol, apellido, nombre, telefono from personal where usuario = '" & txt_usuario.Text & "';"
+
+            'obtengo los datos y los devuelvo a un objeto DataReader
+            Dim DReader As MySqlDataReader
+
+            'el método ExecuteReader trae los datos de la BD
+            DReader = Comando.ExecuteReader
+
+            'si no encontro, entonces agrego
+            If DReader.HasRows Then
+                MsgBox("EL REGISTRO YA EXISTE", MsgBoxStyle.Critical, "ATENCION")
+                'cierro el DataReader
+                DReader.Close()
+            Else
+                'cierro el DataReader
+                DReader.Close()
+
+
+                '###################################################################
+                Dim sql As String = ""
+                Comando.CommandText = sql
+
+                sql = "insert into personal (usuario, pass, rol, apellido, nombre, telefono, foto, tam_archivo, nom_archivo) values ('" & Trim(txt_usuario.Text) & "','" & Trim(txt_pass.Text) & "','" & Trim(cmb_rol.Text) & "','" & Trim(txt_ape.Text) & "','" & Trim(txt_nombre.Text) & "','" & Trim(txt_telefono.Text) & "', @Archi, @TamArchi, @NomArchi);"
+
+                With Comando
+                    .CommandText = sql
+                    '.Connection = conexion
+                    .Parameters.AddWithValue("@NomArchi", filename)
+                    .Parameters.AddWithValue("@TamArchi", FileSize)
+                    .Parameters.AddWithValue("@Archi", arrImage)
+                    '.ExecuteNonQuery()
+                End With
+                '###################################################################
+
+
+                'variable para recibir respuesta de ejecucion
+                Dim Resultado As Integer
+
+                'el método ExecuteNonQuery devuelve solo la cantidad de registros afectados por la operacion
+                Resultado = Comando.ExecuteNonQuery
+
+                MsgBox("Registros Agregados: " & Resultado, MsgBoxStyle.Information, "ATENCION")
+
+                'cargo el list
+                Call CargarList(consulta_personal)
+                Call LimpiarForm()
+
+
+                '###################################################################
+
+                'limpio imagen
+                img_path = ""
+                pbPicture.Image = Nothing
+
+                'pbPicture.
+                MsgBox("IMAGEN GUARDADA EN BD")
+
+                '###################################################################
+
+            End If
+
+            'cierro la conexion
+            conexion.Close()
+
+        Catch ex As Exception
+            'SI HAY UN ERROR MUESTRO EL MENSAJE
+            MsgBox(ex.Message)
+            conexion.Close()
+        End Try

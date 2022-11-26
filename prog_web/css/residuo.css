@@ -1,0 +1,178 @@
+:root {
+    --black: rgb(25, 25, 25);
+    --verde_ele: rgb(0, 220, 0);
+    --azul: rgb(13, 16, 66);
+    --grey: rgb(89, 89, 89);
+    --gris_claro: rgb(154, 154, 154);
+    --blanco: rgb(220, 220, 220);
+    --blanco_a: rgba(154, 154, 154, 0.3);
+    --celeste: rgb(59, 89, 152);
+    --white: rgb(255, 255, 255);
+    /* Gradient / Desgradado */
+    --sexy_blue: #1e839c, #81ddf1;
+    --purple_love: #cc2b5e, #753a88;
+    --shades_grey: #bdc3c7, #2c3e50;
+    --lost_memory: #db4242, #ffb88c;
+    --pinky: #dd5e89, #f7bb97;
+    --lush: #30770f, #b7e77c;
+    --kashmir: #614385, #516395;
+    --frost: #080f53, #0f6bbd;
+    --virgin_america: #7b4397, #dc2430;
+    --endless_river: #43cea2, #185a9d;
+    --dusk: #ffd89b, #19547b;
+    --skin: #534666, #CD7672;
+    --forest: #138086, #534666;
+    --perla: #FFFFFF, #2C6975;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    text-align: center;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+}
+
+body {
+    background: linear-gradient(to right, var(--kashmir));
+    display: flex;
+    flex-direction: column;
+}
+
+.nav{
+    display: flex;
+    flex-direction: column;
+}
+
+/*MAIN*/
+
+.main {
+    /* background-color: var(--white); */
+    color: var(--grey);
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.titulo {
+    font-weight: bold;
+    color: var(--black);
+    margin: 25px 0;
+}
+
+/*ARTICLE*/
+
+.main .ecos{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.ecos .articulo{
+    border: 1px solid var(--verde_ele);
+    background-color: var(--blanco);
+    display: flex;
+    margin: 15px 0;
+    flex-direction: column;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* TITULO RESIDUO */
+.articulo .sub_caja{
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.sub_caja .subtitulo {
+    color: var(--azul);
+    border-radius: 15px;
+}
+
+        /* ICONO RESICLADO */
+.sub_caja .icono{
+    background-color: var(--azul);
+    border-radius: 50%;
+    padding: 3px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 40px;
+    height: 40px;
+    align-self: center;
+    align-items: center;
+}
+
+.sub_caja .subtitulo{
+    margin-left: 10px;
+    border-radius: 15px;
+    /* margin: 15px 0; */
+}
+
+/* IMAGEN ECOPNTO */
+.articulo .img{
+    border-radius: 15px;
+}
+
+.img img{
+    border-radius: 15px 15px 0 0;
+}
+
+.articulo .texto{
+    margin-bottom: 15px;
+}
+
+/*@media (min-width: 320px) and (max-width: 480px) {} /*telefono*/
+
+@media (min-width: 481px) and (max-width: 768px) {/*Tablet*/
+    .main .ecos{
+        margin: 0;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ecos .articulo{
+        width: 40%;
+        margin: 10px;
+        /* margin-left: 15px; */
+    }
+
+    .ecos .articulo:hover{
+        transform: scale(1.03);
+        transition: 0.3s;
+    }
+}
+
+
+@media (min-width: 769px) {/*laptop*/
+    .main .ecos{
+        margin: 0;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ecos .articulo{
+        width: 320px;
+        margin: 10px;
+    }
+
+    .ecos .articulo:hover{
+        transform: scale(1.03);
+        transition: 0.3s;
+    }
+}

@@ -1,0 +1,251 @@
+:root {
+    --black: rgb(25, 25, 25);
+    --verde_ele: rgb(0, 220, 0);
+    --azul: rgb(13, 16, 66);
+    --grey: rgb(89, 89, 89);
+    --gris_claro: rgb(154, 154, 154);
+    --blanco: rgb(220, 220, 220);
+    --blanco_a: rgba(154, 154, 154, 0.3);
+    --celeste: rgb(59, 89, 152);
+    --white: rgb(255, 255, 255);
+    --gris: #cbcfd3;
+    /* Gradient / Desgradado */
+    --sexy_blue: #1e839c, #81ddf1;
+    --purple_love: #cc2b5e, #753a88;
+    --shades_grey: #bdc3c7, #2c3e50;
+    --lost_memory: #db4242, #ffb88c;
+    --pinky: #dd5e89, #f7bb97;
+    --lush: #30770f, #b7e77c;
+    --kashmir: #614385, #516395;
+    --frost: #080f53, #0f6bbd;
+    --virgin_america: #7b4397, #dc2430;
+    --endless_river: #43cea2, #185a9d;
+    --dusk: #ffd89b, #19547b;
+    --skin: #534666, #CD7672;
+    --forest: #138086, #534666;
+    --perla: #FFFFFF, #2C6975;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    text-align: center;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+}
+
+hr{
+    width: 95%;
+    border: 1px solid var(--gris);
+    margin: 20px auto;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-items: center;
+}
+
+/* HEADER */
+header{
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100vh;
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+.nav{
+    display: flex;
+    flex-direction: column;
+
+}
+
+header{
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+header picture{
+    width: 80%;
+}
+
+header .texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 15px;
+
+}
+
+.texto h1{
+    margin: 0 0 20px 0;
+}
+
+#somos{
+    font-size: 1em;
+}
+
+
+
+.texto blockquote{
+    display: flex;
+}
+
+.frase{
+    margin: 20px 0;
+}
+
+header .texto .boton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+
+}
+
+.boton a{
+    background-color: var(--verde_ele);
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: bold;
+}
+
+.boton a:hover{
+    box-shadow: .5rem .5rem 1rem white,
+    .5rem .5rem 1rem rgb(141, 139, 139);
+    transform: scale(1.02);
+    transition: 0.15s;
+}
+
+
+
+
+
+
+
+.ecos{
+    display: flex;
+    flex-flow: column nowrap;
+    /* width: 90%; */
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.ecos .texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* width: 100%; */
+    margin-bottom: 20px;
+}
+
+.ecos .texto p{
+    margin: 20px 0;
+}
+
+.ecos .texto .boton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ecos picture{
+    width: 100%;
+}
+
+picture iframe{
+    width: 100%;
+    height: 250px;
+}
+
+
+.residuo{
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 auto;
+    
+}
+
+.residuo .texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto #subt{
+    margin-bottom: 20px;
+}
+
+.residuo .texto .boton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.residuo picture{
+    margin: 20px auto;
+}
+
+/*telefono*/
+/* @media (min-width: 320px) and (max-width: 480px) {} */
+
+/*Tablet*/
+@media (min-width: 481px) {
+    header{
+        flex-direction: row;
+
+    }
+
+    picture{
+        min-width: 55%;
+        max-width: 55%;
+    }
+
+    header,
+    .ecos,
+    .residuo{
+        width: 90%;
+    }
+
+    .ecos{
+        flex-direction: row;
+    }
+
+    .ecos picture img{
+        border-radius: 2%;
+        margin-left: 10px;
+    }
+
+    .residuo{
+        flex-direction: row;
+    }
+
+    .residuo .texto{
+        flex-flow: column nowrap;
+        margin-left: 20px;
+    }
+}
+
+/*laptop*/
+/* @media (min-width: 769px) {} */

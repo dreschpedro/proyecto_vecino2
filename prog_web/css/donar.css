@@ -1,0 +1,167 @@
+:root {
+    --black: rgb(25, 25, 25);
+    --verde_ele: rgb(0, 220, 0);
+    --azul: rgb(13, 16, 66);
+    --grey: rgb(89, 89, 89);
+    --gris_claro: rgb(154, 154, 154);
+    --blanco: rgb(220, 220, 220);
+    --blanco_a: rgba(154, 154, 154, 0.3);
+    --celeste: rgb(59, 89, 152);
+    --white: rgb(255, 255, 255);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    text-align: center;
+    text-align: center;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+body {
+    background-color: var(--celeste);
+    display: flex;
+    flex-direction: column;
+}
+
+/*MAIN*/
+
+.main {
+    background-color: var(--white);
+    color: var(--grey);
+    margin: 0 10px;
+    width: 90%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+}
+
+.titulo {
+    font-weight: bold;
+    color: var(--black);
+    margin: 25px 0;
+}
+
+/*ARTICLE*/
+
+.main .ecos{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.ecos .articulo{
+    border: 1px solid var(--verde_ele);
+    background-color: var(--blanco);
+    display: flex;
+    margin: 15px 0;
+    flex-direction: column;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* TITULO RESIDUO */
+.articulo .icono{
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+        /* ICONO RESICLADO */
+.articulo .icono{
+    background-color: var(--azul);
+    border-radius: 50%;
+    padding: 3px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 40px;
+    height: 40px;
+    align-self: center;
+    align-items: center;
+}
+
+.articulo .contenido{
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    border-radius: 15px;
+}
+
+/* IMAGEN ECOPNTO */
+.contenido .img{
+    border-radius: 15px;
+}
+
+.img img{
+    border-radius: 15px;
+}
+
+.contenido .texto{
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid yellow; */
+    /* width: 50%; */
+}
+
+/* BOTON */
+.texto .boton{
+    border: 2px solid var(--verde_ele);
+    border-radius: 15px;
+    width: 150px;
+    margin: 15px auto;
+    /* margin-bottom: 15px; */
+    padding: 5px;
+    background-color: var(--azul);
+    color: var(--verde_ele);
+}
+
+/*@media (min-width: 320px) and (max-width: 480px) {} /*telefono*/
+
+@media (min-width: 481px) and (max-width: 768px) {/*Tablet*/
+    .articulo .boton:hover{
+        transform: scale(1.05);
+        transition: 0.2s;
+    }
+}
+
+
+@media (min-width: 769px) {/*laptop*/
+    .main .ecos{
+        margin: 0;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ecos .articulo .contenido{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contenido .texto{
+        width: 100%;
+        margin-left: 10px;
+    }
+    
+
+    .articulo .boton:hover{
+        transform: scale(1.05);
+        transition: 0.2s;
+    }
+
+}

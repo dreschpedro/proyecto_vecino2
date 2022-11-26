@@ -1,0 +1,188 @@
+:root {
+    --black: rgb(25, 25, 25);
+    --verde_ele: rgb(0, 220, 0);
+    --azul: rgb(13, 16, 66);
+    --grey: rgb(89, 89, 89);
+    --gris_claro: rgb(154, 154, 154);
+    --blanco: rgb(220, 220, 220);
+    --blanco_a: rgba(154, 154, 154, 0.3);
+    --celeste: rgb(59, 89, 152);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    text-align: center;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+}
+
+body {
+    background-color: var(--celeste);
+    display: flex;
+    flex-direction: column;
+}
+
+.nav{
+    display: flex;
+    flex-direction: column;
+}
+
+/*MAIN*/
+
+.main {
+    background-color: var(--blanco);
+    color: var(--grey);
+    /* border: 2px solid red; */
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.titulo {
+    font-weight: bold;
+    color: var(--black);
+    margin: 25px 0;
+}
+
+/*ARTICLE*/
+
+.main .ecos{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.ecos .articulo{
+    border: 1px solid var(--verde_ele);
+    background-color: var(--blanco_a);
+    display: flex;
+    margin: 15px 0;
+    flex-direction: column;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.ecos .articulo:hover{
+    transform: scale(1.03);
+    transition: 0.3s;
+}
+
+/* TITULO ECOPUNTO */
+.articulo .sub_caja{
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.sub_caja .subtitulo {
+    color: var(--azul);
+    border-radius: 15px;
+}
+
+        /* ICONO RESICLADO */
+.sub_caja .icono{
+    background-color: var(--azul);
+    border-radius: 50%;
+    padding: 3px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 40px;
+    height: 40px;
+    align-self: center;
+    align-items: center;
+}
+
+.sub_caja .subtitulo{
+    margin-left: 20px;
+    border-radius: 15px;
+    margin: 15px 0;
+}
+
+/* IMAGEN ECOPNTO */
+.articulo .img{
+    border-radius: 15px;
+}
+
+.img img{
+    border-radius: 15px;
+}
+
+/* HORARIO Y DIRECCION */
+
+.articulo .texto{
+    height: 100%;
+    margin: 0 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto h3{
+    margin: 5px 0;
+}
+
+.texto h3 span{
+    background-color: var(--blanco);
+    padding: 2px;
+    border-radius: 5px;
+}
+
+/* MAPA */
+.main .mapa{
+    /* border: 2px solid red; */
+    height: 300px;
+    width: 100%;
+}
+
+.main .mapa iframe{
+    width: 100%;
+    height: 100%;
+}
+
+/*@media (min-width: 320px) and (max-width: 480px) {} /*telefono*/
+
+@media (min-width: 481px) and (max-width: 768px) {/*Tablet*/
+    .main .ecos{
+        margin: 0;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ecos .articulo{
+        width: 40%;
+        margin: 10px;
+        /* margin-left: 15px; */
+    }
+}
+
+
+@media (min-width: 769px) {/*laptop*/
+    .main .ecos{
+        margin: 0;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ecos .articulo{
+        width: 320px;
+        margin: 10px;
+        /* margin-left: 15px; */
+    }
+}

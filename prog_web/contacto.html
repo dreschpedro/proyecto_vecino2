@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="./img/favicon.ico">
     <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="stylesheet" href="./css/inicio.css">
-    <title>Inicio</title>
+    <link rel="stylesheet" href="./css/contacto.css">
+    <title>Contacto</title>
 </head>
 
 <body>
@@ -64,56 +63,36 @@
 
     <script src="./js/app.js"></script>
     <!-- ############################################### -->
-    <header>
-        <picture>
-            <img src="./img/manager.png" alt="">
-        </picture>
-        <div class="texto">
-            <h1>Vecino Sustentable Posadas</h1>
-            <br>
-            <h2 id="somos">Somos una ONG responsable y con una misión a favor del medio ambiente, y por eso impulsamos
-                el reciclado de los residuos</h2>
-            <br>
-            <blockquote><i class="frase">
-                    "No tendremos una sociedad de la que estar orgullosos si destruimos el medio ambiente"
-                </i></blockquote>
-            <div class="boton">
-                <a href="./registro.html" target="_blank">Quiero ser Voluntario</a>
-            </div>
-        </div>
-    </header>
-    <hr>
-    <div class="ecos">
-        <div class="texto">
-            <h2>Ecopuntos de Vecino Sustentable Posadas</h2>
-            <p>
-                Ubicaciones en la cuidad de Posadas que reciben los residuos
-            </p>
-            <div class="boton">
-                <a href="./ecopunto.html" target="_blank">Ver Ecopuntos</a>
-            </div>
-        </div>
-        <picture>
-            <img src="./img/w11.jpg" alt="">
-        </picture>
-    </div>
-    <hr>
-    <div class="residuo">
-        <picture>
-            <img src="./img/collage.png" alt="">
-        </picture>
-        <div class="texto">
-            <h2 id="subt">Residuos que recibimos en nuestros Ecopuntos</h2>
-            <blockquote id="quota">
-                <i class="frase">
-                    "El reciclaje fortalece la economia circular"
-                </i>
-            </blockquote>
-            <div class="boton">
-                <a href="./residuo.html" target="_blank">Ver Residuos</a>
-            </div>
-        </div>
 
+    <div class="container">
+        <div class="cont__img">
+            <div class="texto">
+                <h2>Contacta</h2>
+                <h2>Con</h2>
+                <h2>Nosotros</h2>
+            </div>
+        </div>
+        <div class="cont__form">
+            <div class="formulario">
+                <div class="wea wea1">
+                    <p class="texto">Nombre</p>
+                    <input class="i_chico" type="text" value="" placeholder="Nombre y Apellido">
+                </div>
+                <div class="wea wea2">
+                    <p class="texto">Teléfono</p>
+                    <input class="i_chico" type="tel" value="" placeholder="+54 9 1324 5456">
+                </div>
+                <div class="wea wea3">
+                    <p class="texto">Correo</p>
+                    <input class="i_grande" type="email" value="" placeholder="correo_de_ejemplo@mail.com">
+                </div>
+                <div class="wea wea4">
+                    <p class="texto">Mensaje</p>
+                    <input class="i_grande mensaje" type="text" value="" placeholder="Tu mensaje">
+                </div>
+            </div>
+            <button class="boton" type="submit">Enviar</button>
+        </div>
     </div>
 </body>
 

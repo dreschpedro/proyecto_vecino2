@@ -1,6 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+:root {
+  --black: rgb(25, 25, 25);
+  --verde_ele: rgb(0, 220, 0);
+  --verde_c: rgba(180, 202, 67, 30%);
+  --verde_o: rgba(138, 181, 76, 40%);
+  --azul: rgb(26, 32, 44);
+  --grey: rgb(89, 89, 89);
+  --gris_claro: rgb(154, 154, 154);
+  --blanco: rgb(220, 220, 220);
+  --blanco_a: rgba(154, 154, 154, 0.3);
+  --celeste: rgb(59, 89, 152);
+  --white: rgb(255, 255, 255);
+  --gris: #cbcfd3;
+
+}
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  text-align: center;
+  text-align: center;
+  color: var(--black);
+  list-style: none;
+}
+
+/* NAV BAR */
+
+.menu {
+  height: 70px;
+  background-color: var(--azul);
+  color: var(--white);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.menu__logo{
+  color: var(--celeste);
+  font-family: 'Poppins', sans-serif;
+}
+
+.menu__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  /* border: 2px solid red; */
+}
+
+.menu__links {
+  height: 100%;
+  transition: transform .5s;
+  display: flex;
+}
+
+.menu__item {
+  list-style: none;
+  position: relative;
+  height: 100%;
+  --clip: polygon(0 0, 100% 0, 100% 0, 0 0);
+  --transform: rotate(-90deg);
+}
+
+.menu__item:hover {
+  --clip: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  --transform: rotate(0);
+}
+
+.menu__link {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 30px;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  /* border: 2px solid red; */
+}
+
+.menu__link:hover {
+  /* background-color: #5e7094; */
+  color: var(--verde_ele);
+}
+
+.menu__arrow {
+  transform: var(--transform);
+  transition: transform .3s;
+  display: block;
+  margin-left: 3px;
+  /* border: 2px solid green; */
+  height: 40px;
+  width: 40px;
+  color: var(--white);
+}
+
+.menu__nesting {
+  list-style: none;
+  transition: clip-path .3s;
+  clip-path: var(--clip);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: max-content;
+  transform: translateY(100%);
+  background-color: #000;
+}
+
+.menu__link--inside {
+  padding: 30px 100px 30px 20px;
+}
+
+.menu__link--inside:hover {
+  /* background-color: #5e7094; */
+  color: var(--verde_ele);
+}
+
+.menu__hamburguer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  cursor: pointer;
+  display: none;
+}
+
+.menu__img {
+  display: block;
+  width: 36px;
+}
 
 
-body{
+@media (max-width:920px) {
+  .menu__hamburguer {
+    display: flex;
+  }
+
+  .menu__item {
+    --clip: 0;
+    overflow: hidden;
+  }
+
+  .menu__item--active{
+    --transform: rotate(0);
+    --background: var(--azul);
+}
+
+  .menu__item--show {
+    background-color: var(--background);
+  }
+
+
+  .menu__links {
+    position: fixed;
+    max-width: 400px;
+    width: 100%;
+    top: 70px;
+    bottom: 0;
+    right: 0;
+    background-color: var(--black);
+    overflow-y: auto;
+    display: grid;
+    grid-auto-rows: max-content;
+    transform: translateX(100%);
+  }
+
+  .menu__links--show {
+    transform: unset;
+    width: 100%;
+  }
+
+  .menu__link {
+    padding: 25px 0;
+    padding-left: 30px;
+    height: auto;
+  }
+
+  .menu__arrow {
+    margin-left: auto;
+    margin-right: 20px;
+  }
+
+  .menu__nesting {
+    display: grid;
+    position: unset;
+    width: 100%;
+    transform: translateY(0);
+    height: 0;
+    transition: height .3s;
+  }
+
+  .menu__link--inside {
+    width: 90%;
+    margin-left: auto;
+    border-left: 1px solid #798499;
+  }
+}
+
+/* FIN NAV BAR */
+
+  body{
     margin: 0;
     padding: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -12,13 +214,7 @@ body{
     display: flex;
     flex-direction: column;
 }
-
-.nav{
-    display: flex;
-    flex-direction: column;
-}
-
-
+  
 .formulario{
     
     display: flex;
@@ -71,14 +267,12 @@ button{
 }
 
 button:hover{
-    box-shadow: .5rem .5rem 1rem white,
-        -.5rem -.5rem 1rem #ccc;
+    /* box-shadow: .5rem .5rem 1rem white, -.5rem -.5rem 1rem #ccc; */
 }
 
 
 button:active{
-    box-shadow: inset .2rem .2rem 1rem white,
-    -.2rem -.2rem 1rem #ccc;
+    /* box-shadow: inset .2rem .2rem 1rem white, -.2rem -.2rem 1rem #ccc; */
 }
 
 
@@ -93,4 +287,3 @@ button:active{
     }
     
 }
-

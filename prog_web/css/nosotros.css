@@ -13,6 +13,7 @@
   --celeste: rgb(59, 89, 152);
   --white: rgb(255, 255, 255);
   --gris: #cbcfd3;
+
 }
 
 * {
@@ -21,7 +22,6 @@
   padding: 0;
   border: 0;
   margin: 0;
-  text-align: center;
   text-align: center;
   color: var(--black);
   list-style: none;
@@ -201,68 +201,157 @@
 
 /* FIN NAV BAR */
 
-body{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
+
+img {
+  width: 100%;
 }
 
-.columna img{
-    border: rgb(0, 220, 0) solid;
-    border-radius: 5px;
-    width: 100%;
+hr {
+  width: 95%;
+  border: 1px solid var(--gris);
+  margin: 20px auto;
 }
 
-img:hover{
-    transform: scale(1.03);
-    transition: 0.3s;
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-items: center;
+  background-color: var(--white);
 }
 
-.fila{
-    display: flex;
-    padding: 5px;
-    flex-wrap: wrap;
+.cont {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.columna{
-    flex:25%;
-    padding: 5px;
+h1 {
+  /* background-color: rgba(255, 255, 255, 80%); */
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  text-align: center;
+
+  color: var(--celeste);
 }
 
-.columna img{
-    margin-top: 5px;
+.subtitulo {
+  border: 1px solid var(--verde_ele);
+  padding: 20px;
+  border-radius: 10px;
 }
 
+/* Contenedor */
 
-@media (max-width: 800px){
-    .columna{
-        flex:50%;
-    }
-    img:hover{
-        transform: scale(1.12);
-        transition: 0.9s;
-    }
-
-
+.section {
+  margin: 20px 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.nav{
-    display: flex;
-    flex-direction: column;
-    
+.section .principal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
 }
 
-@media (max-width: 600px){
-    .columna{
-        flex:100%;
-    }
-    img:hover{
-        border:10px solid rgb(0, 220, 0) ;
-        transform: scale(1);
-        transition: 0.5s;
-    }
-
-
+.sec1 .art {
+  display: flex;
+  flex-flow: column nowrap;
+  /* border: 2px solid green; */
+  padding: 30px 20px;
 }
 
+.art picture {
+  background-color: var(--verde_c);
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  align-self: center;
+  width: 60px;
+  height: 60px;
+  /* border: 2px solid blue; */
+}
+
+.art h2 {
+  margin: 10px 0;
+}
+
+.sec2 {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.sec2 #art2 {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+#art2 picture {
+  margin: 20px 0;
+}
+
+#art2 picture,
+.sec1 .art {
+  min-width: 50%;
+}
+
+#art2 .texto {
+  padding: 15px;
+}
+
+p{
+  text-align: justify;
+}
+
+/*Tablet*/
+@media (min-width: 580px) {
+  .cont {
+    background-color: white;
+    width: 80%;
+    margin-top: 40px;
+    margin: auto;
+    border-radius: 25px;
+  }
+
+  body {
+    background: linear-gradient(150deg, #02cc3f, #064c74);
+    height: 160vh;
+  }
+
+  .section .principal {
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+  }
+
+  .principal .art {
+    /* max-width: 500px; */
+    /* flex: 0 0 0; */
+    /* width: 100px; */
+    flex: 1 1 200px;
+    /* min-width: 200px; */
+    /* border: 1px solid rgb(30, 224, 30); */
+  }
+
+  .sec2 #art2 {
+    flex-flow: row wrap;
+  }
+
+  #art2 picture {
+    flex: 1 1 300px;
+    justify-content: center;
+    align-self: center;
+  }
+
+  #art2 .texto {
+    flex: 1 1 400px;
+  }
+
+}

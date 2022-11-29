@@ -2,48 +2,98 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galeria</title>
-  <link rel="stylesheet" href="/css/galeria.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="./img/favicon.ico">
+    <link rel="stylesheet" href="/css/galeria.css">
 
 </head>
 
 <body>
-  <div class="nav">
-    <iframe src="./header-nav-v2.0/header.html" frameborder="0"></iframe>
-  </div>
-  <div class="fila">
-    <div class="columna">
-      <img src="/img/1.jpg" alt="foto no encotrada1">
-      <img src="/img/2.jpg" alt="foto no encotrada2">
-      <img src="/img/3.jpg" alt="foto no encotrada3">
-      <img src="/img/4.jpg" alt="foto no encotrada4">
-      <img src="/img/5.jpg" alt="foto no encotrada5">
+    <!-- ############################################### -->
+    <nav class="menu">
+        <section class="menu__container">
+            <h1 class="menu__logo">Vecino Sustentable.</h1>
+
+            <ul class="menu__links">
+                <li class="menu__item">
+                    <a href="./inicio.html" class="menu__link">Inicio</a>
+                </li>
+                <li class="menu__item">
+                    <a href="./juegos.html" class="menu__link">Juegos</a>
+                </li>
+
+                <li class="menu__item menu__item--show">
+                    <a href="#" class="menu__link">About<img src="assets/arrow.svg" class="menu__arrow"></a>
+
+                    <ul class="menu__nesting">
+                        <li class="menu__inside">
+                            <a href="./nosotros.html" class="menu__link menu__link--inside">Nosotros</a>
+                        </li>
+                        <li class="menu__inside">
+                            <a href="ecopunto.html" class="menu__link menu__link--inside">Ecopuntos</a>
+                        </li>
+                        <li class="menu__inside">
+                            <a href="./residuo.html" class="menu__link menu__link--inside">Residuos</a>
+                        </li>
+                        <li class="menu__inside">
+                            <a href="galeria.html" class="menu__link menu__link--inside">Galería</a>
+                        </li>
+                        <li class="menu__inside">
+                            <a href="./videos.html" class="menu__link menu__link--inside">Videos</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu__item">
+                    <a href="./contacto.html" class="menu__link">Contacto</a>
+                </li>
+                <li class="menu__item">
+                    <a href="login.html" class="menu__link">Iniciar Sesión</a>
+                </li>
+
+            </ul>
+
+            <div class="menu__hamburguer">
+                <img src="assets/menu.svg" class="menu__img">
+            </div>
+        </section>
+    </nav>
+
+    <script src="./js/app.js"></script>
+    <!-- ############################################### -->
+    <div class="fila">
+        <div class="columna">
+            <img src="/img/1.jpg" alt="foto no encotrada1">
+            <img src="/img/2.jpg" alt="foto no encotrada2">
+            <img src="/img/3.jpg" alt="foto no encotrada3">
+            <img src="/img/4.jpg" alt="foto no encotrada4">
+            <img src="/img/5.jpg" alt="foto no encotrada5">
+        </div>
+        <div class="columna">
+            <img src="/img/6.png" alt="foto no encontrada6">
+            <img src="/img/7.jpg" alt="foto no encontrada7">
+            <img src="/img/8.jpg" alt="foto no encontrada8">
+            <img src="/img/9.jpg" alt="foto no encontrada9">
+            <img src="/img/10.jpg" alt="foto no encontrada10">
+        </div>
+        <div class="columna">
+            <img src="/img/11.jpg" alt="foto no encontrada11">
+            <img src="/img/12.jpg" alt="foto no encontrada12">
+            <img src="/img/13.jpg" alt="foto no encontrada13">
+            <img src="/img/14.jpg" alt="foto no encontrada14">
+            <img src="/img/15.jpg" alt="foto no encontrada15">
+        </div>
+        <div class="columna">
+            <img src="/img/16.jpg" alt="foto no encontrada16">
+            <img src="/img/17.jpg" alt="foto no encontrada17">
+            <img src="/img/18.jpg" alt="foto no encontrada18">
+            <img src="/img/19.jpg" alt="foto no encontrada19">
+            <img src="/img/20.jpg" alt="foto no encontrada20">
+        </div>
     </div>
-    <div class="columna">
-      <img src="/img/6.png" alt="foto no encontrada6">
-      <img src="/img/7.jpg" alt="foto no encontrada7">
-      <img src="/img/8.jpg" alt="foto no encontrada8">
-      <img src="/img/9.jpg" alt="foto no encontrada9">
-      <img src="/img/10.jpg" alt="foto no encontrada10">
-    </div>
-    <div class="columna">
-      <img src="/img/11.jpg" alt="foto no encontrada11">
-      <img src="/img/12.jpg" alt="foto no encontrada12">
-      <img src="/img/13.jpg" alt="foto no encontrada13">
-      <img src="/img/14.jpg" alt="foto no encontrada14">
-      <img src="/img/15.jpg" alt="foto no encontrada15">
-    </div>
-    <div class="columna">
-      <img src="/img/16.jpg" alt="foto no encontrada16">
-      <img src="/img/17.jpg" alt="foto no encontrada17">
-      <img src="/img/18.jpg" alt="foto no encontrada18">
-      <img src="/img/19.jpg" alt="foto no encontrada19">
-      <img src="/img/20.jpg" alt="foto no encontrada20">
-    </div>
-</div>
 </body>
 
 </html>

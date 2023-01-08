@@ -1,0 +1,18 @@
+let cantidad, usuario= string;
+
+// usuario = ['voluntario', 'emprendedor', 'vecino']
+
+// cantidad= ['mucho', 'moderado', 'poco']
+
+
+// IF, THEN, ELSE, DO, DO WHILE, DO UNTIL y PERFORM.
+
+// Llega un usuario al ecopunto...
+
+if usuario= 'voluntario' 
+  ->Hacer pasar al voluntario
+ELSE IF usuario= 'emprendedor' THEN
+  -> Consultar que RESIDUO lleva
+  -> Verificar si hay ese RESIDUO en el ecopunto
+  if cantidad_residuo >= 1 THEN
+  

@@ -224,4 +224,8 @@ Public Class Login
         id_ecopunto = cmb_ecopunto.SelectedIndex + 1
         nombre_ecopunto = cmb_ecopunto.Text
     End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        ReportViewerForm2.Show()
+    End Sub
 End Class

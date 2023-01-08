@@ -1,0 +1,17 @@
+diagrama de flujo
+diccinario de datos
+
+arbol de decision
+tabla
+español estructurado
+
+UML:
+Diagramas de clases
+Diagramas de componentes
+Diagramas de despliegue
+
+Diagramas de casos de uso
+Diagramas de secuencia
+Diagramas de comunicación
+Diagramas de estados
+Diagramas de actividad

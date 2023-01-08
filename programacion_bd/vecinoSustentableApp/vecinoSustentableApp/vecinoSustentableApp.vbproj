@@ -133,6 +133,24 @@
     <Compile Include="registros_hoy.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Report1.Designer.vb">
+      <DependentUpon>Report1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report2.Designer.vb">
+      <DependentUpon>Report2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report3.Designer.vb">
+      <DependentUpon>Report3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report3.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="reportes\reporte_principal.Designer.vb">
       <DependentUpon>reporte_principal.vb</DependentUpon>
     </Compile>
@@ -143,6 +161,12 @@
       <DependentUpon>ReportViewerForm1.vb</DependentUpon>
     </Compile>
     <Compile Include="ReportViewerForm1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerForm2.Designer.vb">
+      <DependentUpon>ReportViewerForm2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewerForm2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="salida_residuo.Designer.vb">
@@ -223,11 +247,23 @@
     <EmbeddedResource Include="registros_hoy.resx">
       <DependentUpon>registros_hoy.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report1.resx">
+      <DependentUpon>Report1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report2.resx">
+      <DependentUpon>Report2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report3.resx">
+      <DependentUpon>Report3.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reportes\reporte_principal.resx">
       <DependentUpon>reporte_principal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewerForm1.resx">
       <DependentUpon>ReportViewerForm1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewerForm2.resx">
+      <DependentUpon>ReportViewerForm2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="salida_residuo.resx">
       <DependentUpon>salida_residuo.vb</DependentUpon>

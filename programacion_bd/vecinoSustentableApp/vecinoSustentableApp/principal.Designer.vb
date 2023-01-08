@@ -36,6 +36,8 @@ Partial Class principal
         Me.IconEgreso = New FontAwesome.Sharp.IconButton()
         Me.btnIngreso = New FontAwesome.Sharp.IconButton()
         Me.PanelLogo = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lbl_usuario = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbl_nom_eco = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -50,8 +52,6 @@ Partial Class principal
         Me.LblHora = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.fechayhora = New System.Windows.Forms.Timer(Me.components)
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.lbl_usuario = New System.Windows.Forms.Label()
         Me.PanelEstadisticasSubmenu.SuspendLayout()
         Me.PanelPersonalSubmenu.SuspendLayout()
         Me.PanelResiduosSubmenu.SuspendLayout()
@@ -281,6 +281,30 @@ Partial Class principal
         Me.PanelLogo.Size = New System.Drawing.Size(276, 147)
         Me.PanelLogo.TabIndex = 0
         '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label2.Location = New System.Drawing.Point(3, 95)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(66, 16)
+        Me.Label2.TabIndex = 194
+        Me.Label2.Text = "Usuario:"
+        '
+        'lbl_usuario
+        '
+        Me.lbl_usuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbl_usuario.AutoSize = True
+        Me.lbl_usuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_usuario.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lbl_usuario.Location = New System.Drawing.Point(75, 95)
+        Me.lbl_usuario.Name = "lbl_usuario"
+        Me.lbl_usuario.Size = New System.Drawing.Size(13, 16)
+        Me.lbl_usuario.TabIndex = 192
+        Me.lbl_usuario.Text = "-"
+        '
         'Label1
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -505,30 +529,6 @@ Partial Class principal
         '
         Me.fechayhora.Enabled = True
         '
-        'Label2
-        '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label2.Location = New System.Drawing.Point(3, 95)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(66, 16)
-        Me.Label2.TabIndex = 194
-        Me.Label2.Text = "Usuario:"
-        '
-        'lbl_usuario
-        '
-        Me.lbl_usuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lbl_usuario.AutoSize = True
-        Me.lbl_usuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_usuario.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lbl_usuario.Location = New System.Drawing.Point(75, 95)
-        Me.lbl_usuario.Name = "lbl_usuario"
-        Me.lbl_usuario.Size = New System.Drawing.Size(13, 16)
-        Me.lbl_usuario.TabIndex = 192
-        Me.lbl_usuario.Text = "-"
-        '
         'principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -542,7 +542,7 @@ Partial Class principal
         Me.MinimumSize = New System.Drawing.Size(950, 650)
         Me.Name = "principal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Gestor de Ecopuntos"
+        Me.Text = " "
         Me.PanelEstadisticasSubmenu.ResumeLayout(False)
         Me.PanelPersonalSubmenu.ResumeLayout(False)
         Me.PanelResiduosSubmenu.ResumeLayout(False)

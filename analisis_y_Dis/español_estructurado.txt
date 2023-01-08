@@ -1,0 +1,33 @@
+// Llega un usuario al ecopunto...
+
+
+usuario= [ 'voluntario' | 'emprendedor' | 'vecino' ];
+cantidad_res_ecopunto, cantidad_res_vecino = numero;
+
+IF usuario= 'voluntario' 
+  	Hacer pasar al voluntario
+    AVISO ('Bienvenido !')
+ELSE IF usuario= 'emprendedor' THEN
+    Consultar que RESIDUO lleva
+    Verificar si hay ese RESIDUO en el ecopunto
+  	IF cantidad_res_ecopunto >= 1 THEN
+		DO WHILE cantidad_residuo <> 0 
+        	Entregar RESIDUO al 'emprendedor'
+		Recoger PRODUCTOS del 'emprendedor'
+        AVISO ('Adios !')
+	ELSE
+    	AVISO ('No hay Residuos!')
+        AVISO ('Adios !')
+ELSE IF usuario= 'vecino' THEN
+    Consultar que RESIDUO trae
+    Verificar si se recibe ese RESIDUO en el ecopunto
+  	IF recibe = "true" THEN
+    	Comprobar cantidad de residuos traídos por el 'vecino'
+		DO WHILE cantidad_res_vecino <> 0 
+        	Recibir RESIDUO del 'vecino'
+		IF cantidad_producto >= 1 THEN
+        	Entregar producto al 'vecino'
+        AVISO ('Adios !')
+	ELSE
+    	AVISO ('No recibimos ese Residuo!')
+        AVISO ('Adios !')
